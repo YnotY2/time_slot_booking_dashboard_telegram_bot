@@ -1,0 +1,6 @@
+psycopg2-binary
+telebot
+aiogram
+aiomysql
+aiopg
+pytz

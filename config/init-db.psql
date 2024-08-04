@@ -1,0 +1,8 @@
+-- Create the time_slots table
+CREATE TABLE time_slots (
+    id SERIAL PRIMARY KEY,
+    start_time TIMESTAMP NOT NULL,
+    end_time TIMESTAMP NOT NULL,
+    is_booked BOOLEAN DEFAULT FALSE,
+    CONSTRAINT unique_time_slot UNIQUE (start_time, end_time)
+);
