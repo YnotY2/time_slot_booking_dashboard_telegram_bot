@@ -7,11 +7,21 @@ from dependencies import container      # This takes care of the connection pool
 
 from services_python.bot_instance import bot
 from services_python.initialize_connection_pool import initialize_connection_pool
-
+from services_python.pupulate_time_slots import populate_time_slots
 # Modify the function of adding user to database only after they have actually bought-voucher for free.
 
 from utils.logger import setup_logger
 logger = setup_logger(service_name="main")
+
+async def periodic_task(interval: int, func: callable) -> None:
+    """Runs a given function periodically with a specified interval in seconds"""
+    """We pass the async function we want to run, with time in sec. view line '41'"""
+    while True:
+        try:
+            await func()  # Make sure func is async
+        except Exception as e:
+            logger.error(f"Error in periodic task: {e}", exc_info=True)
+        await asyncio.sleep(interval)
 
 def register_routers(dp: Dispatcher) -> None:
     """Registers routers"""
@@ -26,6 +36,11 @@ async def main() -> None:
     dp = Dispatcher()
 
     register_routers(dp)
+
+    """Create a task to run `populate_time_slots` every 2 hours (7200 seconds)"""
+    database_task_1 = asyncio.create_task(periodic_task(7200, populate_time_slots))
+    logger.info(f"Starting running periodic tasks...")
+
     try:
         await dp.start_polling(bot)
     except KeyboardInterrupt:

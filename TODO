@@ -1,0 +1,23 @@
+# Main ToDo's Today:
+
+1,
+-Make it so database populating function is automatically ran from main.py every
+2H, async ofcours.
+
+2,
+-Document the entire logic of the dashboard booking GUI, and the logic behind it.
+, also how it is managed.
++ Also document how to verify manually you're time-slot booking is working as expected.
+
+3,
+-Then create function to actually manage the database time-slots making
+them unavailable, aka BOOKED.
+
+4,
+-Then create a management command, string '/ta6fsugsfta8sgf' to access the confirm
+order time-slot/confirm booking dasboar for the admin user, mangement for bookings.
+
+5,
+Allow the admin to set 'is_booked' = True for any AVAILABLE time-slots,
+(can make a time-slot available or unavailable. Mostly unavailable tho. [main purpose])
+

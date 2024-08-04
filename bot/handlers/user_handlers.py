@@ -197,6 +197,7 @@ async def callback_handler_buy(callback: types.CallbackQuery):
     This displays the time-slots booking GUI, when 'buy' button is pressed."""
 
     # Populate the non-filled time-slots:
+    # This function needs to be called async every 2H
     await populate_time_slots()
 
     # Create time slot buttons
@@ -260,7 +261,8 @@ async def callback_handler_buy(callback: types.CallbackQuery):
     full_inline_keyboard = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
 
     # Send the message with the updated keyboard
-    message = ("⌛ Please select a time slot below ⬇️ :\n"
+    message = ("⌛ Please select a time slot below ⬇️ \n"
+               "\n"
                "[ 🗓️ day | start ⌚ | end ⌚ ]\n")
     await callback.message.answer(text=message, reply_markup=full_inline_keyboard)
 
