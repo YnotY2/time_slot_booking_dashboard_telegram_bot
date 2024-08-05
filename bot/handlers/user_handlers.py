@@ -17,10 +17,10 @@ from config.settings import who_are_we_video
 
 from services_python.check_if_time_within_openings_hours import check_if_time_within_openings_hours
 
-from services_python.pupulate_time_slots import populate_time_slots     # This function can also be run every 4H
 from services_python.fetch_all_available_time_slots import fetch_all_available_time_slots
 from services_python.fetch_time_slot_row_by_id import fetch_time_slot_row_by_id
-from services_python.booking_specified_time_slot import booking_specified_time_slot
+from services_python.booking_specified_time_slot_user_message import booking_specified_time_slot_user_message
+from services_python.manage_booking_time_slots import manage_booking_time_slots
 
 """These are imports used for development purposes."""
 #from services_python.test_pool_object_from_user_handler import test_pool_object_from_user_handler
@@ -46,7 +46,12 @@ async def handle_unexpected_message(message: types.Message):
 
             """This command will give user's/admin access to dashboard for booking/un-booking time-slots."""
             if command == '/59puahgfhasfu87313':
-                response_message = "yeyeye you got access fool."
+                response_message = ("✨ Admin dashboard\n"
+                                    "\n"
+                                    "📘 Managing time-slots bookings.")
+                # Here we call the dashboard
+                await admin_time_slot_booking_dashboard(message)
+
 
             # This is the only command actually used by normal users, outside of the buttons.
             elif command == '/start':
@@ -205,6 +210,7 @@ async def handle_who_are_we_answer_faq_answer(callback: types.CallbackQuery):
         print(f"Error sending video 'who_are_we': {e}")
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 async def callback_handler_buy(callback: types.CallbackQuery):
     """Handle the callback query to display time slots and additional buttons.
@@ -379,6 +385,205 @@ async def order_recap_customer_message(callback: types.CallbackQuery, status: bo
     await callback.message.answer(message, parse_mode='Markdown', reply_markup=finished_order_inline_keyboard)
 
 
+
+async def admin_time_slot_booking_dashboard(message: types.Message):
+    """Handle the callback query to display time slots managing dashboard.
+    We can choose a time-slot then call 'admin_managing_time_slot_bookings' to manage it."""
+
+    async def create_time_slot_buttons(available_time_slots):
+        # Check if the dictionary results is not empty.
+        if not available_time_slots:
+            return None  # Return None when there are no slots available
+
+        keyboard = []
+        for i, slot in enumerate(available_time_slots):
+            # Format to show only day and time
+            start_time_str = slot['start_time'].strftime("%d %H:%M")
+            end_time_str = slot['end_time'].strftime("%H:%M")
+            button_text = f"{start_time_str} - {end_time_str}"
+            callback_data = f"admin_manage_booking_time_slot_{slot['id']}"
+            button = InlineKeyboardButton(text=button_text, callback_data=callback_data)
+
+            # Add the button to a row
+            if i % 2 == 0:
+                # Start a new row
+                keyboard.append([button])
+            else:
+                # Add to the last row
+                keyboard[-1].append(button)
+
+        return InlineKeyboardMarkup(inline_keyboard=keyboard)
+
+    # Fetch available time slots from the database
+    available_time_slots = await fetch_all_available_time_slots()
+    print(available_time_slots)
+
+    # Call above function and generate the time slot buttons, pass 'available_time_slots' variable
+    time_slot_buttons = await create_time_slot_buttons(available_time_slots)
+
+    if time_slot_buttons is None:
+        # Message when no time slots are available
+        message_text = (
+            "⌛ No time slots available at this time...\n"
+            "\n"
+            "Please check again in 2 hours ⌚\n"
+        )
+        await message.answer(text=message_text)
+        return  # Exit early as there are no time slots available
+
+    # Add the "FAQ" and "Back to Main Menu" buttons to the keyboard
+    inline_keyboard = time_slot_buttons.inline_keyboard  # Existing time slot buttons
+    # Create the InlineKeyboardMarkup object with all buttons
+    full_inline_keyboard = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
+
+    # Send the message with the updated keyboard
+    message_text = (
+        "⌛ Please select a time slot below ⬇️ \n"
+        "\n"
+        "[ 🗓️ day | start ⌚ | end ⌚ ]\n"
+    )
+    await message.answer(text=message_text, reply_markup=full_inline_keyboard)
+
+    # Additional message prompting user to select a time slot
+    additional_message_text = (
+        "⌛ Please select a time slot above 🔼 :\n"
+    )
+    await message.answer(text=additional_message_text)
+
+
+async def admin_managing_specified_time_slot_booking_choose_true_false(callback: types.CallbackQuery):
+    """This functions gives capability to specify if time_slot should be True or False"""
+    async def extract_time_slot(callback_data):
+        # Assuming callback_data is in the format 'confirm_buy_{time_slot_id}'
+        parts = callback_data.split('_')
+
+        if len(parts) > 2:
+            return parts[-1]
+        else:
+            raise ValueError("Callback data format is incorrect")
+
+    # Extract time_slot_id from callback data
+    time_slot_id = await extract_time_slot(callback.data)
+    # Fetch time slot data from the database
+    time_slot_data = await fetch_time_slot_row_by_id(time_slot_id)
+
+    faq_menu_button = types.InlineKeyboardButton(text="Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_True_{time_slot_id}')
+    start_menu_button = types.InlineKeyboardButton(text="Un-Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_False_{time_slot_id}')
+
+    # Create an InlineKeyboardMarkup object with a list of rows
+    admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [faq_menu_button, start_menu_button],  # Second row
+        ]
+    )
+
+    # Access start_time and end_time from the dictionary
+    start_time = time_slot_data['start_time']
+    end_time = time_slot_data['end_time']
+
+    # Ensure these are strings for rstrip to work
+    start_time_str = str(start_time)
+    end_time_str = str(end_time)
+
+    # Remove the '.00' suffix if it exists
+    start_time_cleaned = start_time_str.rstrip('.00')
+    end_time_cleaned = end_time_str.rstrip('.00')
+
+    message = (
+        f"🚀 Dear Admin,\n"
+        f"\n"
+        f"🗓 Manage specified booking time-slot:\n"
+        f"\n"
+        f"\n" 
+        f"Start-Time:       🗓️ {start_time_cleaned}\n"
+        f"End-Time:         🗓️ {end_time_cleaned}\n"
+        f"\n"
+        f"Time-slot-ID:     📒 {time_slot_id}"
+        f"\n"
+    )
+    # Send the message using bot instance
+    await callback.message.answer(message, parse_mode='Markdown', reply_markup=admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard)
+
+
+async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
+    """This function takes care of booking or un-book time-slot
+    . by time-slot ID. capability to set 'is_booked' = True/False"""
+
+    # This function takes callback_data and either books or un-books time-slot
+    logger.info(f"We made it to 'admin_modify_time_slot_booking_status'")
+    async def extract_time_slot_and_action(callback_data):
+        # Split the callback data based on underscores
+        parts = callback_data.split('_')
+
+        # Ensure the callback data has at least the required number of parts
+        if len(parts) >= 4:
+            # Extract the time slot ID from the last part
+            time_slot_id = parts[-1]
+
+            # Extract the booking action from the second last part and convert to boolean
+            action = parts[-2].lower()  # 'True' or 'False'
+            book_time_slot = action == 'true'  # Convert to boolean
+            return time_slot_id, book_time_slot
+
+        else:
+            # Raise an error if the callback data format is incorrect
+            raise ValueError("Callback data format is incorrect")
+
+    # Extract time_slot_id from callback data
+    time_slot_id, book_time_slot = await extract_time_slot_and_action(callback.data)
+
+    response = await manage_booking_time_slots(time_slot_id, book_time_slot)
+    if response:
+        # Here we have successfully done our database operation
+        time_slot_data = await fetch_time_slot_row_by_id(time_slot_id)
+
+        faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
+        start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
+
+        # Create an InlineKeyboardMarkup object with a list of rows
+        finished_order_inline_keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [faq_menu_button, start_menu_button],  # Second row
+            ]
+        )
+
+        # Access start_time and end_time from the dictionary
+        start_time = time_slot_data['start_time']
+        end_time = time_slot_data['end_time']
+        is_booked = time_slot_data['is_booked']
+
+        # Ensure these are strings for rstrip to work
+        start_time_str = str(start_time)
+        end_time_str = str(end_time)
+        # Ensure 'is_booked' converted to str
+        is_booked_str = str(is_booked)
+
+        # Remove the '.00' suffix if it exists
+        start_time_cleaned = start_time_str.rstrip('.00')
+        end_time_cleaned = end_time_str.rstrip('.00')
+
+        message = (
+            f"🚀 Dear Admin,\n"
+            f"\n"
+            f"🗓 Successfully modified following time-slot:\n"
+            f"\n"
+            f"\n"
+            f"Start-Time:       🗓️ {start_time_cleaned}\n"
+            f"End-Time:         🗓️ {end_time_cleaned}\n"
+            f"\n"
+            f"Time-slot-ID:     📒 {time_slot_id}\n"
+            f"\n"
+            f"👓 'is_booked'  =    {is_booked_str}"
+            f"\n"
+        )
+        # Send the message using bot instance
+        await callback.message.answer(message, reply_markup=finished_order_inline_keyboard)
+
+    else:
+        await callback.message.answer(text=f"Error running 'manage_booking_time_slots'. ")
+
+
+
 @user_router.callback_query()
 async def handle_callback_query(callback: types.CallbackQuery):
     try:
@@ -426,9 +631,17 @@ async def handle_callback_query(callback: types.CallbackQuery):
             """This is where the actual purchase logic gets called."""
             # Return message to the user, which they can copy, contains; 'time_slot_id', and specified time.
             """"User is prompted to send a message to the admin @handle acc"""
-            await booking_specified_time_slot(callback)
-            """Display a order recap to the user."""
-            await order_recap_customer_message(callback, status=True)  # Either they have payed or failed payment action
+            await booking_specified_time_slot_user_message(callback)
+            # """Display a order recap to the user."""
+            # await order_recap_customer_message(callback, status=True)  # Either they have payed or failed payment action
+
+        elif data.startswith("admin_manage_booking_time_slot_"):
+            await admin_managing_specified_time_slot_booking_choose_true_false(callback)
+            print()
+
+        elif data.startswith("admin_managing_specified_time_slot_booking_True_") or ("admin_managing_specified_time_slot_booking_False_"):
+            logger.info(f"We made it to 'admin_modify_time_slot_booking_status'")
+            await admin_modify_time_slot_booking_status(callback)
 
         else:
             await handle_unexpected_message(callback.message)

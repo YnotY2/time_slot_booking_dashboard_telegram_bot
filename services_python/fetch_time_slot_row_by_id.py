@@ -8,37 +8,36 @@ from dependencies import container
 service_name = "fetch_time_slot_row_by_id"
 logger = setup_logger(service_name)
 
-
 async def fetch_time_slot_row_by_id(slot_id: int):
-    """Fetch the time slot row by its given ID if it is not booked."""
+    """Fetch the time slot row by its given ID, regardless of whether it is booked or not."""
 
     pool = container.get_pool()
     if pool:
         try:
             async with pool.acquire() as connection:
                 async with connection.cursor() as cursor:
-                    # Query to fetch a specific time slot by ID
+                    # Query to fetch a specific time slot by ID, ignoring the booking status
                     query_fetch_slot = """
-                        SELECT start_time, end_time 
+                        SELECT start_time, end_time, is_booked 
                         FROM time_slots 
                         WHERE id = %s
-                          AND is_booked = FALSE
                     """
                     await cursor.execute(query_fetch_slot, (slot_id,))
                     result = await cursor.fetchone()
 
                     if not result:
-                        logger.info(f"No available time slot found with ID {slot_id} or the slot is booked.")
-                        return None  # No slot found or slot is booked
+                        logger.info(f"No time slot found with ID {slot_id}.")
+                        return None  # No slot found
 
                     # Process the result
-                    start_time, end_time = result
+                    start_time, end_time, is_booked = result
                     logger.info(f"Successfully fetched time slot with ID {slot_id}.")
 
-                    # Return timeslot dat
+                    # Return timeslot data
                     time_slot_data = {
                         'start_time': start_time,
-                        'end_time': end_time
+                        'end_time': end_time,
+                        'is_booked': is_booked
                     }
 
         except Exception as e:

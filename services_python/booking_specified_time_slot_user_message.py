@@ -7,11 +7,11 @@ from services_python.return_cursor_connection_to_pool import return_cursor_conne
 from services_python.fetch_time_slot_row_by_id import fetch_time_slot_row_by_id
 
 # Set up logger with service name
-service_name = "booking_specified_time_slot"
+service_name = "booking_specified_time_slot_user_message"
 logger = setup_logger(service_name)
 
 
-async def booking_specified_time_slot(callback):
+async def booking_specified_time_slot_user_message(callback):
     async def extract_time_slot(callback_data):
         # Assuming callback_data is in the format 'confirm_buy_{time_slot_id}'
         parts = callback_data.split('_')
