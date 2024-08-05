@@ -1,6 +1,7 @@
 # This user_handlers file basically handles all incoming message's callback data and real logic of the
 # Telegram bot it's self. If I want to call a function responding to a callback_data I do it here.
 # Bot should only respond to direct messages.
+import asyncio
 
 from aiogram import Router, types
 from aiogram.filters import Command
@@ -41,15 +42,27 @@ async def handle_unexpected_message(message: types.Message):
     try:
         if message.text.startswith('/'):
             command = message.text.split()[0]
-            if command != '/start':
-                response_message = "Unknown command. Please use the buttons provided to interact with the bot."
-            else:
-                # If it's the /start command, handle it separately
+            """Handle all message's actions/response for message's outside of button interactions."""
+
+            """This command will give user's/admin access to dashboard for booking/un-booking time-slots."""
+            if command == '/59puahgfhasfu87313':
+                response_message = "yeyeye you got access fool."
+
+            # This is the only command actually used by normal users, outside of the buttons.
+            elif command == '/start':
                 await start_menu(message)
                 return  # Exit early to avoid sending a message
+
+            # Handle unknown commands
+            else:
+                response_message = ("ℹ️ Unknown command. Please use the buttons provided to interact with the bot.\n"
+                                    "\n"
+                                    "Or bring up Main-Menu with 🚀 '/start'")
+        # Handle unknown message
         else:
-            # Handle text messages that are not commands
-            response_message = "Please use the buttons provided to interact with the bot."
+            response_message = ("ℹ️ Please use the buttons provided to interact with the bot.\n"
+                                "\n"
+                                "Or bring up Main-Menu with 🚀 '/start'")
 
     except Exception as e:
         logger.error(f"{Colors.RED}Error during 'handle_unexpected_message' operations: {e}.{Colors.END}")
@@ -327,6 +340,8 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
 
 
 async def order_recap_customer_message(callback: types.CallbackQuery, status: bool):
+    await asyncio.sleep(120)  # Sleep for 2 seconds to simulate processing
+
     faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
     start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
 
@@ -409,11 +424,11 @@ async def handle_callback_query(callback: types.CallbackQuery):
 
         elif data.startswith("confirm_buy"):
             """This is where the actual purchase logic gets called."""
-            """"To send a message to the admin account"""
-            status = True
             # Return message to the user, which they can copy, contains; 'time_slot_id', and specified time.
+            """"User is prompted to send a message to the admin @handle acc"""
             await booking_specified_time_slot(callback)
-            await order_recap_customer_message(callback, status)  # Either they have payed or failed payment action
+            """Display a order recap to the user."""
+            await order_recap_customer_message(callback, status=True)  # Either they have payed or failed payment action
 
         else:
             await handle_unexpected_message(callback.message)

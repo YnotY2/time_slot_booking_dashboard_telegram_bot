@@ -46,13 +46,14 @@ async def booking_specified_time_slot(callback):
         # Define the message
         message = (
             f"\n"
-            " ⌛ Time slot confirmed:\n"
+            " ✅ Time slot confirmed:\n"
             f"\n"
             f"Start-Time:       🗓️ {start_time_cleaned}\n"
             f"End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
             "Please message the following admin: @handle\n"
             "Copy this message below and send it to continue with payment:\n"
+            "\n"
             "```"
             "Hi, I would like to confirm my access to the [service]\n"  
             "\n" 
@@ -61,9 +62,15 @@ async def booking_specified_time_slot(callback):
             f"\n"
             f"Time-slot-ID:     📒 {time_slot_id}"
             "\n"  
-            "i aknowledge \n"  
-            "ssss"  # No trailing newline
+            "🪐 I acknowledge that I am sending this message \n"  
+            "to book the [service] for above specified time-slot\n"  # No trailing newline
             "```"
+            f"\n"
+            f"ℹ️ Dear user, after you have sent this message to "
+            f"@handle. You will receive a message response from @handle"
+            f" within the chat you sent the message to.\n"
+            f"\n"
+            f"🚀 Please be patient while waiting for response... "
         )
 
         # Send the message
@@ -71,7 +78,6 @@ async def booking_specified_time_slot(callback):
 
         # Here we sleep 2min, so the user can send the message before being shown the order-recap msg
         # Simulate some asynchronous work with a delay
-        await asyncio.sleep(120)  # Sleep for 2 seconds to simulate processing
 
     except ValueError as e:
         logger.error(f"Value error: {e}", exc_info=True)
