@@ -54,10 +54,14 @@ async def booking_specified_time_slot(callback):
             "Please message the following admin: @handle\n"
             "Copy this message below and send it to continue with payment:\n"
             "```"
-            "sssss\n"  
-            "ssss\n"  
-            "ssss\n"  
-            "ssss\n"  
+            "Hi, I would like to confirm my access to the [service]\n"  
+            "\n" 
+            f"Start-Time:       🗓️ {start_time_cleaned}\n"
+            f"End-Time:         🗓️ {end_time_cleaned}\n"
+            f"\n"
+            f"Time-slot-ID:     📒 {time_slot_id}"
+            "\n"  
+            "i aknowledge \n"  
             "ssss"  # No trailing newline
             "```"
         )
