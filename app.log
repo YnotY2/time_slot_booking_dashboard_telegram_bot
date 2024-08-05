@@ -1105,3 +1105,215 @@ psycopg2.errors.InsufficientPrivilege: permission denied for sequence time_slots
 2024-08-04 22:53:45,868 - INFO - [92mSuccessfully closed cursor.[0m
 2024-08-04 22:54:23,601 - INFO - Closing the connection pool...
 2024-08-04 22:54:23,602 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:13:04,859 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:13:04,859 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:13:04,859 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:13:04,859 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:13:04,859 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:13:04,859 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:13:04,859 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:13:04,885 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:13:04,885 - INFO - Starting running periodic tasks...
+2024-08-05 22:13:04,919 - INFO - Time slots populated successfully.
+2024-08-05 22:13:04,919 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:13:04,919 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:13:26,391 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:13:26,392 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:13:28,841 - INFO - Successfully fetched time slot with ID 640.
+2024-08-05 22:13:28,841 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:13:28,841 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:13:28,841 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:13:32,281 - INFO - Successfully fetched time slot with ID 640.
+2024-08-05 22:13:32,281 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:13:32,281 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:13:32,281 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:13:32,307 - ERROR - Unexpected error: Telegram server says - Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 222
+Traceback (most recent call last):
+  File "/home/coding/python3/personal_tools/async_time_slot_dahsboard_bot/services_python/booking_specified_time_slot.py", line 64, in booking_specified_time_slot
+    await callback.message.answer(message, parse_mode='Markdown')
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 222
+2024-08-05 22:14:09,239 - INFO - Closing the connection pool...
+2024-08-05 22:14:09,239 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:14:12,582 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:14:12,582 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:14:12,582 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:14:12,582 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:14:12,582 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:14:12,582 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:14:12,582 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:14:12,592 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:14:12,593 - INFO - Starting running periodic tasks...
+2024-08-05 22:14:12,610 - INFO - Time slots populated successfully.
+2024-08-05 22:14:12,610 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:14:12,610 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:14:14,074 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:14:14,074 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:14:14,925 - INFO - Successfully fetched time slot with ID 638.
+2024-08-05 22:14:14,926 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:14:14,926 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:14:14,926 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:14:15,865 - INFO - Successfully fetched time slot with ID 638.
+2024-08-05 22:14:15,865 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:14:15,865 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:14:15,865 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:14:41,988 - INFO - Closing the connection pool...
+2024-08-05 22:14:41,988 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:15:31,681 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:15:31,681 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:15:31,681 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:15:31,681 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:15:31,681 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:15:31,681 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:15:31,681 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:15:31,691 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:15:31,691 - INFO - Starting running periodic tasks...
+2024-08-05 22:15:31,707 - INFO - Time slots populated successfully.
+2024-08-05 22:15:31,707 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:15:31,707 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:15:32,486 - INFO - Successfully fetched time slot with ID 642.
+2024-08-05 22:15:32,486 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:15:32,487 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:15:32,487 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:15:33,919 - INFO - Successfully fetched time slot with ID 642.
+2024-08-05 22:15:33,919 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:15:33,919 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:15:33,919 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:20:21,942 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:20:21,942 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:20:21,942 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:20:21,942 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:20:21,942 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:20:21,942 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:20:21,942 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:20:21,952 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:20:21,953 - INFO - Starting running periodic tasks...
+2024-08-05 22:20:21,969 - INFO - Time slots populated successfully.
+2024-08-05 22:20:21,969 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:20:21,969 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:20:22,167 - INFO - Successfully fetched time slot with ID 638.
+2024-08-05 22:20:22,167 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:20:22,167 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:20:22,167 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:20:23,566 - INFO - Successfully fetched time slot with ID 638.
+2024-08-05 22:20:23,566 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:20:23,567 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:20:23,567 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:20:23,593 - ERROR - Unexpected error: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+Traceback (most recent call last):
+  File "/home/coding/python3/personal_tools/async_time_slot_dahsboard_bot/services_python/booking_specified_time_slot.py", line 65, in booking_specified_time_slot
+    await callback.message.answer(message, parse_mode='MarkdownV2')
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+2024-08-05 22:22:34,014 - INFO - Closing the connection pool...
+2024-08-05 22:22:34,014 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:22:37,273 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:22:37,274 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:22:37,274 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:22:37,274 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:22:37,274 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:22:37,274 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:22:37,274 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:22:37,284 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:22:37,285 - INFO - Starting running periodic tasks...
+2024-08-05 22:22:37,302 - INFO - Time slots populated successfully.
+2024-08-05 22:22:37,302 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:22:37,302 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:22:38,488 - INFO - Successfully fetched time slot with ID 937.
+2024-08-05 22:22:38,488 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:22:38,488 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:22:38,488 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:22:40,146 - INFO - Successfully fetched time slot with ID 937.
+2024-08-05 22:22:40,147 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:22:40,147 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:22:40,147 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:22:40,173 - ERROR - Unexpected error: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+Traceback (most recent call last):
+  File "/home/coding/python3/personal_tools/async_time_slot_dahsboard_bot/services_python/booking_specified_time_slot.py", line 66, in booking_specified_time_slot
+    await callback.message.answer(message, parse_mode='MarkdownV2')
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+2024-08-05 22:23:49,073 - INFO - Closing the connection pool...
+2024-08-05 22:23:49,074 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:23:52,337 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:23:52,337 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:23:52,337 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:23:52,337 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:23:52,337 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:23:52,337 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:23:52,337 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:23:52,348 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:23:52,348 - INFO - Starting running periodic tasks...
+2024-08-05 22:23:52,367 - INFO - Time slots populated successfully.
+2024-08-05 22:23:52,367 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:23:52,367 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:23:52,530 - INFO - Successfully fetched time slot with ID 637.
+2024-08-05 22:23:52,530 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:23:52,530 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:23:52,530 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:23:54,478 - INFO - Successfully fetched time slot with ID 637.
+2024-08-05 22:23:54,478 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:23:54,478 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:23:54,478 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:23:54,502 - ERROR - Unexpected error: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+Traceback (most recent call last):
+  File "/home/coding/python3/personal_tools/async_time_slot_dahsboard_bot/services_python/booking_specified_time_slot.py", line 66, in booking_specified_time_slot
+    await callback.message.answer(message, parse_mode='MarkdownV2')
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+  File "/usr/local/lib/python3.10/dist-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\'
+2024-08-05 22:23:58,477 - INFO - Closing the connection pool...
+2024-08-05 22:23:58,478 - INFO - Connection pool closed. Exiting.
+2024-08-05 22:25:30,454 - INFO - Starting main.py process, telegram bot live!
+2024-08-05 22:25:30,454 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-05 22:25:30,454 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-05 22:25:30,454 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-05 22:25:30,454 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-05 22:25:30,454 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-05 22:25:30,454 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-05 22:25:30,464 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-05 22:25:30,464 - INFO - Starting running periodic tasks...
+2024-08-05 22:25:30,480 - INFO - Time slots populated successfully.
+2024-08-05 22:25:30,480 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:25:30,480 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:25:32,314 - INFO - Successfully fetched time slot with ID 637.
+2024-08-05 22:25:32,314 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-05 22:25:32,314 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-05 22:25:32,314 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-05 22:25:50,379 - INFO - Closing the connection pool...
+2024-08-05 22:25:50,379 - INFO - Connection pool closed. Exiting.

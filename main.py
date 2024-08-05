@@ -38,7 +38,7 @@ async def main() -> None:
     register_routers(dp)
 
     """Create a task to run `populate_time_slots` every 2 hours (7200 seconds)"""
-    database_task_1 = asyncio.create_task(periodic_task(7200, populate_time_slots))
+    database_task_1 = asyncio.create_task(periodic_task(3600, populate_time_slots))
     logger.info(f"Starting running periodic tasks...")
 
     try:

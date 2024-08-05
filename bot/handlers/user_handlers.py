@@ -19,6 +19,7 @@ from services_python.check_if_time_within_openings_hours import check_if_time_wi
 from services_python.pupulate_time_slots import populate_time_slots     # This function can also be run every 4H
 from services_python.fetch_all_available_time_slots import fetch_all_available_time_slots
 from services_python.fetch_time_slot_row_by_id import fetch_time_slot_row_by_id
+from services_python.booking_specified_time_slot import booking_specified_time_slot
 
 """These are imports used for development purposes."""
 #from services_python.test_pool_object_from_user_handler import test_pool_object_from_user_handler
@@ -196,10 +197,6 @@ async def callback_handler_buy(callback: types.CallbackQuery):
     """Handle the callback query to display time slots and additional buttons.
     This displays the time-slots booking GUI, when 'buy' button is pressed."""
 
-    # Populate the non-filled time-slots:
-    # This function needs to be called async every 2H
-    await populate_time_slots()
-
     # Create time slot buttons
     async def create_time_slot_buttons(available_time_slots):
         # Check if the dictionary results is not empty.
@@ -307,7 +304,9 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
                    f"\n")
 
         start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
-        buy_button = types.InlineKeyboardButton(text='Confirm Time', callback_data='confirm_buy')
+        buy_button = types.InlineKeyboardButton(text='Confirm Time', callback_data=f'confirm_buy_{time_slot_id}')
+        # We pass the time-slot ID to the callback data of confirm buy, so we can
+        # now what time-slot the user is talking about.
 
         # Create an InlineKeyboardMarkup object with a list of rows
         confirm_buy_inline_keyboard = InlineKeyboardMarkup(
@@ -344,6 +343,7 @@ async def order_recap_customer_message(callback: types.CallbackQuery, status: bo
             "\n"
             "🚀 Dear Customer,\n"
             "Thank you for your order. \n"
+            "Please wait for a response from '@handle'"
             "\n"
         )
     else:
@@ -407,9 +407,12 @@ async def handle_callback_query(callback: types.CallbackQuery):
             Order for specified time-slot."""
             await process_selected_time_slot(callback)
 
-        elif data == "confirm_buy":
+        elif data.startswith("confirm_buy"):
             """This is where the actual purchase logic gets called."""
+            """"To send a message to the admin account"""
             status = True
+            # Return message to the user, which they can copy, contains; 'time_slot_id', and specified time.
+            await booking_specified_time_slot(callback)
             await order_recap_customer_message(callback, status)  # Either they have payed or failed payment action
 
         else:

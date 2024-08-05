@@ -2,7 +2,7 @@
 
 1,
 -Make it so database populating function is automatically ran from main.py every
-2H, async ofcours.
+2H, async ofcours. DONE
 
 2,
 -Document the entire logic of the dashboard booking GUI, and the logic behind it.
