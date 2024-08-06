@@ -27,7 +27,7 @@ async def fetch_all_available_time_slots():
 
     # Calculate the current time and the time boundaries
     now = datetime.now(paris_tz)
-    start_window = now + timedelta(hours=2)  # Start time is 2 hours from now
+    start_window = now + timedelta(hours=0)  # Start time is 0 hours from now
     end_window = now + timedelta(hours=46)  # End time is 46 hours from now
 
     pool = container.get_pool()
