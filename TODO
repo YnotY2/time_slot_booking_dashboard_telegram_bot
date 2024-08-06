@@ -4,20 +4,45 @@
 -Make it so database populating function is automatically ran from main.py every
 2H, async ofcours. DONE
 
+
 2,
--Document the entire logic of the dashboard booking GUI, and the logic behind it.
-, also how it is managed.
-+ Also document how to verify manually you're time-slot booking is working as expected.
+-Then create function to actually manage the database time-slots making
+them unavailable, aka BOOKED. DONE
 
 3,
--Then create function to actually manage the database time-slots making
-them unavailable, aka BOOKED.
-
-4,
 -Then create a management command, string '/ta6fsugsfta8sgf' to access the confirm
 order time-slot/confirm booking dasboar for the admin user, mangement for bookings.
+DONE
 
-5,
+4,
 Allow the admin to set 'is_booked' = True for any AVAILABLE time-slots,
 (can make a time-slot available or unavailable. Mostly unavailable tho. [main purpose])
+DONE
+
+5, Modify managing bookings function, to return a 5 int PIN when 'is_booked' is set to TRUE.
+if a time-slot 'is_booked' is set to FALSE, we remove the PIN.
+
+The PIN should be added within the table 'time_slots' making it a check for when
+user-attempts to access service.
+
+
+!!!! LOGIC ISSUE TABLE TIME_SLOTS
+I have a issue currently we fetch all available time-slots by simply looking for time-slots
+with a start time 2h from now and a end-time 46 h from now. Which is fine.
+
+The issue might lay with the fact when we populate we use a interval of 2h, it should
+not make time-slots like so;
+22:00 - 00:00
+23:00 - 01:00
+
+But it might do that currently, this needs fixing. As a user can absolutely
+not have a overlaying time_slot ofc.
+
+   3 | 2024-08-06 21:00:00 | 2024-08-06 23:00:00 | t         | 72517
+  93 | 2024-08-06 18:00:00 | 2024-08-06 20:00:00 | f         |
+  94 | 2024-08-06 20:00:00 | 2024-08-06 22:00:00 | f
+    95 | 2024-08-06 22:00:00 | 2024-08-07 00:00:00 | t         | 33945
+
+How does this mistake happen?
+
 

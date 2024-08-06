@@ -1,8 +1,15 @@
+-- Drop the table if it exists
+DROP TABLE IF EXISTS time_slots;
+
 -- Create the time_slots table
 CREATE TABLE time_slots (
     id SERIAL PRIMARY KEY,
     start_time TIMESTAMP NOT NULL,
     end_time TIMESTAMP NOT NULL,
     is_booked BOOLEAN DEFAULT FALSE,
+    access_pin TEXT UNIQUE,
     CONSTRAINT unique_time_slot UNIQUE (start_time, end_time)
 );
+
+-- GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO your_user;
+-- Run this above cmd also while granting user permissions on db

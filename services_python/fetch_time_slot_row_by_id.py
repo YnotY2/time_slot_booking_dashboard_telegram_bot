@@ -18,7 +18,7 @@ async def fetch_time_slot_row_by_id(slot_id: int):
                 async with connection.cursor() as cursor:
                     # Query to fetch a specific time slot by ID, ignoring the booking status
                     query_fetch_slot = """
-                        SELECT start_time, end_time, is_booked 
+                        SELECT start_time, end_time, is_booked, access_pin 
                         FROM time_slots 
                         WHERE id = %s
                     """
@@ -30,14 +30,15 @@ async def fetch_time_slot_row_by_id(slot_id: int):
                         return None  # No slot found
 
                     # Process the result
-                    start_time, end_time, is_booked = result
+                    start_time, end_time, is_booked, access_pin = result
                     logger.info(f"Successfully fetched time slot with ID {slot_id}.")
 
                     # Return timeslot data
                     time_slot_data = {
                         'start_time': start_time,
                         'end_time': end_time,
-                        'is_booked': is_booked
+                        'is_booked': is_booked,
+                        'access_pin': access_pin
                     }
 
         except Exception as e:

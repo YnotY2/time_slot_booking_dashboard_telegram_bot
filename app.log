@@ -2114,3 +2114,517 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't
 2024-08-06 01:40:32,043 - INFO - [92mSuccessfully closed cursor.[0m
 2024-08-06 01:40:47,097 - INFO - Closing the connection pool...
 2024-08-06 01:40:47,098 - INFO - Connection pool closed. Exiting.
+2024-08-06 17:27:39,068 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 17:27:39,068 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 17:27:39,068 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 17:27:39,068 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 17:27:39,069 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 17:27:39,069 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 17:27:39,069 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 17:27:39,094 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 17:27:39,094 - INFO - Starting running periodic tasks...
+2024-08-06 17:27:39,113 - ERROR - Error during database operations: permission denied for sequence time_slots_id_seq
+Traceback (most recent call last):
+  File "/home/coding/python3/personal_tools/async_time_slot_dahsboard_bot/services_python/pupulate_time_slots.py", line 70, in populate_time_slots
+    await cursor.execute(query_insert, (start_time, end_time_slot))
+  File "/home/ynoty2/.local/lib/python3.10/site-packages/aiopg/connection.py", line 426, in execute
+    await self._conn._poll(waiter, timeout)
+  File "/home/ynoty2/.local/lib/python3.10/site-packages/aiopg/connection.py", line 881, in _poll
+    await asyncio.wait_for(self._waiter, timeout)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+    return fut.result()
+  File "/home/ynoty2/.local/lib/python3.10/site-packages/aiopg/connection.py", line 788, in _ready
+    state = self._conn.poll()
+psycopg2.errors.InsufficientPrivilege: permission denied for sequence time_slots_id_seq
+
+2024-08-06 17:27:39,114 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:27:39,115 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:29:25,708 - INFO - Closing the connection pool...
+2024-08-06 17:29:25,708 - INFO - Connection pool closed. Exiting.
+2024-08-06 17:29:29,358 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 17:29:29,358 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 17:29:29,358 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 17:29:29,359 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 17:29:29,359 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 17:29:29,359 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 17:29:29,359 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 17:29:29,372 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 17:29:29,373 - INFO - Starting running periodic tasks...
+2024-08-06 17:29:29,426 - INFO - Time slots populated successfully.
+2024-08-06 17:29:29,426 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:29:29,426 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:29:36,419 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:29:36,419 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:29:58,049 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:29:58,050 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:29:58,050 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:29:58,050 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:30:01,498 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:30:01,499 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:30:01,499 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:30:01,499 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:32:03,979 - INFO - Closing the connection pool...
+2024-08-06 17:32:03,980 - INFO - Connection pool closed. Exiting.
+2024-08-06 17:32:08,707 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 17:32:08,707 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 17:32:08,707 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 17:32:08,708 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 17:32:08,708 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 17:32:08,708 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 17:32:08,708 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 17:32:08,724 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 17:32:08,725 - INFO - Starting running periodic tasks...
+2024-08-06 17:32:08,758 - INFO - Time slots populated successfully.
+2024-08-06 17:32:08,758 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:32:08,759 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:32:10,622 - INFO - Successfully fetched time slot with ID 8.
+2024-08-06 17:32:10,622 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:32:10,622 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:32:10,622 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:32:14,494 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:32:14,495 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:35:00,749 - INFO - Closing the connection pool...
+2024-08-06 17:35:00,749 - INFO - Connection pool closed. Exiting.
+2024-08-06 17:35:05,027 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 17:35:05,027 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 17:35:05,027 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 17:35:05,027 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 17:35:05,028 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 17:35:05,028 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 17:35:05,028 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 17:35:05,043 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 17:35:05,045 - INFO - Starting running periodic tasks...
+2024-08-06 17:35:05,070 - INFO - Time slots populated successfully.
+2024-08-06 17:35:05,070 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:35:05,071 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:35:22,755 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:35:22,755 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:35:51,503 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:35:51,503 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:35:51,507 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:35:51,507 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:35:57,564 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 17:35:57,564 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 17:35:57,570 - INFO - Successfully updated time slot 3 to available.
+2024-08-06 17:35:57,570 - INFO - Operation completed.
+2024-08-06 17:35:57,571 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:35:57,571 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:35:57,571 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:35:57,571 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:54:12,425 - INFO - Closing the connection pool...
+2024-08-06 17:54:12,425 - INFO - Connection pool closed. Exiting.
+2024-08-06 17:54:16,603 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 17:54:16,603 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 17:54:16,603 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 17:54:16,603 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 17:54:16,603 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 17:54:16,603 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 17:54:16,603 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 17:54:16,623 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 17:54:16,624 - INFO - Starting running periodic tasks...
+2024-08-06 17:54:16,649 - INFO - Time slots populated successfully.
+2024-08-06 17:54:16,650 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:16,650 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:24,448 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:24,449 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:37,288 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:37,289 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:40,170 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:54:40,170 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:40,170 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:40,170 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 17:54:42,312 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 17:54:42,313 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 17:54:42,318 - INFO - Successfully booked time slot 3. Generated PIN: 72517.
+2024-08-06 17:54:42,318 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:42,318 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:42,319 - INFO - Operation completed.
+2024-08-06 17:54:42,319 - INFO - Successfully fetched time slot with ID 3.
+2024-08-06 17:54:42,320 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 17:54:42,320 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 17:54:42,320 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 18:04:44,161 - INFO - Closing the connection pool...
+2024-08-06 18:04:44,162 - INFO - Connection pool closed. Exiting.
+2024-08-06 18:04:48,945 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 18:04:48,945 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 18:04:48,946 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 18:04:48,946 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 18:04:48,946 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 18:04:48,946 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 18:04:48,946 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 18:04:48,964 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 18:04:48,965 - INFO - Starting running periodic tasks...
+2024-08-06 18:04:49,023 - INFO - Time slots populated successfully.
+2024-08-06 18:04:49,024 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:04:49,024 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:04:50,375 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:04:50,375 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:05:26,704 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:05:26,705 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:05:54,296 - INFO - Successfully fetched time slot with ID 95.
+2024-08-06 18:05:54,296 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:05:54,296 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:05:54,297 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 18:05:58,284 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 18:05:58,284 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 18:05:58,326 - INFO - Successfully booked time slot 95. Generated PIN: 33945.
+2024-08-06 18:05:58,326 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:05:58,326 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:05:58,326 - INFO - Operation completed.
+2024-08-06 18:05:58,327 - INFO - Successfully fetched time slot with ID 95.
+2024-08-06 18:05:58,327 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:05:58,327 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:05:58,327 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 18:06:49,379 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:06:49,379 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 18:07:23,206 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 18:07:23,207 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 19:04:49,101 - INFO - Time slots populated successfully.
+2024-08-06 19:04:49,102 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 19:04:49,102 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 20:04:49,172 - INFO - Time slots populated successfully.
+2024-08-06 20:04:49,173 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 20:04:49,173 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:03:50,771 - INFO - Closing the connection pool...
+2024-08-06 21:03:53,951 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:03:53,951 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:03:53,951 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:03:53,952 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:03:53,952 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:03:53,952 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:03:53,952 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:03:53,961 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:03:53,962 - INFO - Starting running periodic tasks...
+2024-08-06 21:03:53,978 - INFO - Time slots populated successfully.
+2024-08-06 21:03:53,978 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:03:53,978 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:28:04,661 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:28:04,662 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:28:04,662 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:28:04,662 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:28:04,662 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:28:04,662 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:28:04,662 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:28:04,672 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:28:04,673 - INFO - Starting running periodic tasks...
+2024-08-06 21:28:04,692 - INFO - Time slots populated successfully.
+2024-08-06 21:28:04,692 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:28:04,692 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:28:40,370 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:28:40,370 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:28:51,839 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 21:28:51,840 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:28:51,840 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:28:51,840 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:28:54,485 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 21:28:54,486 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:28:54,486 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:28:54,486 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:29:18,756 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:29:18,757 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:29:37,919 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:29:37,919 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:29:37,919 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:29:37,919 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:29:47,221 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:29:47,221 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:29:47,223 - WARNING - Time slot 96 was not booked or not found.
+2024-08-06 21:29:47,223 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:29:47,223 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:29:47,224 - INFO - Operation completed.
+2024-08-06 21:29:56,129 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:29:56,130 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:29:56,130 - WARNING - Time slot 96 was not booked or not found.
+2024-08-06 21:29:56,131 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:29:56,131 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:29:56,131 - INFO - Operation completed.
+2024-08-06 21:30:00,959 - INFO - Closing the connection pool...
+2024-08-06 21:30:00,960 - INFO - Connection pool closed. Exiting.
+2024-08-06 21:35:05,425 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:35:05,426 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:35:05,426 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:35:05,426 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:35:05,426 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:35:05,426 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:35:05,426 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:35:05,436 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:35:05,437 - INFO - Starting running periodic tasks...
+2024-08-06 21:35:05,453 - INFO - Time slots populated successfully.
+2024-08-06 21:35:05,453 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:05,453 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:09,493 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:09,493 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:09,502 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:35:09,502 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:09,502 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:09,502 - INFO - Operation completed.
+2024-08-06 21:35:13,370 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:13,371 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:13,372 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:35:13,372 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:13,372 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:13,372 - INFO - Operation completed.
+2024-08-06 21:35:50,642 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:50,642 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:50,648 - INFO - Successfully booked time slot 96. Generated PIN: 50204.
+2024-08-06 21:35:50,648 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:50,648 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:50,648 - INFO - Operation completed.
+2024-08-06 21:35:50,649 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:35:50,649 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:50,649 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:50,649 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:35:57,608 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:57,608 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:35:57,614 - INFO - Successfully unbooked time slot 96.
+2024-08-06 21:35:57,614 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:57,614 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:57,614 - INFO - Operation completed.
+2024-08-06 21:35:57,614 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:35:57,615 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:35:57,615 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:35:57,615 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:36:06,417 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:06,418 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:09,802 - INFO - Successfully fetched time slot with ID 98.
+2024-08-06 21:36:09,802 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:09,802 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:09,802 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:36:11,638 - INFO - Successfully fetched time slot with ID 98.
+2024-08-06 21:36:11,639 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:11,642 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:11,642 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:36:17,067 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:17,067 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:19,428 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:36:19,428 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:19,428 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:19,428 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:36:21,365 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:36:21,365 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:36:21,367 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:36:21,367 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:36:21,367 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:36:21,367 - INFO - Operation completed.
+2024-08-06 21:42:21,335 - INFO - Closing the connection pool...
+2024-08-06 21:42:21,336 - INFO - Connection pool closed. Exiting.
+2024-08-06 21:42:25,055 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:42:25,055 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:42:25,055 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:42:25,055 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:42:25,055 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:42:25,055 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:42:25,055 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:42:25,066 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:42:25,067 - INFO - Starting running periodic tasks...
+2024-08-06 21:42:25,090 - INFO - Time slots populated successfully.
+2024-08-06 21:42:25,090 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:42:25,090 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:42:34,586 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:42:34,586 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:42:36,677 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:42:36,677 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:42:36,677 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:42:36,677 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:42:39,746 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:42:39,746 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:42:39,750 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:42:39,750 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:42:39,750 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:42:39,750 - INFO - Operation completed.
+2024-08-06 21:42:41,660 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:42:41,660 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:42:41,660 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:42:41,660 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:42:41,660 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:42:41,660 - INFO - Operation completed.
+2024-08-06 21:43:02,604 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:02,604 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:02,610 - INFO - Successfully booked time slot 96. Generated PIN: 01783.
+2024-08-06 21:43:02,610 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:02,610 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:02,610 - INFO - Operation completed.
+2024-08-06 21:43:02,610 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:43:02,610 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:02,610 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:02,610 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:43:05,608 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:05,608 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:05,613 - INFO - Successfully unbooked time slot 96.
+2024-08-06 21:43:05,613 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:05,613 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:05,613 - INFO - Operation completed.
+2024-08-06 21:43:05,613 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:43:05,613 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:05,614 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:05,614 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:43:12,886 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:12,886 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:12,888 - INFO - Successfully booked time slot 96. Generated PIN: 61989.
+2024-08-06 21:43:12,888 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:12,888 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:12,888 - INFO - Operation completed.
+2024-08-06 21:43:12,888 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:43:12,888 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:12,888 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:12,888 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:43:28,724 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:28,725 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:43:28,726 - INFO - Successfully unbooked time slot 96.
+2024-08-06 21:43:28,726 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:28,726 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:28,726 - INFO - Operation completed.
+2024-08-06 21:43:28,726 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:43:28,727 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:43:28,727 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:43:28,727 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:53:02,004 - INFO - Closing the connection pool...
+2024-08-06 21:53:02,005 - INFO - Connection pool closed. Exiting.
+2024-08-06 21:53:05,295 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:53:05,295 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:53:05,295 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:53:05,295 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:53:05,295 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:53:05,295 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:53:05,295 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:53:05,305 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:53:05,305 - INFO - Starting running periodic tasks...
+2024-08-06 21:53:05,320 - INFO - Time slots populated successfully.
+2024-08-06 21:53:05,320 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:05,320 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:15,248 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:15,248 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:17,258 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:53:17,258 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:17,258 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:17,258 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:53:18,884 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:18,884 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:18,894 - INFO - Successfully booked time slot 96. Generated PIN: 51101.
+2024-08-06 21:53:18,894 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:18,894 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:18,894 - INFO - Operation completed.
+2024-08-06 21:53:18,894 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:53:18,894 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:18,894 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:18,894 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:53:21,859 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:21,859 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:21,864 - INFO - Successfully booked time slot 96. Generated PIN: 61028.
+2024-08-06 21:53:21,864 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:21,864 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:21,864 - INFO - Operation completed.
+2024-08-06 21:53:21,864 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:53:21,865 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:21,865 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:21,865 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:53:30,993 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:30,993 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:30,998 - INFO - Successfully unbooked time slot 96.
+2024-08-06 21:53:30,998 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:30,998 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:30,999 - INFO - Operation completed.
+2024-08-06 21:53:30,999 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:53:30,999 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:30,999 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:30,999 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:53:55,101 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:55,101 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 21:53:55,102 - WARNING - Time slot 96 was not booked or already unbooked.
+2024-08-06 21:53:55,102 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:55,102 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:55,102 - INFO - Operation completed.
+2024-08-06 21:53:55,102 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:53:55,102 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:53:55,102 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:53:55,102 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:56:35,078 - INFO - Closing the connection pool...
+2024-08-06 21:56:35,078 - INFO - Connection pool closed. Exiting.
+2024-08-06 21:56:38,229 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 21:56:38,229 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 21:56:38,229 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 21:56:38,229 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 21:56:38,229 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 21:56:38,229 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 21:56:38,229 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 21:56:38,239 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 21:56:38,240 - INFO - Starting running periodic tasks...
+2024-08-06 21:56:38,260 - INFO - Time slots populated successfully.
+2024-08-06 21:56:38,260 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:56:38,260 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:56:43,278 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:56:43,278 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:56:44,740 - INFO - Successfully fetched time slot with ID 96.
+2024-08-06 21:56:44,741 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 21:56:44,741 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 21:56:44,741 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 21:56:53,685 - INFO - Closing the connection pool...
+2024-08-06 21:56:53,686 - INFO - Connection pool closed. Exiting.
+2024-08-06 22:00:12,626 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 22:00:12,626 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 22:00:12,626 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 22:00:12,626 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 22:00:12,626 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 22:00:12,626 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 22:00:12,626 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 22:00:12,638 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 22:00:12,638 - INFO - Starting running periodic tasks...
+2024-08-06 22:00:12,656 - INFO - Time slots populated successfully.
+2024-08-06 22:00:12,656 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:00:12,656 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:00:14,762 - INFO - Successfully fetched time slot with ID 102.
+2024-08-06 22:00:14,762 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:00:14,801 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:00:14,801 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 22:00:22,731 - INFO - Closing the connection pool...
+2024-08-06 22:00:22,732 - INFO - Connection pool closed. Exiting.
+2024-08-06 22:01:17,188 - INFO - Starting main.py process, telegram bot live!
+2024-08-06 22:01:17,188 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-06 22:01:17,188 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-06 22:01:17,189 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-06 22:01:17,189 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-06 22:01:17,189 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-06 22:01:17,189 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-06 22:01:17,199 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-06 22:01:17,200 - INFO - Starting running periodic tasks...
+2024-08-06 22:01:17,215 - INFO - Time slots populated successfully.
+2024-08-06 22:01:17,216 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:17,216 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:17,700 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 22:01:17,700 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:17,700 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:17,701 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 22:01:23,591 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:23,591 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:23,591 - WARNING - Time slot 100 was not booked or already unbooked.
+2024-08-06 22:01:23,592 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:23,592 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:23,592 - INFO - Operation completed.
+2024-08-06 22:01:23,592 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 22:01:23,592 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:23,592 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:23,592 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 22:01:27,033 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:27,033 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:27,035 - INFO - Successfully booked time slot 100. Generated PIN: 02485.
+2024-08-06 22:01:27,035 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:27,035 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:27,035 - INFO - Operation completed.
+2024-08-06 22:01:27,035 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 22:01:27,035 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:27,035 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:27,035 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 22:01:33,779 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:33,779 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-06 22:01:33,783 - ERROR - Error during database operations: duplicate key value violates unique constraint "time_slots_access_pin_key"
+DETAIL:  Key (access_pin)=() already exists.
+
+2024-08-06 22:01:33,783 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:33,783 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:33,784 - INFO - Operation completed.
+2024-08-06 22:01:33,784 - INFO - Successfully fetched time slot with ID 100.
+2024-08-06 22:01:33,784 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-06 22:01:33,784 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-06 22:01:33,784 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-06 22:01:37,612 - INFO - Closing the connection pool...
+2024-08-06 22:01:37,612 - INFO - Connection pool closed. Exiting.

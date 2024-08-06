@@ -14,6 +14,7 @@ from config.faq_data import faq_data
 from config.settings import start_menu_image_logo
 from config.settings import how_is_our_coffee_made_video
 from config.settings import who_are_we_video
+from config.settings import admin_manage_bookings_dashboard_password
 
 from services_python.check_if_time_within_openings_hours import check_if_time_within_openings_hours
 
@@ -40,12 +41,12 @@ async def handle_unexpected_message(message: types.Message):
     response_message = None  # Default to None to indicate no response by default
 
     try:
-        if message.text.startswith('/'):
+        if message.text.startswith('/'):    # We know if user is attempting a cmd
             command = message.text.split()[0]
             """Handle all message's actions/response for message's outside of button interactions."""
 
             """This command will give user's/admin access to dashboard for booking/un-booking time-slots."""
-            if command == '/59puahgfhasfu87313':
+            if command == admin_manage_bookings_dashboard_password:
                 response_message = ("✨ Admin dashboard\n"
                                     "\n"
                                     "📘 Managing time-slots bookings.")
@@ -317,9 +318,9 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
         message = ("\n"
                    " ⌛ Confirm Time Slot :\n"
                    "\n"
-                   f"Start-Time:       🗓️ {start_time_cleaned}\n "
+                   f"Start-Time:    🗓️ {start_time_cleaned}\n "
                    f"\n"
-                   f"End-Time:   ️  🗓 {end_time_cleaned}\n"
+                   f"End-Time:   ️    🗓 {end_time_cleaned}\n"
                    f"\n")
 
         start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
@@ -414,7 +415,8 @@ async def admin_time_slot_booking_dashboard(message: types.Message):
 
         return InlineKeyboardMarkup(inline_keyboard=keyboard)
 
-    # Fetch available time slots from the database
+    # !!!!!!!!!!!!!!!!!!!!!!!!!
+    # Fetch available time slots from the database, we need to fetch all time-slots not just available.
     available_time_slots = await fetch_all_available_time_slots()
     print(available_time_slots)
 
@@ -464,26 +466,22 @@ async def admin_managing_specified_time_slot_booking_choose_true_false(callback:
 
     # Extract time_slot_id from callback data
     time_slot_id = await extract_time_slot(callback.data)
-    # Fetch time slot data from the database
+    # FROM HERE TILL
+
+    # Here we have successfully done our database operation
     time_slot_data = await fetch_time_slot_row_by_id(time_slot_id)
-
-    faq_menu_button = types.InlineKeyboardButton(text="Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_True_{time_slot_id}')
-    start_menu_button = types.InlineKeyboardButton(text="Un-Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_False_{time_slot_id}')
-
-    # Create an InlineKeyboardMarkup object with a list of rows
-    admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [faq_menu_button, start_menu_button],  # Second row
-        ]
-    )
 
     # Access start_time and end_time from the dictionary
     start_time = time_slot_data['start_time']
     end_time = time_slot_data['end_time']
+    is_booked = time_slot_data['is_booked']
+    access_pin = time_slot_data['access_pin']
 
     # Ensure these are strings for rstrip to work
     start_time_str = str(start_time)
     end_time_str = str(end_time)
+    is_booked_str = str(is_booked)
+    access_pin_str = str(access_pin)
 
     # Remove the '.00' suffix if it exists
     start_time_cleaned = start_time_str.rstrip('.00')
@@ -499,10 +497,25 @@ async def admin_managing_specified_time_slot_booking_choose_true_false(callback:
         f"End-Time:         🗓️ {end_time_cleaned}\n"
         f"\n"
         f"Time-slot-ID:     📒 {time_slot_id}"
+        f"👓 'is_booked'  =    {is_booked_str}"
+        f"\n"
+        f"Access PIN 📲  {access_pin_str}\n"       
         f"\n"
     )
+
+    faq_menu_button = types.InlineKeyboardButton(text="Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_True_{time_slot_id}')
+    start_menu_button = types.InlineKeyboardButton(text="Un-Book-Time-Slot", callback_data=f'admin_managing_specified_time_slot_booking_False_{time_slot_id}')
+
+    # Create an InlineKeyboardMarkup object with a list of rows
+    admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [faq_menu_button, start_menu_button],  # Second row
+        ]
+    )
+
+    # HERE ADDING 'access_pin_str' and 'is_booked_str' broke the code.
     # Send the message using bot instance
-    await callback.message.answer(message, parse_mode='Markdown', reply_markup=admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard)
+    await callback.message.answer(message, reply_markup=admin_managing_specified_time_slot_booking_choose_true_false_inline_keyboard)
 
 
 async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
@@ -532,54 +545,93 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
     # Extract time_slot_id from callback data
     time_slot_id, book_time_slot = await extract_time_slot_and_action(callback.data)
 
-    response = await manage_booking_time_slots(time_slot_id, book_time_slot)
-    if response:
+    response, access_pin = await manage_booking_time_slots(time_slot_id, book_time_slot)
+
+    try:
         # Here we have successfully done our database operation
         time_slot_data = await fetch_time_slot_row_by_id(time_slot_id)
-
-        faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
-        start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
-
-        # Create an InlineKeyboardMarkup object with a list of rows
-        finished_order_inline_keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [faq_menu_button, start_menu_button],  # Second row
-            ]
-        )
 
         # Access start_time and end_time from the dictionary
         start_time = time_slot_data['start_time']
         end_time = time_slot_data['end_time']
         is_booked = time_slot_data['is_booked']
+        access_pin = time_slot_data['access_pin']
 
         # Ensure these are strings for rstrip to work
         start_time_str = str(start_time)
         end_time_str = str(end_time)
-        # Ensure 'is_booked' converted to str
         is_booked_str = str(is_booked)
+        access_pin_str = str(access_pin)
 
         # Remove the '.00' suffix if it exists
         start_time_cleaned = start_time_str.rstrip('.00')
         end_time_cleaned = end_time_str.rstrip('.00')
 
-        message = (
+        message_modification_result = (
             f"🚀 Dear Admin,\n"
             f"\n"
-            f"🗓 Successfully modified following time-slot:\n"
-            f"\n"
+            f"✅ Successfully modified following time-slot:\n"
             f"\n"
             f"Start-Time:       🗓️ {start_time_cleaned}\n"
             f"End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
             f"Time-slot-ID:     📒 {time_slot_id}\n"
-            f"\n"
             f"👓 'is_booked'  =    {is_booked_str}"
             f"\n"
+            f"Access PIN 📲  `{access_pin_str}`\n"
+            f"\n"
         )
-        # Send the message using bot instance
-        await callback.message.answer(message, reply_markup=finished_order_inline_keyboard)
 
-    else:
+        if response:
+            faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
+            start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
+
+            # Create an InlineKeyboardMarkup object with a list of rows
+            finished_order_inline_keyboard = InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [faq_menu_button, start_menu_button],  # Second row
+                ]
+            )
+
+            # Send the message using bot instance
+            await callback.message.answer(message_modification_result, reply_markup=finished_order_inline_keyboard)
+
+            # Send a follow up message containing data you would send to user
+            message = (
+                F"If you wish to send access to the user, do that with"
+                F"this following message:\n"
+                F"\n"
+                "```"
+                f"\n"
+                "✅ Time slot payment complete.\n"
+                f"🔓 Access information to service:\n"
+                f"\n"
+                f"Start-Time:       🗓️ {start_time_cleaned}\n"
+                f"End-Time:         🗓️ {end_time_cleaned}\n" 
+                f"Access PIN 📲     {access_pin_str}\n"
+                f"\n"
+                f"ℹ️ Dear user, to be able to use the service from start-time till end-time. "
+                f"You need to enter the above access "
+                f"pin within the key-pad lock"
+                f" that show's up when clicking 'access' button within Main-Menu.\n"
+                f"\n"
+                f"🚀 Thank you for you're purchase!\n"
+                "🪐 If you have any questions, message us: @handle \n"  
+                "```"
+            )
+            await callback.message.answer(message, parse_mode='MarkDown')
+
+        elif not response:
+            # Send a follow up message containing data you would send to user
+            await callback.message.answer(text=message_modification_result)
+
+        elif response == None:
+            await callback.message.answer(text=f"Time slot {time_slot_id} was not booked or already unbooked. ")
+            logger.info(f"Time slot {time_slot_id} was not booked or already unbooked. ")
+
+
+    except Exception as e:
+        logger.info(f"Error running 'manage_booking_time_slots'.: {e} ")
         await callback.message.answer(text=f"Error running 'manage_booking_time_slots'. ")
 
 
