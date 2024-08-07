@@ -3056,3 +3056,705 @@ DETAIL:  Key (access_pin)=() already exists.
 2024-08-07 03:16:35,034 - INFO - Successfully returned the cursor and connection to the pool!
 2024-08-07 03:17:01,411 - INFO - Closing the connection pool...
 2024-08-07 03:17:01,412 - INFO - Connection pool closed. Exiting.
+2024-08-07 03:37:08,371 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:37:08,371 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:37:08,371 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:37:08,371 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:37:08,371 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:37:08,372 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:37:08,372 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:37:08,382 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:37:08,382 - INFO - Starting running periodic tasks...
+2024-08-07 03:37:08,400 - INFO - Time slots populated successfully.
+2024-08-07 03:37:08,400 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:37:08,400 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:37:10,572 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-07 03:37:10,572 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-07 03:37:18,012 - INFO - Closing the connection pool...
+2024-08-07 03:38:31,237 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:38:31,237 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:38:31,237 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:38:31,237 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:38:31,237 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:38:31,237 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:38:31,237 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:38:31,247 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:38:31,248 - INFO - Starting running periodic tasks...
+2024-08-07 03:38:31,264 - INFO - Time slots populated successfully.
+2024-08-07 03:38:31,264 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:38:31,264 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:38:43,109 - INFO - We made it to 'admin_modify_time_slot_booking_status'
+2024-08-07 03:38:47,090 - INFO - Closing the connection pool...
+2024-08-07 03:40:40,808 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:40:40,808 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:40:40,808 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:40:40,808 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:40:40,808 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:40:40,808 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:40:40,808 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:40:40,817 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:40:40,818 - INFO - Starting running periodic tasks...
+2024-08-07 03:40:40,837 - INFO - Time slots populated successfully.
+2024-08-07 03:40:40,837 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:40:40,837 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:40:53,551 - INFO - Closing the connection pool...
+2024-08-07 03:42:54,355 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:42:54,355 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:42:54,355 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:42:54,355 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:42:54,355 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:42:54,355 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:42:54,355 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:42:54,365 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:42:54,366 - INFO - Starting running periodic tasks...
+2024-08-07 03:42:54,381 - INFO - Time slots populated successfully.
+2024-08-07 03:42:54,382 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:42:54,382 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:42:56,888 - INFO - Successfully fetched available time slots.
+2024-08-07 03:42:56,888 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:42:56,888 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:42:56,888 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 03:43:09,236 - INFO - Closing the connection pool...
+2024-08-07 03:43:09,237 - INFO - Connection pool closed. Exiting.
+2024-08-07 03:46:16,373 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:46:16,373 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:46:16,373 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:46:16,373 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:46:16,373 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:46:16,373 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:46:16,373 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:46:16,383 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:46:16,384 - INFO - Starting running periodic tasks...
+2024-08-07 03:46:16,399 - INFO - Time slots populated successfully.
+2024-08-07 03:46:16,399 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:46:16,400 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:46:23,271 - INFO - Closing the connection pool...
+2024-08-07 03:48:10,703 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:48:10,704 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:48:10,704 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:48:10,704 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:48:10,704 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:48:10,704 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:48:10,704 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:48:10,714 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:48:10,715 - INFO - Starting running periodic tasks...
+2024-08-07 03:48:10,732 - INFO - Time slots populated successfully.
+2024-08-07 03:48:10,732 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:48:10,732 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:48:10,865 - INFO - Received callback data: gain_access
+2024-08-07 03:48:16,916 - INFO - Closing the connection pool...
+2024-08-07 03:49:10,044 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:49:10,044 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:49:10,044 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:49:10,044 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:49:10,044 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:49:10,044 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:49:10,044 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:49:10,054 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:49:10,054 - INFO - Starting running periodic tasks...
+2024-08-07 03:49:10,070 - INFO - Time slots populated successfully.
+2024-08-07 03:49:10,070 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:49:10,070 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:49:12,169 - INFO - Received callback data: gain_access
+2024-08-07 03:49:14,982 - INFO - Closing the connection pool...
+2024-08-07 03:49:50,507 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:49:50,507 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:49:50,507 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:49:50,507 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:49:50,508 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:49:50,508 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:49:50,508 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:49:50,518 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:49:50,519 - INFO - Starting running periodic tasks...
+2024-08-07 03:49:50,539 - INFO - Time slots populated successfully.
+2024-08-07 03:49:50,539 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:49:50,539 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:49:52,032 - INFO - Received callback data: gain_access_service
+2024-08-07 03:49:56,319 - INFO - Closing the connection pool...
+2024-08-07 03:51:41,532 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:51:41,532 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:51:41,532 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:51:41,532 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:51:41,532 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:51:41,532 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:51:41,532 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:51:41,542 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:51:41,542 - INFO - Starting running periodic tasks...
+2024-08-07 03:51:41,558 - INFO - Time slots populated successfully.
+2024-08-07 03:51:41,558 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:51:41,558 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:51:43,370 - INFO - Received callback data: access_service
+2024-08-07 03:51:45,739 - INFO - Closing the connection pool...
+2024-08-07 03:52:31,431 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:52:31,432 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:52:31,432 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:52:31,432 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:52:31,432 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:52:31,432 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:52:31,432 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:52:31,442 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:52:31,443 - INFO - Starting running periodic tasks...
+2024-08-07 03:52:31,458 - INFO - Time slots populated successfully.
+2024-08-07 03:52:31,458 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:52:31,458 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:52:32,900 - INFO - Received callback data: who_are_we
+2024-08-07 03:52:37,306 - INFO - Closing the connection pool...
+2024-08-07 03:54:04,397 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:54:04,397 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:54:04,397 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:54:04,397 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:54:04,397 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:54:04,397 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:54:04,397 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:54:04,407 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:54:04,408 - INFO - Starting running periodic tasks...
+2024-08-07 03:54:04,424 - INFO - Time slots populated successfully.
+2024-08-07 03:54:04,424 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:54:04,424 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:54:05,768 - INFO - Received callback data: faq_menu
+2024-08-07 03:54:06,828 - INFO - Received callback data: start
+2024-08-07 03:54:07,759 - INFO - Received callback data: buy
+2024-08-07 03:54:07,767 - INFO - Successfully fetched available time slots.
+2024-08-07 03:54:07,768 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:54:07,768 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:54:07,768 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 03:54:08,889 - INFO - Received callback data: start
+2024-08-07 03:54:10,128 - INFO - Received callback data: access_service
+2024-08-07 03:54:19,310 - INFO - Closing the connection pool...
+2024-08-07 03:54:19,310 - INFO - Connection pool closed. Exiting.
+2024-08-07 03:55:37,023 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:55:37,023 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:55:37,023 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:55:37,023 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:55:37,023 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:55:37,023 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:55:37,023 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:55:37,032 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:55:37,033 - INFO - Starting running periodic tasks...
+2024-08-07 03:55:37,048 - INFO - Time slots populated successfully.
+2024-08-07 03:55:37,048 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:55:37,048 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:55:43,574 - INFO - Received callback data: service_bitch
+2024-08-07 03:55:45,745 - INFO - Closing the connection pool...
+2024-08-07 03:56:21,179 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:56:21,179 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:56:21,179 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:56:21,179 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:56:21,179 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:56:21,179 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:56:21,179 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:56:21,190 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:56:21,190 - INFO - Starting running periodic tasks...
+2024-08-07 03:56:21,207 - INFO - Time slots populated successfully.
+2024-08-07 03:56:21,207 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:56:21,207 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:56:22,819 - INFO - Received callback data: service_bitch
+2024-08-07 03:56:25,171 - INFO - Closing the connection pool...
+2024-08-07 03:57:20,921 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:57:20,922 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:57:20,922 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:57:20,922 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:57:20,922 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:57:20,922 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:57:20,922 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:57:20,932 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:57:20,933 - INFO - Starting running periodic tasks...
+2024-08-07 03:57:20,950 - INFO - Time slots populated successfully.
+2024-08-07 03:57:20,950 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:57:20,950 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:57:24,381 - INFO - Received callback data: 123123
+2024-08-07 03:57:36,527 - INFO - Closing the connection pool...
+2024-08-07 03:58:48,563 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:58:48,564 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:58:48,564 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:58:48,564 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:58:48,564 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:58:48,564 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:58:48,564 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:58:48,574 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:58:48,575 - INFO - Starting running periodic tasks...
+2024-08-07 03:58:48,591 - INFO - Time slots populated successfully.
+2024-08-07 03:58:48,591 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:58:48,591 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:58:50,198 - INFO - Received callback data: who_are_we
+2024-08-07 03:58:52,246 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 03:58:52,246 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:58:52,247 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:58:52,247 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 03:59:07,781 - INFO - Closing the connection pool...
+2024-08-07 03:59:07,781 - INFO - Connection pool closed. Exiting.
+2024-08-07 03:59:42,986 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 03:59:42,986 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 03:59:42,986 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 03:59:42,986 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 03:59:42,986 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 03:59:42,986 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 03:59:42,986 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 03:59:42,997 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 03:59:42,998 - INFO - Starting running periodic tasks...
+2024-08-07 03:59:43,015 - INFO - Time slots populated successfully.
+2024-08-07 03:59:43,016 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 03:59:43,016 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 03:59:47,194 - INFO - Received callback data: 123123
+2024-08-07 03:59:59,735 - INFO - Closing the connection pool...
+2024-08-07 04:00:03,553 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 04:00:03,553 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 04:00:03,553 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 04:00:03,553 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 04:00:03,553 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 04:00:03,553 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 04:00:03,553 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 04:00:03,563 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 04:00:03,564 - INFO - Starting running periodic tasks...
+2024-08-07 04:00:03,602 - INFO - Time slots populated successfully.
+2024-08-07 04:00:03,602 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 04:00:03,603 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 04:00:05,502 - INFO - Received callback data: 123123
+2024-08-07 04:00:08,463 - INFO - Closing the connection pool...
+2024-08-07 04:00:08,464 - INFO - Connection pool closed. Exiting.
+2024-08-07 04:05:34,017 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 04:05:34,017 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 04:05:34,017 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 04:05:34,017 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 04:05:34,017 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 04:05:34,017 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 04:05:34,017 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 04:05:34,027 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 04:05:34,028 - INFO - Starting running periodic tasks...
+2024-08-07 04:05:34,044 - INFO - Time slots populated successfully.
+2024-08-07 04:05:34,044 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 04:05:34,044 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 04:05:38,761 - INFO - Received callback data: 123123
+2024-08-07 04:05:41,333 - INFO - Closing the connection pool...
+2024-08-07 04:07:15,745 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 04:07:15,746 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 04:07:15,746 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 04:07:15,746 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 04:07:15,746 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 04:07:15,746 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 04:07:15,746 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 04:07:15,756 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 04:07:15,757 - INFO - Starting running periodic tasks...
+2024-08-07 04:07:15,772 - INFO - Time slots populated successfully.
+2024-08-07 04:07:15,772 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 04:07:15,772 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 04:07:17,398 - INFO - Received callback data: 123123
+2024-08-07 04:07:20,687 - INFO - Closing the connection pool...
+2024-08-07 13:23:16,699 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:23:16,700 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:23:16,700 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:23:16,700 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:23:16,700 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:23:16,700 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:23:16,700 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:23:16,709 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:23:16,710 - INFO - Starting running periodic tasks...
+2024-08-07 13:23:16,732 - INFO - Time slots populated successfully.
+2024-08-07 13:23:16,732 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:23:16,733 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:23:36,992 - INFO - Closing the connection pool...
+2024-08-07 13:23:36,993 - INFO - Connection pool closed. Exiting.
+2024-08-07 13:26:00,123 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:26:00,123 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:26:00,123 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:26:00,123 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:26:00,123 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:26:00,123 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:26:00,123 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:26:00,133 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:26:00,133 - INFO - Starting running periodic tasks...
+2024-08-07 13:26:00,152 - INFO - Time slots populated successfully.
+2024-08-07 13:26:00,152 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:26:00,152 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:26:10,502 - INFO - Received callback data: 123123
+2024-08-07 13:26:12,178 - INFO - Closing the connection pool...
+2024-08-07 13:26:25,345 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:26:25,345 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:26:25,345 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:26:25,345 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:26:25,345 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:26:25,345 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:26:25,345 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:26:25,354 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:26:25,355 - INFO - Starting running periodic tasks...
+2024-08-07 13:26:25,369 - INFO - Time slots populated successfully.
+2024-08-07 13:26:25,370 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:26:25,370 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:26:29,002 - INFO - Received callback data: 123123
+2024-08-07 13:26:31,085 - INFO - Closing the connection pool...
+2024-08-07 13:28:21,645 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:28:21,646 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:28:21,646 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:28:21,646 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:28:21,646 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:28:21,646 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:28:21,646 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:28:21,660 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:28:21,661 - INFO - Starting running periodic tasks...
+2024-08-07 13:28:21,676 - INFO - Time slots populated successfully.
+2024-08-07 13:28:21,676 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:28:21,676 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:28:29,526 - INFO - Received callback data: who_are_we
+2024-08-07 13:28:34,159 - INFO - Closing the connection pool...
+2024-08-07 13:28:44,913 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:28:44,913 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:28:44,913 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:28:44,913 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:28:44,913 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:28:44,913 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:28:44,914 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:28:44,924 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:28:44,924 - INFO - Starting running periodic tasks...
+2024-08-07 13:28:44,940 - INFO - Time slots populated successfully.
+2024-08-07 13:28:44,940 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:28:44,940 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:28:47,774 - INFO - Received callback data: access_service
+2024-08-07 13:28:58,782 - INFO - Closing the connection pool...
+2024-08-07 13:30:01,960 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:30:01,961 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:30:01,961 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:30:01,961 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:30:01,961 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:30:01,961 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:30:01,961 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:30:01,971 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:30:01,972 - INFO - Starting running periodic tasks...
+2024-08-07 13:30:01,990 - INFO - Time slots populated successfully.
+2024-08-07 13:30:01,990 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:30:01,990 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:30:04,101 - INFO - Received callback data: access_service
+2024-08-07 13:30:09,687 - INFO - Closing the connection pool...
+2024-08-07 13:31:59,040 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:31:59,040 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:31:59,041 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:31:59,041 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:31:59,041 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:31:59,041 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:31:59,041 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:31:59,051 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:31:59,052 - INFO - Starting running periodic tasks...
+2024-08-07 13:31:59,069 - INFO - Time slots populated successfully.
+2024-08-07 13:31:59,070 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:31:59,070 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:32:00,394 - INFO - Received callback data: access_service
+2024-08-07 13:32:47,514 - INFO - Closing the connection pool...
+2024-08-07 13:32:50,677 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:32:50,677 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:32:50,677 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:32:50,677 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:32:50,677 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:32:50,677 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:32:50,677 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:32:50,687 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:32:50,688 - INFO - Starting running periodic tasks...
+2024-08-07 13:32:50,705 - INFO - Time slots populated successfully.
+2024-08-07 13:32:50,705 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:32:50,705 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:32:54,795 - INFO - Received callback data: access_service
+2024-08-07 13:33:03,000 - INFO - Closing the connection pool...
+2024-08-07 13:33:56,233 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:33:56,233 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:33:56,233 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:33:56,233 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:33:56,233 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:33:56,233 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:33:56,233 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:33:56,243 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:33:56,244 - INFO - Starting running periodic tasks...
+2024-08-07 13:33:56,258 - INFO - Time slots populated successfully.
+2024-08-07 13:33:56,258 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:33:56,258 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:33:57,568 - INFO - Received callback data: access_service
+2024-08-07 13:33:57,576 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:33:57,576 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:33:57,577 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:33:57,577 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:33:57,577 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:34:12,597 - INFO - Closing the connection pool...
+2024-08-07 13:34:12,598 - INFO - Connection pool closed. Exiting.
+2024-08-07 13:35:32,558 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:35:32,559 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:35:32,559 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:35:32,559 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:35:32,559 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:35:32,559 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:35:32,559 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:35:32,569 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:35:32,570 - INFO - Starting running periodic tasks...
+2024-08-07 13:35:32,588 - INFO - Time slots populated successfully.
+2024-08-07 13:35:32,588 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:35:32,588 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:35:34,449 - INFO - Received callback data: 123123
+2024-08-07 13:35:39,457 - INFO - Closing the connection pool...
+2024-08-07 13:36:29,268 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:36:29,268 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:36:29,268 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:36:29,269 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:36:29,269 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:36:29,269 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:36:29,269 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:36:29,280 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:36:29,281 - INFO - Starting running periodic tasks...
+2024-08-07 13:36:29,298 - INFO - Time slots populated successfully.
+2024-08-07 13:36:29,298 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:36:29,298 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:36:30,702 - INFO - Received callback data: access_service
+2024-08-07 13:36:30,711 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:36:30,711 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:36:30,711 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:36:30,711 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:36:30,711 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:36:40,003 - INFO - Received callback data: access_service
+2024-08-07 13:36:40,011 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:36:40,012 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:36:40,012 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:36:40,012 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:36:40,012 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:36:48,736 - INFO - Closing the connection pool...
+2024-08-07 13:36:48,736 - INFO - Connection pool closed. Exiting.
+2024-08-07 13:51:45,417 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:51:45,417 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:51:45,417 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:51:45,417 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:51:45,417 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:51:45,417 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:51:45,418 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:51:45,428 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:51:45,429 - INFO - Starting running periodic tasks...
+2024-08-07 13:51:45,446 - INFO - Time slots populated successfully.
+2024-08-07 13:51:45,446 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:51:45,446 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:51:47,181 - INFO - Received callback data: access_service
+2024-08-07 13:51:52,099 - INFO - Closing the connection pool...
+2024-08-07 13:53:49,938 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:53:49,938 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:53:49,938 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:53:49,938 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:53:49,938 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:53:49,939 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:53:49,939 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:53:49,948 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:53:49,949 - INFO - Starting running periodic tasks...
+2024-08-07 13:53:49,966 - INFO - Time slots populated successfully.
+2024-08-07 13:53:49,966 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:53:49,966 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:53:51,582 - INFO - Received callback data: access_service
+2024-08-07 13:53:58,166 - INFO - Closing the connection pool...
+2024-08-07 13:55:52,634 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:55:52,635 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:55:52,635 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:55:52,635 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:55:52,635 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:55:52,635 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:55:52,635 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:55:52,644 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:55:52,645 - INFO - Starting running periodic tasks...
+2024-08-07 13:55:52,661 - INFO - Time slots populated successfully.
+2024-08-07 13:55:52,661 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:55:52,661 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:55:55,518 - INFO - Received callback data: access_service
+2024-08-07 13:56:01,709 - INFO - Closing the connection pool...
+2024-08-07 13:57:23,248 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:57:23,249 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:57:23,249 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:57:23,249 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:57:23,249 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:57:23,249 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:57:23,249 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:57:23,259 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:57:23,259 - INFO - Starting running periodic tasks...
+2024-08-07 13:57:23,276 - INFO - Time slots populated successfully.
+2024-08-07 13:57:23,276 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:57:23,277 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:57:24,829 - INFO - Received callback data: access_service
+2024-08-07 13:57:25,018 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:57:25,018 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:57:25,018 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:57:25,018 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:57:25,019 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:57:27,606 - INFO - Received callback data: key_0
+2024-08-07 13:57:28,830 - INFO - Received callback data: key_1
+2024-08-07 13:57:29,345 - INFO - Received callback data: key_2
+2024-08-07 13:57:29,942 - INFO - Received callback data: key_3
+2024-08-07 13:57:30,521 - INFO - Received callback data: key_4
+2024-08-07 13:57:33,358 - INFO - Received callback data: key_5
+2024-08-07 13:57:33,998 - INFO - Received callback data: key_6
+2024-08-07 13:57:34,402 - INFO - Received callback data: key_7
+2024-08-07 13:57:35,034 - INFO - Received callback data: key_9
+2024-08-07 13:57:37,847 - INFO - Received callback data: key_8
+2024-08-07 13:57:51,170 - INFO - Closing the connection pool...
+2024-08-07 13:57:51,170 - INFO - Connection pool closed. Exiting.
+2024-08-07 13:58:20,571 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:58:20,572 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:58:20,572 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:58:20,572 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:58:20,572 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:58:20,572 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:58:20,572 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:58:20,582 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:58:20,583 - INFO - Starting running periodic tasks...
+2024-08-07 13:58:20,599 - INFO - Time slots populated successfully.
+2024-08-07 13:58:20,599 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:58:20,599 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:58:22,048 - INFO - Received callback data: access_service
+2024-08-07 13:58:22,143 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:58:22,143 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:58:22,143 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:58:22,143 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:58:22,143 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:58:26,754 - INFO - Received callback data: key_0
+2024-08-07 13:58:31,532 - INFO - Received callback data: key_1
+2024-08-07 13:58:33,459 - INFO - Closing the connection pool...
+2024-08-07 13:58:33,460 - INFO - Connection pool closed. Exiting.
+2024-08-07 13:59:55,122 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 13:59:55,122 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 13:59:55,122 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 13:59:55,122 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 13:59:55,122 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 13:59:55,122 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 13:59:55,123 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 13:59:55,133 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 13:59:55,134 - INFO - Starting running periodic tasks...
+2024-08-07 13:59:55,156 - INFO - Time slots populated successfully.
+2024-08-07 13:59:55,156 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:59:55,157 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:59:58,702 - INFO - Received callback data: access_service
+2024-08-07 13:59:58,774 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 13:59:58,774 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 13:59:58,774 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 13:59:58,775 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 13:59:58,775 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 13:59:58,775 - ERROR - [91mError during 'handle_unexpected_message' operations: 'NoneType' object has no attribute 'startswith'.[0m
+2024-08-07 14:00:05,351 - INFO - Closing the connection pool...
+2024-08-07 14:00:05,351 - INFO - Connection pool closed. Exiting.
+2024-08-07 14:00:52,075 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 14:00:52,075 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 14:00:52,075 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 14:00:52,075 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 14:00:52,075 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 14:00:52,075 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 14:00:52,076 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 14:00:52,085 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 14:00:52,086 - INFO - Starting running periodic tasks...
+2024-08-07 14:00:52,109 - INFO - Time slots populated successfully.
+2024-08-07 14:00:52,109 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:00:52,109 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:00:53,431 - INFO - Received callback data: access_service
+2024-08-07 14:00:53,715 - ERROR - Error during database operations: 'Cursor' object has no attribute 'fetchrow'
+2024-08-07 14:00:53,715 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:00:53,715 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:00:53,715 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:00:53,715 - INFO - This is where the function to display the keypad for the user tointeract with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function
+2024-08-07 14:00:53,715 - ERROR - [91mError during 'handle_unexpected_message' operations: 'NoneType' object has no attribute 'startswith'.[0m
+2024-08-07 14:00:56,812 - INFO - Closing the connection pool...
+2024-08-07 14:00:56,813 - INFO - Connection pool closed. Exiting.
+2024-08-07 14:12:20,236 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 14:12:20,236 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 14:12:20,236 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 14:12:20,236 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 14:12:20,236 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 14:12:20,236 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 14:12:20,236 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 14:12:20,246 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 14:12:20,247 - INFO - Starting running periodic tasks...
+2024-08-07 14:12:20,265 - INFO - Time slots populated successfully.
+2024-08-07 14:12:20,265 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:12:20,265 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:12:28,257 - INFO - Received callback data: faq_menu
+2024-08-07 14:12:31,419 - INFO - Received callback data: start
+2024-08-07 14:12:33,741 - INFO - Received callback data: access_service
+2024-08-07 14:12:36,341 - INFO - Closing the connection pool...
+2024-08-07 14:28:30,274 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 14:28:30,275 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 14:28:30,275 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 14:28:30,275 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 14:28:30,275 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 14:28:30,275 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 14:28:30,275 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 14:28:30,286 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 14:28:30,287 - INFO - Starting running periodic tasks...
+2024-08-07 14:28:30,306 - INFO - Time slots populated successfully.
+2024-08-07 14:28:30,306 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:28:30,306 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:28:36,882 - INFO - Received callback data: faq_menu
+2024-08-07 14:28:38,815 - INFO - Received callback data: faq_origin_coffee_beans
+2024-08-07 14:28:40,290 - INFO - Received callback data: faq_menu
+2024-08-07 14:28:41,658 - INFO - Received callback data: faq_opening_hours
+2024-08-07 14:28:42,431 - INFO - Received callback data: faq_menu
+2024-08-07 14:28:43,442 - INFO - Received callback data: faq_accepted_payment_options
+2024-08-07 14:28:44,851 - INFO - Received callback data: faq_menu
+2024-08-07 14:28:46,254 - INFO - Received callback data: faq_contact_info
+2024-08-07 14:28:47,153 - INFO - Received callback data: faq_menu
+2024-08-07 14:28:48,420 - INFO - Received callback data: how_is_our_coffee_made
+2024-08-07 14:28:53,129 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:23,409 - INFO - Closing the connection pool...
+2024-08-07 14:37:26,366 - INFO - Starting main.py process, telegram bot live!
+2024-08-07 14:37:26,366 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-07 14:37:26,366 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-07 14:37:26,366 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-07 14:37:26,366 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-07 14:37:26,366 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-07 14:37:26,366 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-07 14:37:26,376 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-07 14:37:26,376 - INFO - Starting running periodic tasks...
+2024-08-07 14:37:26,392 - INFO - Time slots populated successfully.
+2024-08-07 14:37:26,392 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:37:26,392 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:37:34,835 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:35,891 - INFO - Received callback data: faq_contact_info
+2024-08-07 14:37:37,277 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:38,291 - INFO - Received callback data: faq_origin_coffee_beans
+2024-08-07 14:37:39,438 - INFO - Received callback data: start
+2024-08-07 14:37:41,643 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:43,164 - INFO - Received callback data: faq_contact_info
+2024-08-07 14:37:44,152 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:45,027 - INFO - Received callback data: faq_origin_coffee_beans
+2024-08-07 14:37:45,876 - INFO - Received callback data: faq_menu
+2024-08-07 14:37:49,579 - INFO - Received callback data: how_is_our_coffee_made
+2024-08-07 14:37:56,659 - INFO - Received callback data: start
+2024-08-07 14:37:58,658 - INFO - Received callback data: buy
+2024-08-07 14:37:58,668 - INFO - Successfully fetched available time slots.
+2024-08-07 14:37:58,668 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:37:58,668 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:37:58,668 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:38:18,439 - INFO - Received callback data: time_slot_9
+2024-08-07 14:38:18,448 - INFO - Successfully fetched time slot with ID 9.
+2024-08-07 14:38:18,448 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:38:18,448 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:38:18,449 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:38:22,912 - INFO - Received callback data: confirm_buy_9
+2024-08-07 14:38:22,913 - INFO - Successfully fetched time slot with ID 9.
+2024-08-07 14:38:22,913 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:38:22,913 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:38:22,913 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:38:57,187 - INFO - Successfully fetched all time slots.
+2024-08-07 14:38:57,187 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:38:57,187 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:38:57,187 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:38:57,187 - INFO - [{'id': 1035, 'start_time': datetime.datetime(2024, 8, 9, 10, 0), 'end_time': datetime.datetime(2024, 8, 9, 12, 0)}, {'id': 644, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 1034, 'start_time': datetime.datetime(2024, 8, 9, 8, 0), 'end_time': datetime.datetime(2024, 8, 9, 10, 0)}, {'id': 643, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 1033, 'start_time': datetime.datetime(2024, 8, 9, 6, 0), 'end_time': datetime.datetime(2024, 8, 9, 8, 0)}, {'id': 642, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 1032, 'start_time': datetime.datetime(2024, 8, 9, 4, 0), 'end_time': datetime.datetime(2024, 8, 9, 6, 0)}, {'id': 641, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 1031, 'start_time': datetime.datetime(2024, 8, 9, 2, 0), 'end_time': datetime.datetime(2024, 8, 9, 4, 0)}, {'id': 640, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 575, 'start_time': datetime.datetime(2024, 8, 9, 0, 0), 'end_time': datetime.datetime(2024, 8, 9, 2, 0)}, {'id': 138, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 574, 'start_time': datetime.datetime(2024, 8, 8, 22, 0), 'end_time': datetime.datetime(2024, 8, 9, 0, 0)}, {'id': 137, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 573, 'start_time': datetime.datetime(2024, 8, 8, 20, 0), 'end_time': datetime.datetime(2024, 8, 8, 22, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}, {'id': 572, 'start_time': datetime.datetime(2024, 8, 8, 18, 0), 'end_time': datetime.datetime(2024, 8, 8, 20, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 8, 17, 0), 'end_time': datetime.datetime(2024, 8, 8, 19, 0)}, {'id': 571, 'start_time': datetime.datetime(2024, 8, 8, 16, 0), 'end_time': datetime.datetime(2024, 8, 8, 18, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 8, 15, 0), 'end_time': datetime.datetime(2024, 8, 8, 17, 0)}, {'id': 570, 'start_time': datetime.datetime(2024, 8, 8, 14, 0), 'end_time': datetime.datetime(2024, 8, 8, 16, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 8, 13, 0), 'end_time': datetime.datetime(2024, 8, 8, 15, 0)}, {'id': 569, 'start_time': datetime.datetime(2024, 8, 8, 12, 0), 'end_time': datetime.datetime(2024, 8, 8, 14, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 8, 11, 0), 'end_time': datetime.datetime(2024, 8, 8, 13, 0)}, {'id': 568, 'start_time': datetime.datetime(2024, 8, 8, 10, 0), 'end_time': datetime.datetime(2024, 8, 8, 12, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 8, 9, 0), 'end_time': datetime.datetime(2024, 8, 8, 11, 0)}, {'id': 567, 'start_time': datetime.datetime(2024, 8, 8, 8, 0), 'end_time': datetime.datetime(2024, 8, 8, 10, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 8, 7, 0), 'end_time': datetime.datetime(2024, 8, 8, 9, 0)}, {'id': 566, 'start_time': datetime.datetime(2024, 8, 8, 6, 0), 'end_time': datetime.datetime(2024, 8, 8, 8, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 8, 5, 0), 'end_time': datetime.datetime(2024, 8, 8, 7, 0)}, {'id': 565, 'start_time': datetime.datetime(2024, 8, 8, 4, 0), 'end_time': datetime.datetime(2024, 8, 8, 6, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 8, 3, 0), 'end_time': datetime.datetime(2024, 8, 8, 5, 0)}, {'id': 564, 'start_time': datetime.datetime(2024, 8, 8, 2, 0), 'end_time': datetime.datetime(2024, 8, 8, 4, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 8, 1, 0), 'end_time': datetime.datetime(2024, 8, 8, 3, 0)}, {'id': 563, 'start_time': datetime.datetime(2024, 8, 8, 0, 0), 'end_time': datetime.datetime(2024, 8, 8, 2, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 7, 23, 0), 'end_time': datetime.datetime(2024, 8, 8, 1, 0)}, {'id': 562, 'start_time': datetime.datetime(2024, 8, 7, 22, 0), 'end_time': datetime.datetime(2024, 8, 8, 0, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 7, 21, 0), 'end_time': datetime.datetime(2024, 8, 7, 23, 0)}, {'id': 561, 'start_time': datetime.datetime(2024, 8, 7, 20, 0), 'end_time': datetime.datetime(2024, 8, 7, 22, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 7, 19, 0), 'end_time': datetime.datetime(2024, 8, 7, 21, 0)}, {'id': 560, 'start_time': datetime.datetime(2024, 8, 7, 18, 0), 'end_time': datetime.datetime(2024, 8, 7, 20, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 7, 17, 0), 'end_time': datetime.datetime(2024, 8, 7, 19, 0)}, {'id': 559, 'start_time': datetime.datetime(2024, 8, 7, 16, 0), 'end_time': datetime.datetime(2024, 8, 7, 18, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 7, 15, 0), 'end_time': datetime.datetime(2024, 8, 7, 17, 0)}, {'id': 558, 'start_time': datetime.datetime(2024, 8, 7, 14, 0), 'end_time': datetime.datetime(2024, 8, 7, 16, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 7, 13, 0), 'end_time': datetime.datetime(2024, 8, 7, 15, 0)}]
+2024-08-07 14:39:08,359 - INFO - Received callback data: admin_manage_booking_time_slot_9
+2024-08-07 14:39:08,368 - INFO - Successfully fetched time slot with ID 9.
+2024-08-07 14:39:08,368 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:39:08,368 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:39:08,368 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:39:10,742 - INFO - Received callback data: admin_managing_specified_time_slot_booking_True_9
+2024-08-07 14:39:10,747 - INFO - Successfully booked time slot 9. Generated PIN: 17366.
+2024-08-07 14:39:10,747 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:39:10,747 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:39:10,747 - INFO - Operation completed.
+2024-08-07 14:39:10,747 - INFO - Successfully fetched time slot with ID 9.
+2024-08-07 14:39:10,748 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:39:10,748 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:39:10,748 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:39:25,939 - INFO - Received callback data: buy
+2024-08-07 14:39:25,940 - INFO - Successfully fetched available time slots.
+2024-08-07 14:39:25,940 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:39:25,940 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:39:25,941 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:39:46,865 - INFO - Successfully fetched all time slots.
+2024-08-07 14:39:46,865 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-07 14:39:46,865 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-07 14:39:46,865 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-07 14:39:46,865 - INFO - [{'id': 1035, 'start_time': datetime.datetime(2024, 8, 9, 10, 0), 'end_time': datetime.datetime(2024, 8, 9, 12, 0)}, {'id': 644, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 1034, 'start_time': datetime.datetime(2024, 8, 9, 8, 0), 'end_time': datetime.datetime(2024, 8, 9, 10, 0)}, {'id': 643, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 1033, 'start_time': datetime.datetime(2024, 8, 9, 6, 0), 'end_time': datetime.datetime(2024, 8, 9, 8, 0)}, {'id': 642, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 1032, 'start_time': datetime.datetime(2024, 8, 9, 4, 0), 'end_time': datetime.datetime(2024, 8, 9, 6, 0)}, {'id': 641, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 1031, 'start_time': datetime.datetime(2024, 8, 9, 2, 0), 'end_time': datetime.datetime(2024, 8, 9, 4, 0)}, {'id': 640, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 575, 'start_time': datetime.datetime(2024, 8, 9, 0, 0), 'end_time': datetime.datetime(2024, 8, 9, 2, 0)}, {'id': 138, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 574, 'start_time': datetime.datetime(2024, 8, 8, 22, 0), 'end_time': datetime.datetime(2024, 8, 9, 0, 0)}, {'id': 137, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 573, 'start_time': datetime.datetime(2024, 8, 8, 20, 0), 'end_time': datetime.datetime(2024, 8, 8, 22, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}, {'id': 572, 'start_time': datetime.datetime(2024, 8, 8, 18, 0), 'end_time': datetime.datetime(2024, 8, 8, 20, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 8, 17, 0), 'end_time': datetime.datetime(2024, 8, 8, 19, 0)}, {'id': 571, 'start_time': datetime.datetime(2024, 8, 8, 16, 0), 'end_time': datetime.datetime(2024, 8, 8, 18, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 8, 15, 0), 'end_time': datetime.datetime(2024, 8, 8, 17, 0)}, {'id': 570, 'start_time': datetime.datetime(2024, 8, 8, 14, 0), 'end_time': datetime.datetime(2024, 8, 8, 16, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 8, 13, 0), 'end_time': datetime.datetime(2024, 8, 8, 15, 0)}, {'id': 569, 'start_time': datetime.datetime(2024, 8, 8, 12, 0), 'end_time': datetime.datetime(2024, 8, 8, 14, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 8, 11, 0), 'end_time': datetime.datetime(2024, 8, 8, 13, 0)}, {'id': 568, 'start_time': datetime.datetime(2024, 8, 8, 10, 0), 'end_time': datetime.datetime(2024, 8, 8, 12, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 8, 9, 0), 'end_time': datetime.datetime(2024, 8, 8, 11, 0)}, {'id': 567, 'start_time': datetime.datetime(2024, 8, 8, 8, 0), 'end_time': datetime.datetime(2024, 8, 8, 10, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 8, 7, 0), 'end_time': datetime.datetime(2024, 8, 8, 9, 0)}, {'id': 566, 'start_time': datetime.datetime(2024, 8, 8, 6, 0), 'end_time': datetime.datetime(2024, 8, 8, 8, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 8, 5, 0), 'end_time': datetime.datetime(2024, 8, 8, 7, 0)}, {'id': 565, 'start_time': datetime.datetime(2024, 8, 8, 4, 0), 'end_time': datetime.datetime(2024, 8, 8, 6, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 8, 3, 0), 'end_time': datetime.datetime(2024, 8, 8, 5, 0)}, {'id': 564, 'start_time': datetime.datetime(2024, 8, 8, 2, 0), 'end_time': datetime.datetime(2024, 8, 8, 4, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 8, 1, 0), 'end_time': datetime.datetime(2024, 8, 8, 3, 0)}, {'id': 563, 'start_time': datetime.datetime(2024, 8, 8, 0, 0), 'end_time': datetime.datetime(2024, 8, 8, 2, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 7, 23, 0), 'end_time': datetime.datetime(2024, 8, 8, 1, 0)}, {'id': 562, 'start_time': datetime.datetime(2024, 8, 7, 22, 0), 'end_time': datetime.datetime(2024, 8, 8, 0, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 7, 21, 0), 'end_time': datetime.datetime(2024, 8, 7, 23, 0)}, {'id': 561, 'start_time': datetime.datetime(2024, 8, 7, 20, 0), 'end_time': datetime.datetime(2024, 8, 7, 22, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 7, 19, 0), 'end_time': datetime.datetime(2024, 8, 7, 21, 0)}, {'id': 560, 'start_time': datetime.datetime(2024, 8, 7, 18, 0), 'end_time': datetime.datetime(2024, 8, 7, 20, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 7, 17, 0), 'end_time': datetime.datetime(2024, 8, 7, 19, 0)}, {'id': 559, 'start_time': datetime.datetime(2024, 8, 7, 16, 0), 'end_time': datetime.datetime(2024, 8, 7, 18, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 7, 15, 0), 'end_time': datetime.datetime(2024, 8, 7, 17, 0)}, {'id': 558, 'start_time': datetime.datetime(2024, 8, 7, 14, 0), 'end_time': datetime.datetime(2024, 8, 7, 16, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 7, 13, 0), 'end_time': datetime.datetime(2024, 8, 7, 15, 0)}]
+2024-08-07 14:42:03,339 - INFO - Closing the connection pool...
+2024-08-07 14:42:03,340 - INFO - Connection pool closed. Exiting.

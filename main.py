@@ -2,7 +2,7 @@ import asyncio
 import time
 
 from aiogram import Dispatcher
-from bot.handlers.user_handlers import user_router
+from bot.handlers.user_handlers_v2 import user_router
 from dependencies import container      # This takes care of the connection pool to database, ensuring we can share pool.
 
 from services_python.bot_instance import bot

@@ -639,9 +639,9 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
         await callback.message.answer(text=f"Error running 'manage_booking_time_slots'. ")
 
 
-
-@user_router.callback_query()
-async def handle_callback_query(callback: types.CallbackQuery):
+"""Start Callback Data Handler"""
+@user_router.callback_query(lambda cb: cb.data.startswith('start'))
+async def handle_start_callback(callback: types.CallbackQuery):
     try:
         if not check_if_time_within_openings_hours():
             await callback.message.answer(
@@ -654,60 +654,143 @@ async def handle_callback_query(callback: types.CallbackQuery):
         data = callback.data
         logger.info(f"Received callback data: {data}")
 
-        if data == 'faq_menu':
+        if data == 'start':
+            await start_menu(callback.message)
+
+    except Exception as e:
+        logger.error(f"Error handling callback query: {e}")
+        # Handle the error, perhaps notify the user or log the issue
+
+"""FAQ Callback Data Handlers"""
+@user_router.callback_query(lambda cb: cb.data.startswith('faq_') or cb.data == 'faq_menu' or cb.data == 'back_to_faq' or cb.data == 'how_is_our_coffee_made')
+async def handle_faq_callbacks(callback: types.CallbackQuery):
+    try:
+        if not check_if_time_within_openings_hours():
+            await callback.message.answer(
+                                 "Sorry, 🕣\n"
+                                 "\n"
+                                 "The shop is only available between:\n"
+                                 "8:00 - 23:50 | EU UTC+2. ")
+            return
+
+        data = callback.data
+        logger.info(f"Received callback data: {data}")
+
+
+        if data == 'faq_menu' or data == 'back_to_faq':
             await show_faq_options(callback)
         elif data.startswith('faq_'):
             question_id = data
             if question_id in faq_answers:
                 answer = faq_answers[question_id]
-                reply_markup = await back_to_faq_keyboard()  # Await the function to get the InlineKeyboardMarkup
+                reply_markup = await back_to_faq_keyboard()
                 await callback.message.edit_text(text=answer, reply_markup=reply_markup)
             else:
-                reply_markup = await back_to_faq_keyboard()  # Await the function to get the InlineKeyboardMarkup
+                reply_markup = await back_to_faq_keyboard()
                 await callback.message.answer("Sorry, I don't have an answer for that.", reply_markup=reply_markup)
-
-        elif data == 'back_to_faq':
-            await show_faq_options(callback)
         elif data == "how_is_our_coffee_made":
             await handle_how_is_our_coffee_made_faq_answer(callback)
-        elif data == "access_service":
-            """"This is where the logic for granting Access to the actual service is implemented
-            Need to display a key-pad access system for user."""
-            await create_numbers_access_keypad(callback)
-            access_pin = f"12312"
-            await check_user_access_by_access_pin(access_pin)
-            logger.info(f"This is where the function to display the keypad for the user to"
-                        f"interact with. Then we pass the PIN back to the 'check_user_access_by_access_pin' function")
-        elif data == 'start':
-            await start_menu(callback.message)
-        elif data == 'buy':
-            """This is where the function to display time-slot 
-            dashboard buttons to the user.."""
-            await callback_handler_buy(callback)
-        elif data.startswith("time_slot_"):
-            """This is where the function to ask user to confirm
-            Order for specified time-slot."""
-            await process_selected_time_slot(callback)
-        elif data.startswith("confirm_buy"):
-            """"User is prompted to send a message to the admin @handle acc"""
-            await booking_specified_time_slot_user_message(callback)
-        elif data.startswith("admin_manage_booking_time_slot_"):
-            await admin_managing_specified_time_slot_booking_choose_true_false(callback)
-        elif data.startswith("admin_managing_specified_time_slot_booking_True_") or ("admin_managing_specified_time_slot_booking_False_"):
-            await admin_modify_time_slot_booking_status(callback)
-        else:
-            await handle_unexpected_message(callback.message)
-
-        if data.startswith("key_"):
-            logger.info(callback)
-            logger.info(f"_key callback suc6")
-            await handle_keypad_press(callback)
-
         else:
             await handle_unexpected_message(callback.message)
 
         await callback.answer()
 
     except Exception as e:
-        print(f"Error handling callback query: {e}")
+        logger.error(f"Error handling callback query: {e}")
+        # Handle the error, perhaps notify the user or log the issue
+
+
+"""Admin Dashboard Callback Data Handlers"""
+@user_router.callback_query(lambda cb: cb.data.startswith("admin_manage_booking_time_slot_") or cb.data.startswith("admin_managing_specified_time_slot_booking_"))
+async def handle_admin_dashboard_callbacks(callback: types.CallbackQuery):
+    try:
+        if not check_if_time_within_openings_hours():
+            await callback.message.answer(
+                "Sorry, 🕣\n"
+                "\n"
+                "The shop is only available between:\n"
+                "8:00 - 23:50 | EU UTC+2. ")
+            return
+
+        data = callback.data
+        logger.info(f"Received callback data: {data}")
+
+        if data.startswith("admin_manage_booking_time_slot_"):
+            await admin_managing_specified_time_slot_booking_choose_true_false(callback)
+        elif data.startswith("admin_managing_specified_time_slot_booking_True_") or data.startswith("admin_managing_specified_time_slot_booking_False_"):
+            await admin_modify_time_slot_booking_status(callback)
+        else:
+            await handle_unexpected_message(callback.message)
+
+        await callback.answer()
+
+    except Exception as e:
+        logger.error(f"Error handling callback query: {e}")
+        # Handle the error, perhaps notify the user or log the issue
+
+
+"""Booking Order Callback Data Handlers"""
+@user_router.callback_query(lambda cb: cb.data == 'buy' or cb.data.startswith('time_slot_') or cb.data.startswith('confirm_buy'))
+async def handle_booking_order_callback(callback: types.CallbackQuery):
+    try:
+        if not check_if_time_within_openings_hours():
+            await callback.message.answer(
+                "Sorry, 🕣\n"
+                "\n"
+                "The shop is only available between:\n"
+                "8:00 - 23:50 | EU UTC+2. ")
+            return
+
+        data = callback.data
+        logger.info(f"Received callback data: {data}")
+
+        if data == 'buy':
+            """Display time-slot dashboard buttons to the user"""
+            await callback_handler_buy(callback)
+        elif data.startswith("time_slot_"):
+            """Ask user to confirm the order for the specified time-slot"""
+            await process_selected_time_slot(callback)
+        elif data.startswith("confirm_buy"):
+            """Prompt user to send a message to the admin"""
+            await booking_specified_time_slot_user_message(callback)
+        else:
+            await handle_unexpected_message(callback.message)
+
+        await callback.answer()
+
+    except Exception as e:
+        logger.error(f"Error handling callback query: {e}")
+        # Handle the error, perhaps notify the user or log the issue
+
+"""Access Service Callback Data Handlers"""
+@user_router.callback_query(lambda cb: cb.data == 'access_service' or cb.data.startswith('key_'))
+async def handle_access_service_callback(callback: types.CallbackQuery):
+    try:
+        if not check_if_time_within_openings_hours():
+            await callback.message.answer(
+                                 "Sorry, 🕣\n"
+                                 "\n"
+                                 "The shop is only available between:\n"
+                                 "8:00 - 23:50 | EU UTC+2. ")
+            return
+
+        data = callback.data
+        logger.info(f"Received callback data: {data}")
+
+        if data == 'access_service':
+            await create_numbers_access_keypad(callback)
+            access_pin = f"12312"  # This should be handled dynamically
+            await check_user_access_by_access_pin(access_pin)
+            logger.info("Displayed keypad for the user and passed PIN for access verification.")
+        elif data.startswith("key_"):
+            logger.info(callback)
+            logger.info("_key callback success")
+            await handle_keypad_press(callback)
+        else:
+            await handle_unexpected_message(callback.message)
+
+        await callback.answer()
+
+    except Exception as e:
+        logger.error(f"Error handling callback query: {e}")
         # Handle the error, perhaps notify the user or log the issue

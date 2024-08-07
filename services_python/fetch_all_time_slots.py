@@ -22,14 +22,6 @@ async def fetch_all_time_slots():
     # Initialize the list to store available time slots
     all_time_slots = []
 
-    # Set up timezone
-    paris_tz = pytz.timezone('Europe/Paris')
-
-    # Calculate the current time and the time boundaries
-    now = datetime.now(paris_tz)
-    start_window = now + timedelta(hours=2)  # Start time is 2 hours from now
-    end_window = now + timedelta(hours=46)  # End time is 46 hours from now
-
     pool = container.get_pool()
     if pool:
         try:
