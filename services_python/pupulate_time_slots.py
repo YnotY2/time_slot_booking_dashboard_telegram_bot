@@ -36,8 +36,8 @@ async def populate_time_slots():
     # Set up timezone
     paris_tz = pytz.timezone('Europe/Paris')
     now = datetime.now(paris_tz)
-    end_time = now + timedelta(hours=46)
-    interval = timedelta(hours=2)  # Time slot interval (2 hours)
+    end_time = now + timedelta(hours=46)        # When you want you're last time_slot from current time
+    interval = timedelta(hours=2)  # Time slot interval (2 hours) between each unique time_slot
 
     # Align current time to the nearest previous hour
     start_time = now.replace(minute=0, second=0, microsecond=0)

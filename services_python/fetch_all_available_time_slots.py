@@ -48,7 +48,7 @@ async def fetch_all_available_time_slots():
                     results = await cursor.fetchall()
 
                     if not results:
-                        print("No available time slots found within the specified range.")
+                        logger.info("No available time slots found within the specified range.")
                         return available_time_slots
 
                     # Process the results
@@ -60,15 +60,15 @@ async def fetch_all_available_time_slots():
                             'end_time': end_time
                         })
 
-                    print("Successfully fetched available time slots.")
+                    logger.info("Successfully fetched available time slots.")
 
         except Exception as e:
-            print(f"Error during database operations: {e}")
+            logger.info(f"Error during database operations: {e}")
 
         finally:
             await return_cursor_connection_to_pool(connection)
-            print("Successfully returned the cursor and connection to the pool!")
+            logger.info("Successfully returned the cursor and connection to the pool!")
             return available_time_slots
     else:
-        print("Database connection pool is not available.")
+        logger.error("Database connection pool is not available.")
         return available_time_slots

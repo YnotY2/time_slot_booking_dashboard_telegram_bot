@@ -12,15 +12,15 @@ from services_python.return_cursor_connection_to_pool import return_cursor_conne
 from dependencies import container
 
 # Set up logger with service name
-service_name = "fetch_all_available_time_slots"
+service_name = "fetch_all_time_slots"
 logger = setup_logger(service_name)
 
 
-async def fetch_all_available_time_slots():
+async def fetch_all_time_slots():
     """Fetch available time slots that are between 2 hours and 46 hours from now, in reverse order."""
 
     # Initialize the list to store available time slots
-    available_time_slots = []
+    all_time_slots = []
 
     # Set up timezone
     paris_tz = pytz.timezone('Europe/Paris')
@@ -39,36 +39,33 @@ async def fetch_all_available_time_slots():
                     query_fetch_slots = """
                         SELECT id, start_time, end_time 
                         FROM time_slots 
-                        WHERE is_booked = FALSE
-                          AND start_time >= %s
-                          AND start_time < %s
                         ORDER BY start_time DESC
                     """
-                    await cursor.execute(query_fetch_slots, (start_window, end_window))
+                    await cursor.execute(query_fetch_slots)
                     results = await cursor.fetchall()
 
                     if not results:
-                        print("No available time slots found within the specified range.")
-                        return available_time_slots
+                        logger.info("No available time slots found within the specified range.")
+                        return all_time_slots
 
                     # Process the results
                     for row in results:
                         slot_id, start_time, end_time = row
-                        available_time_slots.append({
+                        all_time_slots.append({
                             'id': slot_id,
                             'start_time': start_time,
                             'end_time': end_time
                         })
 
-                    print("Successfully fetched available time slots.")
+                    logger.info("Successfully fetched all time slots.")
 
         except Exception as e:
-            print(f"Error during database operations: {e}")
+            logger.error(f"Error during database operations: {e}")
 
         finally:
             await return_cursor_connection_to_pool(connection)
-            print("Successfully returned the cursor and connection to the pool!")
-            return available_time_slots
+            logger.info("Successfully returned the cursor and connection to the pool!")
+            return all_time_slots
     else:
-        print("Database connection pool is not available.")
-        return available_time_slots
+        logger.error("Database connection pool is not available.")
+        return all_time_slots

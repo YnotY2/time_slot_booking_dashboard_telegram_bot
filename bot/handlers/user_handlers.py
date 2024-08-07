@@ -19,6 +19,7 @@ from config.settings import admin_manage_bookings_dashboard_password
 from services_python.check_if_time_within_openings_hours import check_if_time_within_openings_hours
 
 from services_python.fetch_all_available_time_slots import fetch_all_available_time_slots
+from services_python.fetch_all_time_slots import fetch_all_time_slots
 from services_python.fetch_time_slot_row_by_id import fetch_time_slot_row_by_id
 from services_python.booking_specified_time_slot_user_message import booking_specified_time_slot_user_message
 from services_python.manage_booking_time_slots import manage_booking_time_slots
@@ -417,11 +418,11 @@ async def admin_time_slot_booking_dashboard(message: types.Message):
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!
     # Fetch available time slots from the database, we need to fetch all time-slots not just available.
-    available_time_slots = await fetch_all_available_time_slots()
-    print(available_time_slots)
+    all_time_slots = await fetch_all_time_slots()
+    logger.info(all_time_slots)
 
     # Call above function and generate the time slot buttons, pass 'available_time_slots' variable
-    time_slot_buttons = await create_time_slot_buttons(available_time_slots)
+    time_slot_buttons = await create_time_slot_buttons(all_time_slots)
 
     if time_slot_buttons is None:
         # Message when no time slots are available
