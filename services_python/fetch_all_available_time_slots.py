@@ -17,7 +17,7 @@ logger = setup_logger(service_name)
 
 
 async def fetch_all_available_time_slots():
-    """Fetch available time slots that are between 2 hours and 46 hours from now, in reverse order."""
+    """Fetch available time slots that are between 0 hours and 46 hours from now, in reverse order."""
 
     # Initialize the list to store available time slots
     available_time_slots = []
@@ -27,7 +27,7 @@ async def fetch_all_available_time_slots():
 
     # Calculate the current time and the time boundaries
     now = datetime.now(paris_tz)
-    start_window = now + timedelta(hours=0)  # Start time is 0 hours from now
+    start_window = now  # Start time is the current time
     end_window = now + timedelta(hours=46)  # End time is 46 hours from now
 
     pool = container.get_pool()
@@ -41,7 +41,7 @@ async def fetch_all_available_time_slots():
                         FROM time_slots 
                         WHERE is_booked = FALSE
                           AND start_time >= %s
-                          AND start_time < %s
+                          AND end_time <= %s
                         ORDER BY start_time DESC
                     """
                     await cursor.execute(query_fetch_slots, (start_window, end_window))
@@ -63,12 +63,14 @@ async def fetch_all_available_time_slots():
                     logger.info("Successfully fetched available time slots.")
 
         except Exception as e:
-            logger.info(f"Error during database operations: {e}")
+            logger.error(f"Error during database operations: {e}")
 
         finally:
-            await return_cursor_connection_to_pool(connection)
+            if connection:
+                await return_cursor_connection_to_pool(connection)
             logger.info("Successfully returned the cursor and connection to the pool!")
-            return available_time_slots
+
+        return available_time_slots
     else:
         logger.error("Database connection pool is not available.")
         return available_time_slots
