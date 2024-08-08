@@ -6480,3 +6480,413 @@ LINE 3:                             FROM confirmed_orders
 2024-08-08 05:52:56,221 - INFO - Returning 'user_access_auth_return_data'
 2024-08-08 05:53:27,005 - INFO - Closing the connection pool...
 2024-08-08 05:53:27,005 - INFO - Connection pool closed. Exiting.
+2024-08-08 06:18:00,076 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 06:18:00,076 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 06:18:00,076 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 06:18:00,076 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 06:18:00,076 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 06:18:00,076 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 06:18:00,077 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 06:18:00,086 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 06:18:00,086 - INFO - Starting running periodic tasks...
+2024-08-08 06:18:00,098 - INFO - Time slots populated successfully.
+2024-08-08 06:18:00,098 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:18:00,098 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:18:09,687 - INFO - Received callback data: access_service
+2024-08-08 06:18:09,792 - INFO - Displayed keypad for the user.
+2024-08-08 06:18:11,261 - INFO - Received callback data: key_4
+2024-08-08 06:18:11,261 - INFO - Handling keypad press: 4
+2024-08-08 06:18:11,261 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:11,275 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:18:11,277 - INFO - Current PIN: 
+2024-08-08 06:18:11,277 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:11,277 - INFO - Updated PIN: 4.
+2024-08-08 06:18:11,277 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:18:12,138 - INFO - Received callback data: key_3
+2024-08-08 06:18:12,138 - INFO - Handling keypad press: 3
+2024-08-08 06:18:12,138 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:12,139 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:12,139 - INFO - Retrieved PIN 'get_pin' ['4'].
+2024-08-08 06:18:12,144 - INFO - Current PIN: 4
+2024-08-08 06:18:12,144 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:12,144 - INFO - Updated PIN: 43.
+2024-08-08 06:18:13,207 - INFO - Received callback data: key_7
+2024-08-08 06:18:13,207 - INFO - Handling keypad press: 7
+2024-08-08 06:18:13,207 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:13,208 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:13,208 - INFO - Retrieved PIN 'get_pin' ['43'].
+2024-08-08 06:18:13,213 - INFO - Current PIN: 43
+2024-08-08 06:18:13,213 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:13,213 - INFO - Updated PIN: 437.
+2024-08-08 06:18:13,751 - INFO - Received callback data: key_1
+2024-08-08 06:18:13,751 - INFO - Handling keypad press: 1
+2024-08-08 06:18:13,751 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:13,751 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:13,751 - INFO - Retrieved PIN 'get_pin' ['437'].
+2024-08-08 06:18:13,756 - INFO - Current PIN: 437
+2024-08-08 06:18:13,756 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:13,756 - INFO - Updated PIN: 4371.
+2024-08-08 06:18:17,604 - INFO - Received callback data: key_6
+2024-08-08 06:18:17,605 - INFO - Handling keypad press: 6
+2024-08-08 06:18:17,605 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:17,605 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:17,605 - INFO - Retrieved PIN 'get_pin' ['4371'].
+2024-08-08 06:18:17,610 - INFO - Current PIN: 4371
+2024-08-08 06:18:17,610 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:17,610 - INFO - Updated PIN: 43716.
+2024-08-08 06:18:19,449 - INFO - Received callback data: key_0
+2024-08-08 06:18:19,449 - INFO - Handling keypad press: 0
+2024-08-08 06:18:19,449 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:19,450 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:19,450 - INFO - Retrieved PIN 'get_pin' ['43716'].
+2024-08-08 06:18:19,492 - INFO - FULL PIN: 43716
+2024-08-08 06:18:19,540 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:18:19,568 - INFO - PIN not found.
+2024-08-08 06:18:19,568 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:18:19,568 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:18:19,568 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:18:19,568 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:18:30,690 - INFO - Received callback data: access_service
+2024-08-08 06:18:30,732 - INFO - Displayed keypad for the user.
+2024-08-08 06:18:33,466 - INFO - Received callback data: key_1
+2024-08-08 06:18:33,466 - INFO - Handling keypad press: 1
+2024-08-08 06:18:33,466 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:33,471 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:18:33,473 - INFO - Current PIN: 
+2024-08-08 06:18:33,473 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:33,473 - INFO - Updated PIN: 1.
+2024-08-08 06:18:33,473 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:18:34,347 - INFO - Received callback data: key_2
+2024-08-08 06:18:34,347 - INFO - Handling keypad press: 2
+2024-08-08 06:18:34,347 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:34,347 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:34,347 - INFO - Retrieved PIN 'get_pin' ['1'].
+2024-08-08 06:18:34,352 - INFO - Current PIN: 1
+2024-08-08 06:18:34,352 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:34,352 - INFO - Updated PIN: 12.
+2024-08-08 06:18:35,378 - INFO - Received callback data: key_3
+2024-08-08 06:18:35,379 - INFO - Handling keypad press: 3
+2024-08-08 06:18:35,379 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:35,379 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:35,379 - INFO - Retrieved PIN 'get_pin' ['12'].
+2024-08-08 06:18:35,380 - INFO - Current PIN: 12
+2024-08-08 06:18:35,380 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:35,380 - INFO - Updated PIN: 123.
+2024-08-08 06:18:36,502 - INFO - Received callback data: key_4
+2024-08-08 06:18:36,502 - INFO - Handling keypad press: 4
+2024-08-08 06:18:36,502 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:36,502 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:36,502 - INFO - Retrieved PIN 'get_pin' ['123'].
+2024-08-08 06:18:36,508 - INFO - Current PIN: 123
+2024-08-08 06:18:36,508 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:36,508 - INFO - Updated PIN: 1234.
+2024-08-08 06:18:38,794 - INFO - Received callback data: key_5
+2024-08-08 06:18:38,794 - INFO - Handling keypad press: 5
+2024-08-08 06:18:38,794 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:38,795 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:38,795 - INFO - Retrieved PIN 'get_pin' ['1234'].
+2024-08-08 06:18:38,800 - INFO - Current PIN: 1234
+2024-08-08 06:18:38,800 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:18:38,800 - INFO - Updated PIN: 12345.
+2024-08-08 06:18:44,880 - INFO - Received callback data: key_0
+2024-08-08 06:18:44,880 - INFO - Handling keypad press: 0
+2024-08-08 06:18:44,880 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:18:44,881 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:18:44,881 - INFO - Retrieved PIN 'get_pin' ['12345'].
+2024-08-08 06:18:44,920 - INFO - FULL PIN: 12345
+2024-08-08 06:18:44,980 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:18:45,010 - INFO - PIN not found.
+2024-08-08 06:18:45,010 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:18:45,010 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:18:45,011 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:18:45,011 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:21:27,180 - INFO - Received callback data: key_2
+2024-08-08 06:21:27,180 - INFO - Handling keypad press: 2
+2024-08-08 06:21:27,180 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:27,222 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:21:27,223 - INFO - Current PIN: 
+2024-08-08 06:21:27,224 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:27,224 - INFO - Updated PIN: 2.
+2024-08-08 06:21:27,224 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:21:27,971 - INFO - Received callback data: key_1
+2024-08-08 06:21:27,971 - INFO - Handling keypad press: 1
+2024-08-08 06:21:27,971 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:27,971 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:27,971 - INFO - Retrieved PIN 'get_pin' ['2'].
+2024-08-08 06:21:27,976 - INFO - Current PIN: 2
+2024-08-08 06:21:27,976 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:27,976 - INFO - Updated PIN: 21.
+2024-08-08 06:21:28,641 - INFO - Received callback data: key_0
+2024-08-08 06:21:28,641 - INFO - Handling keypad press: 0
+2024-08-08 06:21:28,641 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:28,642 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:28,642 - INFO - Retrieved PIN 'get_pin' ['21'].
+2024-08-08 06:21:28,643 - INFO - Current PIN: 21
+2024-08-08 06:21:28,643 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:28,643 - INFO - Updated PIN: 210.
+2024-08-08 06:21:29,235 - INFO - Received callback data: key_7
+2024-08-08 06:21:29,235 - INFO - Handling keypad press: 7
+2024-08-08 06:21:29,235 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:29,235 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:29,235 - INFO - Retrieved PIN 'get_pin' ['210'].
+2024-08-08 06:21:29,240 - INFO - Current PIN: 210
+2024-08-08 06:21:29,240 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:29,240 - INFO - Updated PIN: 2107.
+2024-08-08 06:21:29,941 - INFO - Received callback data: key_3
+2024-08-08 06:21:29,941 - INFO - Handling keypad press: 3
+2024-08-08 06:21:29,941 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:29,942 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:29,942 - INFO - Retrieved PIN 'get_pin' ['2107'].
+2024-08-08 06:21:29,947 - INFO - Current PIN: 2107
+2024-08-08 06:21:29,947 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:29,947 - INFO - Updated PIN: 21073.
+2024-08-08 06:21:32,315 - INFO - Received callback data: key_0
+2024-08-08 06:21:32,315 - INFO - Handling keypad press: 0
+2024-08-08 06:21:32,315 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:32,315 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:32,315 - INFO - Retrieved PIN 'get_pin' ['21073'].
+2024-08-08 06:21:32,361 - INFO - FULL PIN: 21073
+2024-08-08 06:21:32,408 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:21:32,437 - INFO - PIN not found.
+2024-08-08 06:21:32,437 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:21:32,438 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:21:32,438 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:21:32,438 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:21:33,554 - INFO - Received callback data: key_4
+2024-08-08 06:21:33,554 - INFO - Handling keypad press: 4
+2024-08-08 06:21:33,554 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:33,559 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:21:33,561 - INFO - Current PIN: 
+2024-08-08 06:21:33,561 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:33,561 - INFO - Updated PIN: 4.
+2024-08-08 06:21:33,561 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:21:49,482 - INFO - Received callback data: access_service
+2024-08-08 06:21:49,573 - INFO - Displayed keypad for the user.
+2024-08-08 06:21:52,272 - INFO - Received callback data: key_2
+2024-08-08 06:21:52,272 - INFO - Handling keypad press: 2
+2024-08-08 06:21:52,273 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:52,273 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:52,273 - INFO - Retrieved PIN 'get_pin' ['4'].
+2024-08-08 06:21:52,278 - INFO - Current PIN: 4
+2024-08-08 06:21:52,278 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:52,278 - INFO - Updated PIN: 42.
+2024-08-08 06:21:53,019 - INFO - Received callback data: key_1
+2024-08-08 06:21:53,020 - INFO - Handling keypad press: 1
+2024-08-08 06:21:53,020 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:53,020 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:53,020 - INFO - Retrieved PIN 'get_pin' ['42'].
+2024-08-08 06:21:53,026 - INFO - Current PIN: 42
+2024-08-08 06:21:53,026 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:53,026 - INFO - Updated PIN: 421.
+2024-08-08 06:21:53,685 - INFO - Received callback data: key_3
+2024-08-08 06:21:53,686 - INFO - Handling keypad press: 3
+2024-08-08 06:21:53,686 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:53,686 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:53,686 - INFO - Retrieved PIN 'get_pin' ['421'].
+2024-08-08 06:21:53,691 - INFO - Current PIN: 421
+2024-08-08 06:21:53,691 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:53,691 - INFO - Updated PIN: 4213.
+2024-08-08 06:21:54,436 - INFO - Received callback data: key_4
+2024-08-08 06:21:54,436 - INFO - Handling keypad press: 4
+2024-08-08 06:21:54,436 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:54,437 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:54,437 - INFO - Retrieved PIN 'get_pin' ['4213'].
+2024-08-08 06:21:54,442 - INFO - Current PIN: 4213
+2024-08-08 06:21:54,442 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:21:54,442 - INFO - Updated PIN: 42134.
+2024-08-08 06:21:55,405 - INFO - Received callback data: key_5
+2024-08-08 06:21:55,405 - INFO - Handling keypad press: 5
+2024-08-08 06:21:55,405 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:21:55,406 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:21:55,406 - INFO - Retrieved PIN 'get_pin' ['42134'].
+2024-08-08 06:21:55,621 - INFO - FULL PIN: 42134
+2024-08-08 06:21:55,687 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:21:55,723 - INFO - PIN not found.
+2024-08-08 06:21:55,723 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:21:55,724 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:21:55,724 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:21:55,724 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:22:06,159 - INFO - Received callback data: access_service
+2024-08-08 06:22:06,209 - INFO - Displayed keypad for the user.
+2024-08-08 06:22:09,658 - INFO - Received callback data: key_1
+2024-08-08 06:22:09,658 - INFO - Handling keypad press: 1
+2024-08-08 06:22:09,658 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:09,699 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:22:09,701 - INFO - Current PIN: 
+2024-08-08 06:22:09,701 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:09,701 - INFO - Updated PIN: 1.
+2024-08-08 06:22:09,701 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:22:10,836 - INFO - Received callback data: key_2
+2024-08-08 06:22:10,836 - INFO - Handling keypad press: 2
+2024-08-08 06:22:10,836 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:10,837 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:10,837 - INFO - Retrieved PIN 'get_pin' ['1'].
+2024-08-08 06:22:10,842 - INFO - Current PIN: 1
+2024-08-08 06:22:10,842 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:10,842 - INFO - Updated PIN: 12.
+2024-08-08 06:22:11,546 - INFO - Received callback data: key_3
+2024-08-08 06:22:11,547 - INFO - Handling keypad press: 3
+2024-08-08 06:22:11,550 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:11,550 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:11,550 - INFO - Retrieved PIN 'get_pin' ['12'].
+2024-08-08 06:22:11,553 - INFO - Current PIN: 12
+2024-08-08 06:22:11,553 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:11,553 - INFO - Updated PIN: 123.
+2024-08-08 06:22:12,360 - INFO - Received callback data: key_4
+2024-08-08 06:22:12,360 - INFO - Handling keypad press: 4
+2024-08-08 06:22:12,360 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:12,361 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:12,361 - INFO - Retrieved PIN 'get_pin' ['123'].
+2024-08-08 06:22:12,366 - INFO - Current PIN: 123
+2024-08-08 06:22:12,366 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:12,366 - INFO - Updated PIN: 1234.
+2024-08-08 06:22:13,475 - INFO - Received callback data: key_0
+2024-08-08 06:22:13,475 - INFO - Handling keypad press: 0
+2024-08-08 06:22:13,475 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:13,475 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:13,475 - INFO - Retrieved PIN 'get_pin' ['1234'].
+2024-08-08 06:22:13,480 - INFO - Current PIN: 1234
+2024-08-08 06:22:13,480 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:13,480 - INFO - Updated PIN: 12340.
+2024-08-08 06:22:16,562 - INFO - Received callback data: key_0
+2024-08-08 06:22:16,563 - INFO - Handling keypad press: 0
+2024-08-08 06:22:16,566 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:16,566 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:16,567 - INFO - Retrieved PIN 'get_pin' ['12340'].
+2024-08-08 06:22:16,611 - INFO - FULL PIN: 12340
+2024-08-08 06:22:16,659 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:22:16,695 - INFO - PIN not found.
+2024-08-08 06:22:16,695 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:22:16,695 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:22:16,695 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:22:16,695 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:22:20,417 - INFO - Received callback data: key_0
+2024-08-08 06:22:20,418 - INFO - Handling keypad press: 0
+2024-08-08 06:22:20,418 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:20,459 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:22:20,460 - INFO - Current PIN: 
+2024-08-08 06:22:20,460 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:20,460 - INFO - Updated PIN: 0.
+2024-08-08 06:22:20,460 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:22:21,032 - INFO - Received callback data: key_1
+2024-08-08 06:22:21,032 - INFO - Handling keypad press: 1
+2024-08-08 06:22:21,032 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:21,032 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:21,033 - INFO - Retrieved PIN 'get_pin' ['0'].
+2024-08-08 06:22:21,038 - INFO - Current PIN: 0
+2024-08-08 06:22:21,038 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:21,038 - INFO - Updated PIN: 01.
+2024-08-08 06:22:21,612 - INFO - Received callback data: key_2
+2024-08-08 06:22:21,612 - INFO - Handling keypad press: 2
+2024-08-08 06:22:21,613 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:21,613 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:21,613 - INFO - Retrieved PIN 'get_pin' ['01'].
+2024-08-08 06:22:21,617 - INFO - Current PIN: 01
+2024-08-08 06:22:21,617 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:21,617 - INFO - Updated PIN: 012.
+2024-08-08 06:22:22,298 - INFO - Received callback data: key_3
+2024-08-08 06:22:22,298 - INFO - Handling keypad press: 3
+2024-08-08 06:22:22,298 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:22,298 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:22,298 - INFO - Retrieved PIN 'get_pin' ['012'].
+2024-08-08 06:22:22,304 - INFO - Current PIN: 012
+2024-08-08 06:22:22,304 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:22,304 - INFO - Updated PIN: 0123.
+2024-08-08 06:22:22,961 - INFO - Received callback data: key_4
+2024-08-08 06:22:22,961 - INFO - Handling keypad press: 4
+2024-08-08 06:22:22,961 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:22,961 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:22,961 - INFO - Retrieved PIN 'get_pin' ['0123'].
+2024-08-08 06:22:22,966 - INFO - Current PIN: 0123
+2024-08-08 06:22:22,966 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:22,966 - INFO - Updated PIN: 01234.
+2024-08-08 06:22:25,112 - INFO - Received callback data: key_0
+2024-08-08 06:22:25,112 - INFO - Handling keypad press: 0
+2024-08-08 06:22:25,112 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:25,112 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:25,112 - INFO - Retrieved PIN 'get_pin' ['01234'].
+2024-08-08 06:22:25,179 - INFO - FULL PIN: 01234
+2024-08-08 06:22:25,294 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:22:25,323 - INFO - PIN not found.
+2024-08-08 06:22:25,323 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:22:25,323 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:22:25,323 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:22:25,323 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:22:31,976 - INFO - Received callback data: key_4
+2024-08-08 06:22:31,976 - INFO - Handling keypad press: 4
+2024-08-08 06:22:31,976 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:31,983 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 06:22:31,984 - INFO - Current PIN: 
+2024-08-08 06:22:31,984 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:31,984 - INFO - Updated PIN: 4.
+2024-08-08 06:22:31,984 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 06:22:32,928 - INFO - Received callback data: key_3
+2024-08-08 06:22:32,928 - INFO - Handling keypad press: 3
+2024-08-08 06:22:32,929 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:32,929 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:32,929 - INFO - Retrieved PIN 'get_pin' ['4'].
+2024-08-08 06:22:32,934 - INFO - Current PIN: 4
+2024-08-08 06:22:32,935 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:32,935 - INFO - Updated PIN: 43.
+2024-08-08 06:22:33,563 - INFO - Received callback data: key_2
+2024-08-08 06:22:33,563 - INFO - Handling keypad press: 2
+2024-08-08 06:22:33,563 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:33,564 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:33,564 - INFO - Retrieved PIN 'get_pin' ['43'].
+2024-08-08 06:22:33,569 - INFO - Current PIN: 43
+2024-08-08 06:22:33,569 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:33,569 - INFO - Updated PIN: 432.
+2024-08-08 06:22:34,261 - INFO - Received callback data: key_1
+2024-08-08 06:22:34,261 - INFO - Handling keypad press: 1
+2024-08-08 06:22:34,261 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:34,262 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:34,262 - INFO - Retrieved PIN 'get_pin' ['432'].
+2024-08-08 06:22:34,267 - INFO - Current PIN: 432
+2024-08-08 06:22:34,267 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:34,267 - INFO - Updated PIN: 4321.
+2024-08-08 06:22:35,044 - INFO - Received callback data: key_0
+2024-08-08 06:22:35,045 - INFO - Handling keypad press: 0
+2024-08-08 06:22:35,045 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:35,045 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:35,045 - INFO - Retrieved PIN 'get_pin' ['4321'].
+2024-08-08 06:22:35,051 - INFO - Current PIN: 4321
+2024-08-08 06:22:35,051 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 06:22:35,051 - INFO - Updated PIN: 43210.
+2024-08-08 06:22:39,517 - INFO - Received callback data: key_0
+2024-08-08 06:22:39,517 - INFO - Handling keypad press: 0
+2024-08-08 06:22:39,517 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 06:22:39,517 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 06:22:39,517 - INFO - Retrieved PIN 'get_pin' ['43210'].
+2024-08-08 06:22:39,633 - INFO - FULL PIN: 43210
+2024-08-08 06:22:39,732 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 06:22:39,806 - INFO - PIN not found.
+2024-08-08 06:22:39,806 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:22:39,806 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:22:39,806 - INFO - Successfully returned the connection to the pool!
+2024-08-08 06:22:39,806 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 06:30:58,934 - INFO - Received callback data: buy
+2024-08-08 06:30:58,936 - INFO - Successfully fetched available time slots.
+2024-08-08 06:30:58,936 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:30:58,936 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:30:58,936 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 06:35:15,467 - INFO - Successfully fetched all time slots.
+2024-08-08 06:35:15,468 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:35:15,468 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:35:15,468 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 06:35:15,468 - INFO - [{'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 4, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}, {'id': 3, 'start_time': datetime.datetime(2024, 8, 8, 17, 0), 'end_time': datetime.datetime(2024, 8, 8, 19, 0)}, {'id': 2, 'start_time': datetime.datetime(2024, 8, 8, 15, 0), 'end_time': datetime.datetime(2024, 8, 8, 17, 0)}, {'id': 1, 'start_time': datetime.datetime(2024, 8, 8, 12, 0), 'end_time': datetime.datetime(2024, 8, 8, 14, 0)}]
+2024-08-08 06:35:43,649 - INFO - Received callback data: admin_manage_booking_time_slot_1
+2024-08-08 06:35:43,665 - INFO - Successfully fetched time slot with ID 1.
+2024-08-08 06:35:43,666 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:35:43,666 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:35:43,666 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 06:36:10,377 - INFO - Received callback data: admin_managing_specified_time_slot_booking_False_1
+2024-08-08 06:36:10,380 - INFO - Successfully unbooked time slot 1.
+2024-08-08 06:36:10,381 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:36:10,381 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:36:10,381 - INFO - Operation completed.
+2024-08-08 06:36:10,382 - INFO - Successfully fetched time slot with ID 1.
+2024-08-08 06:36:10,383 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 06:36:10,383 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 06:36:10,383 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 06:39:36,643 - INFO - Closing the connection pool...
+2024-08-08 06:39:36,644 - INFO - Connection pool closed. Exiting.
