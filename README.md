@@ -1,18 +1,14 @@
 # Time Slots Database and Telegram Bot Integration
-
-## Overview
-
-This project involves managing time slots, aka booking GUI. in a database and providing an interface (GUI) via a Telegram Bot for users to view and book available time slots. The system includes functionality to populate time slots, fetch available slots, and handle user interactions through the bot.
-
-Once a time-slot is booked, it is placed on 'is_booked' = True, and will not be displayed to a user when selecting a new time-slot. Only display available 
-time-slots for booking. 
+Telegram Bot for any service requiring booking's and user authentication on arrival. Currently I have modified the code to work for a barbershop
+as a example.
 
 - **Maximum Booking Horizon:** 46 hours in advance.
-- **Minimum Booking Horizon:** 2 hours in advance.
+- **Minimum Booking Horizon:** 0 hours in advance.
+- **Standard Booking Slot** 2 hour long window
 
 **This approach is fully automatic, meaning:**
 - When a time slot expires (i.e., its `end_time` is earlier than the current time), it is removed from the `time_slots` table, ensuring it is not displayed to users.
-- The population of time slots occurs every 2 hours, ensuring that new time slots are continuously generated, maintaining availability for booking up to 46 hours in advance.
+- The population of time slots occurs every hour, ensuring that new time slots are continuously generated, maintaining availability for booking up to 46 hours in advance.
 
 ## Features:
 -   Main Menu ✅
