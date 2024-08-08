@@ -42,6 +42,11 @@ time-slots for booking.
 -   asynchronous  ✅
 -   Database ✅
 
+![Access Pin Auth Dashboard](./images/access_pin_auth_dashboard.png)
+
+![Main Time Slot Bot Image](./images/main_time_slot_bot_img_girl.png)
+
+
 ## Table of Contents
 1. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
