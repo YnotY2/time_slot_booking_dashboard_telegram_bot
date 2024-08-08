@@ -4,31 +4,29 @@ logger = setup_logger(service_name="faq_answers")
 # Frequently asked questions matching answers
 # The callback_data string argument is the same for answers and data, see 'faq_data.py'
 faq_answers = {
-    "faq_origin_coffee_beans": (
-        "♣️ Origin Country Coffee Beans;\n"
+    "faq_years_of_experience": (
+        "♣️ Years of Experience:\n"
         "\n"
-        "One of the most famous coffee beans in the world, the Ethiopian Yirgacheffe bean,"
-        " originates from the Yirgacheffe region in Ethiopia. "
-        "Ethiopia is often referred to as the birthplace of coffee, w"
-        "ith its rich coffee culture and history dating back centuries. "
-        "According to legend, a goat herder named Kaldi discovered the "
-        "energizing effects of coffee beans when he noticed his goats becoming "
-        "particularly lively after eating the berries from a certain tree. Today, "
-        "Ethiopian Yirgacheffe coffee is celebrated for its unique and "
-        "diverse flavor profiles, often featuring bright acidity and "
-        "floral or fruity notes, making it a favorite among coffee enthusiasts globally."
-
-        ),
+        "With over a decade of experience in the tattoo industry, our talented artists "
+        "bring a wealth of knowledge and skill to every design. Their journey began "
+        "in the early 2010s, and since then, they've honed their craft through countless "
+        "hours of practice and a deep passion for body art. From mastering traditional "
+        "styles to exploring contemporary trends, our artists have developed a reputation "
+        "for exceptional artistry and precision. Each tattoo is a testament to their "
+        "commitment to quality and their dedication to making every client's vision come to life. "
+        "Their extensive experience ensures that you receive not only a beautiful tattoo but "
+        "also a professional and enjoyable experience."
+    ),
     "faq_opening_hours": (
         "🕣 Openings Hours:\n"
          "\n"
-         "🎴 Monday:       8:00 AM - 6:00 PM\n"
-         "🎴 Tuesday:      8:00 AM - 6:00 PM\n"
-         "🎴 Wednesday:    8:00 AM - 6:00 PM\n"
-         "🎴 Thursday:     8:00 AM - 6:00 PM\n"
-         "🎴 Friday:       8:00 AM - 8:00 PM\n"
-         "🎴 Saturday:     9:00 AM - 8:00 PM\n"
-         "🎴 Sunday:       9:00 AM - 4:00 PM\n"
+         "🎴 Monday:       16:00 - 23:00\n"
+         "🎴 Tuesday:      16:00 - 22:00\n"
+         "🎴 Wednesday:    16:00 - 0:00\n"
+         "🎴 Thursday:     16:00 - 2:00 PM\n"
+         "🎴 Friday:       16:00 - 2:00 PM\n"
+         "🎴 Saturday:     17:00 - 4:00\n"
+         "🎴 Sunday:       17:00 - 4:00\n"
          "\n"
     ),
     "faq_accepted_payment_options": (
@@ -38,15 +36,15 @@ faq_answers = {
         "\n"
         "🎴 Paypal\n"
         "\n"
-        "🎴 Sepa\n"
+        "🎴 Cash\n"
     ),
     "faq_contact_info": (
         "️📋 Contact Info:\n"
         "\n"
-        "📞 PhoneNumber:  (555) 123-4567\n"
-        "✉️ Email:        contact@ciifecoffee.com\n"
+        "📞 PhoneNumber:     (555) 123-4567\n"
+        "✉️ Email:              contact@lucytattoo.com\n"
     ),
-    "how_is_our_coffee_made": (
+    "how_is_our_tattoo_made": (
         "\n"
         "Our Coffee Is made with love and care :\n"
         "\n"

@@ -14,7 +14,7 @@ from dependencies import container
 from config.faq_answers import faq_answers
 from config.faq_data import faq_data
 from config.settings import start_menu_image_logo
-from config.settings import how_is_our_coffee_made_video
+from config.settings import how_is_our_tattoo_made_video
 from config.settings import who_are_we_video
 from config.settings import admin_manage_bookings_dashboard_password
 
@@ -121,17 +121,16 @@ async def start_menu(message: types.Message):
     await message.answer_photo(
         photo=photo,
         caption=(
-            '☕ 𝙲𝚒𝚒𝚏𝚎  𝙲𝚘𝚏𝚏𝚎𝚎  \n'
             '\n'
-            '☕ We provide the quick and most delicious coffee. \n'
-            '\n'
-            'Welcome! Please choose an option 🌟 :\n'
+            'Welcome to Lucy Tattoo Shop!\n'
+            "We're here to assist you. Please choose from the following options: :\n"
             '\n'
             '🌑 Have any other questions? Click "FAQ" \n'
-            '🌑 If you want to purchase your coffee, click "Buy Coffee"\n'
+            '🌑 If you want to book a appointment click "Book service"\n'
+            '🌑 Prove booking id on arrival? Click "Access Service" \n'
             '\n'
             'Pricing: \n'
-            '3,50€ 💶'
+            '350-900€ 💶'
         ),
         reply_markup=start_keyboard_inline
     )
@@ -160,13 +159,14 @@ async def back_to_faq_keyboard() -> InlineKeyboardMarkup:
 
 
 # This functions will send the video for the answer
-async def handle_how_is_our_coffee_made_faq_answer(callback: types.CallbackQuery):
+async def handle_how_is_our_tattoo_made_faq_answer(callback: types.CallbackQuery):
     try:
+        logger.info(f"Within 'handle_how_is_our_tattoo_made_faq_answer'. Callback: {callback}")
         # Create an FSInputFile object for the video
-        video = FSInputFile(how_is_our_coffee_made_video, filename="how_is_our_coffee_made_video.mp4")
+        video = FSInputFile(how_is_our_tattoo_made_video, filename="how_is_our_tattoo_made.mp4")
         # Here we define the message:
         message = ("\n"
-                   "❤️ Our Coffee Is made with love and care :\n"
+                   "❤️ Our Tattoo's are made with love and care :\n"
                    "\n")
 
         faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
@@ -187,7 +187,7 @@ async def handle_how_is_our_coffee_made_faq_answer(callback: types.CallbackQuery
 
     except Exception as e:
         # Handle exceptions if the bot is blocked or the chat is not found
-        print(f"Error sending video 'how_is_our_coffee_made_video' : {e}")
+        print(f"Error sending video 'how_is_our_tattoo_made_video' : {e}")
 
 
 # This functions will send the video for the answer
@@ -612,7 +612,7 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
             f"Time-slot-ID:     📒 {time_slot_id}\n"
             f"is_booked:       👓 {is_booked_str}"
             f"\n"
-            f"Access PIN 📲  `{access_pin_str}`\n"
+            f"Access PIN 📲  `{access_pin_str}0`\n"
             f"\n"
         )
 
@@ -697,7 +697,7 @@ async def handle_start_callback(callback: types.CallbackQuery):
         # Handle the error, perhaps notify the user or log the issue
 
 """FAQ Callback Data Handlers"""
-@user_router.callback_query(lambda cb: cb.data.startswith('faq_') or cb.data == 'faq_menu' or cb.data == 'back_to_faq' or cb.data == 'how_is_our_coffee_made')
+@user_router.callback_query(lambda cb: cb.data.startswith('faq_') or cb.data == 'faq_menu' or cb.data == 'back_to_faq' or cb.data == 'how_is_our_tattoo_made')
 async def handle_faq_callbacks(callback: types.CallbackQuery):
     try:
         if not check_if_time_within_openings_hours():
@@ -723,8 +723,8 @@ async def handle_faq_callbacks(callback: types.CallbackQuery):
             else:
                 reply_markup = await back_to_faq_keyboard()
                 await callback.message.answer("Sorry, I don't have an answer for that.", reply_markup=reply_markup)
-        elif data == "how_is_our_coffee_made":
-            await handle_how_is_our_coffee_made_faq_answer(callback)
+        elif data == "how_is_our_tattoo_made":
+            await handle_how_is_our_tattoo_made_faq_answer(callback)
         else:
             await handle_unexpected_message(callback.message)
 

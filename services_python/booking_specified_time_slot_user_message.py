@@ -3,7 +3,6 @@ import asyncio
 from utils.colors import Colors
 from utils.logger import setup_logger
 
-from services_python.return_cursor_connection_to_pool import return_cursor_connection_to_pool
 from services_python.fetch_time_slot_row_by_id import fetch_time_slot_row_by_id
 
 # Set up logger with service name

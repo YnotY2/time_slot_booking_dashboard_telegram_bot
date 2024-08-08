@@ -50,18 +50,22 @@ time-slots for booking.
 2. [Understanding Code Layout](#understanding-code-layout)
    - [Directory Layout](#directory-layout)
    - [Summary](#summary)
+ 
+3. [Database Schema](#database-schema)
+     - [Database Schema Visualized](#database-schema-visualized)
+     - [`init-db.psql`](#init-dbpsql)
+     - [Interacting with the Database Asynchronously Without Blocking](#interacting-with-the-database-asynchronously-without-blocking)
+       - [How `DependencyContainer` and `initialize_connection_pool` Work Together](#how-dependencycontainer-and-initialize_connection_pool-work-together)
+       - [Imports Used](#imports-used)
+     - [Understanding Usage of Tables](#understanding-usage-of-tables)
+       - [`time_slots` Table](#time_slots-table)
+       - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
+         - [Populate Time Slots](#populate-time-slots)
+         - [Fetch All Available Time Slots](#fetch-all-available-time-slots)
+       - [`pins` Table](#pins-table)
 
-3. [Key Directories and Files for the Telegram Bot](#key-directories-and-files-for-the-telegram-bot)
-   - [main.py](#mainpy)
-      - [Imports within 'main.py' file](#Imports-within-mainpy-file)
-      - [How They Work Together: *DependencyContainer* & *initialize_connection_pool*](#how-they-work-together-dependencycontainer--initialize-connection-pool)
-      - [How They Work Together: *Dispatcher* & *user_router*](#how-they-work-together-dispatcher--user-router)
-   - [user_handlers.py](#user_handlerspy)
-      - [Imports within 'user_handlers.py' file](#imports-within-user-handlerspy-file)
-      - [How They Work Together: *InlineKeyboardMarkup* & *InlineKeyboardButton* ?](#how-they-work-together-inlinekeyboardmarkup--inlinekeyboardbutton)
-      - [What is *callback_data*](#What-is-callback_data)
-      - [What is a *callback_query_handler*](#What-is-a-callback_query_handler)
-   - [dependencies.py](#dependenciespy)
+
+
 
 3. [Understanding Database Layout](#Understanding-Database-Layout)
    - [Database Visualised](#database-visualised)
@@ -170,8 +174,6 @@ async_cofee_telegram_bot/
 │       └── user_handlers.py             # User-specific command handlers
 │
 ├── services_python/                     # Python services
-│   ├── __init__.py                      # Initialization file for services_python
-│   ├── __pycache__/                     # Compiled Python files
 │   ├── bot_instance.py                  # Bot instance management
 │   ├── check_status_postgresql_service.py # Check PostgreSQL service status
 │   ├── grant_neccessary_permissions_sh_python3_files.py # Permissions grant script
@@ -179,8 +181,20 @@ async_cofee_telegram_bot/
 │   ├── return_cursor_connection_to_pool.py # Return cursor to connection pool
 │   ├── start_postgresql.py              # Start PostgreSQL service
 │   ├── stop_postgresql.py               # Stop PostgreSQL service
+│   ├── test_pool_object_from_user_handler.py # Test connection pool object
+│   ├── booking_specified_time_slot_user_message.py # Manage messages related to booking specific time slots
+│   ├── check_if_time_within_openings_hours.py # Check if a given time is within opening hours
+│   ├── check_user_access_by_access_pin.py # Check user access based on the provided access pin
+│   ├── delete_user_entered_access_pin_db.py # Delete user-entered access pins from the database
+│   ├── fetch_all_available_time_slots.py # Fetch all available time slots
+│   ├── fetch_all_time_slots.py           # Fetch all time slots
+│   ├── fetch_time_slot_row_by_id.py      # Fetch a time slot row by its ID
+│   ├── fetch_user_entered_access_pin_stored_db.py # Fetch user-entered access pins stored in the database
+│   ├── insert_or_update_user_entered_access_pin_db.py # Insert or update user-entered access pins in the database
+│   ├── manage_booking_time_slots.py      # Manage booking for time slots
+│   ├── pupulate_time_slots.py            # Populate time slots
 │   └── test_pool_object_from_user_handler.py # Test connection pool object
-│
+
 ├── services_sh/                         # Shell scripts for services
 │   ├── check_status_postgresql_service.sh # Shell script to check PostgreSQL status
 │   ├── grant_neccessary_permissions_sh_python3_files.sh # Shell script for permissions
@@ -235,57 +249,175 @@ async_cofee_telegram_bot/
 
 
 These files and directories are fundamental to the bot’s operation, making them mandatory for both setting up and maintaining your Telegram bot. Understanding their roles and how they interact will ensure that your bot functions correctly and efficiently.
+
+
 ## Database Schema
+The database schema used within this application and the internal logic of how we utilise it is very important. I will explain the logic
+of the table's and there purpose. The databaase is managed by a few service_python function. The integration and usage of the database 
+is optimized for robust logic.
 
-The `time_slots` table in the database contains the following columns:
-
-- `id`: Unique identifier for each time slot.
-- `start_time`: The start time of the time slot.
-- `end_time`: The end time of the time slot.
-- `is_booked`: A boolean flag indicating whether the slot is booked.
-
-'init-db.spql'
+### Database Schema Visualised
 ```
+├── Database Schema
+│   ├── time_slots
+│   │   ├── id SERIAL PRIMARY KEY                
+│   │   ├── start_time TIMESTAMP NOT NULL        
+│   │   ├── end_time TIMESTAMP NOT NULL          # End time of the slot
+│   │   ├── is_booked BOOLEAN DEFAULT FALSE      # Indicates if the slot is booked
+│   │   ├── access_pin TEXT UNIQUE               # Unique pin for accessing the slot
+│   │   └── CONSTRAINT unique_time_slot UNIQUE (start_time, end_time) # Unique constraint for slot times
+│   └── pins
+│       ├── user_id BIGINT PRIMARY KEY           # Unique identifier for the user
+│       ├── pin TEXT                             # Access pin for the user
+│       └── created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP # Timestamp when the pin was created
+```
+
+
+### 'init-db.spql'
+```
+-- Drop the table if it exists
+DROP TABLE IF EXISTS time_slots;
+
 -- Create the time_slots table
 CREATE TABLE time_slots (
     id SERIAL PRIMARY KEY,
     start_time TIMESTAMP NOT NULL,
     end_time TIMESTAMP NOT NULL,
     is_booked BOOLEAN DEFAULT FALSE,
+    access_pin TEXT UNIQUE,
     CONSTRAINT unique_time_slot UNIQUE (start_time, end_time)
 );
 
+-- Create the 'pins' table if it does not exist
+CREATE TABLE IF NOT EXISTS pins (
+    user_id BIGINT PRIMARY KEY,
+    pin TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert an initial row into the time_slots table
+INSERT INTO time_slots (start_time, end_time, is_booked)
+VALUES ('2024-08-08 12:00:00', '2024-08-08 14:00:00', FALSE);
+
+-- Grant necessary permissions on all tables in the public schema
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO time_slot_telegram_bot_user;
+
+-- Grant necessary permissions on the sequence
+GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO time_slot_telegram_bot_user;
+
+
+-- GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO your_user;
+-- Run this above cmd also while granting user permissions on db
+
 ```
 
-## Logic of Time-Slots
-### Time Slot Duration
 
-- Each time slot is 2 hours long.
+### Interacting with the Database Asynchronously Without Blocking
 
-### Slot Population and Management
+#### How `DependencyContainer` and `initialize_connection_pool` Work Together
 
-- **Population Schedule:**
-  - A background task runs every 2 hours to populate the `time_slots` table with new time slots. This ensures that the table always has slots available for the next 46 hours.
+In `main.py`, the `initialize_connection_pool()` function and the `DependencyContainer` class are used together to manage database connections efficiently. Here’s a breakdown of their interaction:
 
-   - This task is ran within 'main.py'
-  - Using the following functions: *'periodic_task' and 'populate_time_slots'*. :
-  ```
-    database_task_1 = asyncio.create_task(periodic_task(7200, populate_time_slots))
-  ```
-  - *The above task we are running is 'populate_time_slots'*
-  - *The 'periodic_task' could in theory schedgule any async task*
+Code snippet from within the 'main.py' file:
+```
+# Initialize the connection pool
+  pool = await initialize_connection_pool()
+  # Set the pool in the dependency container, only done once.
+  container.set_pool(pool)
+```
 
-- **Time Slot Records:**
-  - The population task does not modify existing records. Specifically:
-    - **Existing Slots:** Time slots that are already in the table will not be altered.
-    - **`is_booked` Status:** The `is_booked` status of time slots is preserved. The task does not change the status from `TRUE` to `FALSE` or vice versa.
-    - **Expired Slots:** Time slots that have ended (i.e., their end time is before the current time) are removed from the table.
+Code snippet from within the 'test_pool_object_from_user_handler.py' file:
+```
+from dependencies import container
+from services_python.return_cursor_connection_to_pool import return_cursor_connection_to_pool
+```
 
-- **Populate Time Slots Function (`populate_time_slots`):**
-  - This function populates the database with time slots for the upcoming 46 hours, ensuring that it doesn't delete or modify existing slots that are still within their booking period.
+```
+async def test_pool_object_from_user_handler(callback):
+    # Here we get the pool connection
+    pool = container.get_pool()
+    if pool:
+        try:
+            logger.info(f"{Colors.CYAN}Performing database operations...{Colors.END}")
+
+            # Acquire a connection from the pool
+            async with pool.acquire() as connection:
+                logger.info(f'Acquired a connection from the pool')
+                # Acquire a cursor from the connection
+                async with connection.cursor() as cursor:
+                    # Perform any database operations here
+                    logger.info(f'Acquired a cursor and attempting query')
+
+                    await cursor.execute("SELECT version();")
+                    result = await cursor.fetchone()
+                    logger.info(f"{Colors.GREEN}Database version:{Colors.END} {result}")
+
+                    # Now send a message to the user:
+                    await callback.message.answer(f"The current database version: {result}")
 
 
-## Functions
+                    # Return the cursor and connection to the pool
+                    await return_cursor_connection_to_pool(cursor)
+                    logger.info(f"Successfully returned the cursor and connection to the pool!")
+```         
+
+- **Connection Pool Initialization**:
+  - The `initialize_connection_pool()` function sets up a pool of database connections to PostgreSQL, enabling efficient management of concurrent database operations.
+  - This function returns a `pool` object, which includes connection details such as database name, user, password, host, and port. This pool object is then used to acquire connections and cursors for           database interactions.
+
+- **Setting the Connection Pool**:
+  - Once the connection pool is created, it needs to be accessible throughout the application. The `DependencyContainer` class facilitates this by storing and managing the connection pool.
+  - The `DependencyContainer` class, imported from `dependencies.py`, provides methods to set (`set_pool()`) and get (`get_pool()`) the pool.
+  - The `pool` object is stored in the `DependencyContainer` using `container.set_pool(pool)`, allowing it to be accessed from different parts of the application.
+
+- **Integration**:
+  - In `main.py`, after `initialize_connection_pool()` creates the connection pool, it is set in the `DependencyContainer` using the `container.set_pool(pool)` method.
+  - The `DependencyContainer` instance (`container`) stores the pool, enabling various parts of the application to access it via `container.get_pool()`.
+
+- **Usage**:
+  - The connection pool stored in `DependencyContainer` can be accessed throughout the application, facilitating efficient database operations without the need to create new connections for each request.
+
+#### Imports Used
+- To interact with the database and manage the connection pool, the following imports are used:
+    - `from services_python.return_cursor_connection_to_pool import return_cursor_connection_to_pool`
+    - `from dependencies import container`
+
+
+
+### Understanding usage of tables
+#### 'time_slots' table:
+
+- `id`: Unique identifier for each time slot.
+    - **Purpose**:
+        Identifying if a time_slot row within table. So we can
+        extract all data from it.
+        
+- `start_time`: The start time of the time slot.
+- `end_time`: The end time of the time slot.
+    - **Purpose**:
+        Identifying the start_time and end_time of the booking, so we can correctly
+        authenitcate a client if within booking time when authenticating booking.
+
+- `is_booked`: A boolean flag indicating whether the slot is booked.
+    - **Purpose**:
+        Identifying if a time_slot within table is currently booked. So we can
+        authenitcate a client if within booking time when authenticating booking.
+        
+        And also display the available time-slots which are not booked to a user
+        for future booking.
+
+#### **Functions utilising  'time_slots' table**:
+  - These are all the functions interacting with the time_slots table in one way or another.
+    - **`services_python/` Directory**: Manages backend services and database interactions. This includes:
+      - **`check_user_access_by_access_pin.py`**: Checks user access based on the provided access pin.
+      - **`fetch_all_available_time_slots.py`**: Fetches all available time slots.
+      - **`fetch_all_time_slots.py`**: Fetches all time slots.
+      - **`fetch_time_slot_row_by_id.py`**: Fetches a time slot row by its ID.
+      - **`manage_booking_time_slots.py`**: Manages booking for time slots.
+      - **`pupulate_time_slots.py`**: Populates time slots.
+    
+
+
 
 ### 1. `populate_time_slots`
 
@@ -295,59 +427,62 @@ Populates the `time_slots` table with time slots for the next 46 hours. It ensur
 
 **Logic:**
 
-1. **Setup Timezone and Time Range:**
-   - Use `Europe/Paris` timezone.
-   - Define the current time and the end time 46 hours from now.
+1. **Setup Timezone and Time Range**:
+   - Use the `Europe/Paris` timezone.
+   - Define the current time and the end time, which is 46 hours from now.
    - Set a 2-hour interval for time slots.
 
-2. **Align Start Time:**
-   - Adjust the current time to the nearest previous hour.
+2. **Align Start Time**:
+   - Adjust the current time to the nearest previous hour if needed.
 
-3. **Database Operations:**
-   - Delete time slots that have ended.
-   - Insert new time slots if they do not already exist.
+3. **Database Operations**:
+   - **Delete Old Time Slots**: Remove time slots with an `end_time` earlier than the current time where `is_booked` is `FALSE`.
+   - **Insert New Time Slots**: Add time slots for the next 46 hours, ensuring no duplicates are inserted.
 
-4. **Error Handling:**
-   - Log errors if they occur during database operations.
+4. **Error Handling**:
+   - Log errors encountered during database operations.
 
-5. **Resource Management:**
+5. **Resource Management**:
    - Ensure the database connection is properly returned to the pool.
 
-### Code Explanation
-**2** main parts of *logic* to this function!
+**Code Explanation:**
+The function consists of the following main parts:
 
-1. **Purpose:**
-   - The purpose of this code is to delete entries from the `time_slots` table where the `end_time` of the time slot is earlier than the current time. This ensures that expired time slots are removed from the table and are not shown to users.
+1. **Delete Old Time Slots**:
+   ```python
+    delete_old_slots_query = """
+        DELETE FROM time_slots 
+        WHERE end_time < %s AND is_booked = FALSE
+    """
+    Variable holding values: now
+    await cursor.execute(delete_old_slots_query, (now,))
+    ```
+   - **Purpose**: Deletes time slots where the `end_time` is before the current time (`now`) and `is_booked` is `FALSE`.
+   - **SQL Query**: Deletes rows from the `time_slots` table where `end_time` is less than the current timestamp.
+   - **Parameter Substitution**: `%s` is replaced with the current timestamp (`now`).
+   - **Execution**: Asynchronously executed to remove outdated time slots.
 
-```
-"""Delete old table rows, where time-slot has ended."""
-delete_old_slots_query = """
-    DELETE FROM time_slots 
-    WHERE end_time < %s
-"""
-await cursor.execute(delete_old_slots_query, (now,))
+2. **Insert New Time Slots**:
+    ```python
+    query_insert = """
+        INSERT INTO time_slots (start_time, end_time, is_booked) 
+        SELECT %s, %s, FALSE
+        WHERE NOT EXISTS (
+            SELECT 1 FROM time_slots
+            WHERE start_time = %s AND end_time = %s
+        )
+    """
+    Variables holding values: time_slots_to_insert, start, end
+    for start, end in time_slots_to_insert:
+        await cursor.execute(query_insert, (start, end, start, end))
+    ```
+   - **Purpose**: Inserts new time slots for the next 46 hours if they do not already exist, with `is_booked` set to `FALSE`.
+   - **SQL Query**: Inserts time slots where they do not already exist in the table.
+   - **Parameter Substitution**: `%s` is replaced with the start and end times of the slots being inserted.
+   - **Execution**: Asynchronously executed to add new time slots.
 
-```
-
-2. **SQL Query:**
-   - The SQL query defined by the `delete_old_slots_query` string:
-     ```sql
-     DELETE FROM time_slots 
-     WHERE end_time < %s
-     ```
-     This query deletes rows from the `time_slots` table where the `end_time` column has a value less than the specified timestamp (represented by `%s`).
-
-3. **Parameter Substitution:**
-   - The `%s` placeholder in the SQL query is used for parameter substitution. The actual value to replace `%s` is provided in the tuple `(now,)`.
-
-4. **Executing the Query:**
-   - The `await cursor.execute(delete_old_slots_query, (now,))` line executes the SQL query asynchronously. Here, `cursor` is the database cursor object used to execute database commands. The `now` variable holds the current timestamp and is passed as the parameter to replace `%s` in the SQL query.
-
-5. **Result:**
-   - The result of this operation is that any time slot entries in the `time_slots` table with an `end_time` earlier than the current time (`now`) will be deleted. This helps in keeping the table up-to-date and relevant by removing outdated time slots.
-
-
-
+### Code Overview
+The `populate_time_slots` function is designed to ensure the `time_slots` table is up-to-date by removing outdated slots and adding new ones efficiently. Proper error handling and resource management are implemented to maintain the integrity of the database operations. This 'pupulate_time_slots' function is ran every 1H on a schedgule witin 'main.py' .
 
 
 
@@ -355,120 +490,390 @@ await cursor.execute(delete_old_slots_query, (now,))
 
 **Description:**
 
-Fetches all available time slots that are between 2 hours and 46 hours from now, ordered in reverse chronological order.
+The `fetch_all_available_time_slots` function queries the database to find available time slots that users can book. It returns the results in a list of dictionaries, each containing details about an available time slot.
+
+**Purpose:**
+
+1. **Fetch Available Time Slots**: Retrieves time slots that are between the current time and 46 hours from now.
+2. **Data Structure**: Returns a list of dictionaries where each dictionary includes:
+   - `id`: The unique identifier of the time slot.
+   - `start_time`: The start time of the time slot.
+   - `end_time`: The end time of the time slot.
 
 **Logic:**
 
-1. **Setup Time Window:**
-   - Define the current time and the boundaries for fetching available slots (2 to 46 hours from now).
+1. **Setup Timezone and Time Window**:
+   - Use the `Europe/Paris` timezone.
+   - Define the current time and the end time as 46 hours from now.
 
-2. **Database Query:**
-   - Retrieve slots where `is_booked` is `FALSE` and within the defined time window.
-   - Order results by `start_time` in descending order.
+2. **Database Operations**:
+   - **Fetch Available Time Slots**: Query the `time_slots` table for slots that are not booked (`is_booked = FALSE`), within the defined time window, and order the results by `start_time` in descending order.
 
-3. **Error Handling:**
-   - Log errors if they occur during database operations.
+3. **Error Handling**:
+   - Log any errors that occur during the database operations.
 
-4. **Resource Management:**
+4. **Resource Management**:
    - Ensure the database connection is properly returned to the pool.
+
+**Code Explenation:**
+
+The function consists of the following main parts:
+
+1. **Query for Available Time Slots**:
+    ```python
+    query_fetch_slots = """
+        SELECT id, start_time, end_time 
+        FROM time_slots 
+        WHERE is_booked = FALSE
+          AND start_time >= %s
+          AND end_time <= %s
+        ORDER BY start_time DESC
+    """
+    Variables holding values: start_window, end_window
+    await cursor.execute(query_fetch_slots, (start_window, end_window))
+    results = await cursor.fetchall()
+    ```
+   - **Purpose**: Retrieves available time slots within the defined range and orders them by `start_time` in descending order.
+   - **SQL Query**: Fetches `id`, `start_time`, and `end_time` of time slots where `is_booked` is `FALSE`.
+   - **Parameter Substitution**: `%s` is replaced with `start_window` and `end_window`.
+   - **Execution**: Asynchronously executed to obtain the list of available time slots.
+
+2. **Process Results**:
+    ```python
+    for row in results:
+        slot_id, start_time, end_time = row
+        available_time_slots.append({
+            'id': slot_id,
+            'start_time': start_time,
+            'end_time': end_time
+        })
+    ```
+   - **Purpose**: Converts the query results into a list of dictionaries, each representing a time slot.
+   - **Data Extraction**: Extracts `slot_id`, `start_time`, and `end_time` from each result row and appends it to the `available_time_slots` list.
+
+**Code overview:**
+The `fetch_all_available_time_slots` function is designed to efficiently retrieve and return available time slots from the database, ensuring that only unbooked slots within the specified time range are included. Proper error handling and resource management are implemented to ensure reliable operation.
 
 ### 3. `fetch_time_slot_row_by_id`
 
 **Description:**
 
-Fetches a specific time slot by its ID if it is not booked.
+The `fetch_time_slot_row_by_id` function retrieves a specific time slot from the database based on the given ID. It returns the details of the time slot regardless of whether it is booked or not.
+
+**Purpose:**
+
+1. **Fetch Time Slot by ID**: Retrieves the details of a time slot identified by its unique ID.
+2. **Data Structure**: Returns a dictionary containing:
+   - `start_time`: The start time of the time slot.
+   - `end_time`: The end time of the time slot.
+   - `is_booked`: The booking status of the time slot (boolean).
+   - `access_pin`: The access pin associated with the time slot.
 
 **Logic:**
 
-1. **Database Query:**
-   - Retrieve the time slot with the given ID where `is_booked` is `FALSE`.
+1. **Database Operations**:
+   - **Fetch Time Slot**: Query the `time_slots` table for a slot with the specified ID, including its start and end times, booking status, and access pin.
 
-2. **Error Handling:**
-   - Log errors if they occur during database operations.
+2. **Error Handling**:
+   - Log any errors that occur during database operations.
 
-3. **Resource Management:**
-   - Ensure the cursor and connection are returned to the pool.
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
 
-### 4. `callback_handler_buy`
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Query for Time Slot**:
+    ```python
+    query_fetch_slot = """
+        SELECT start_time, end_time, is_booked, access_pin 
+        FROM time_slots 
+        WHERE id = %s
+    """
+    Variables holding values: slot_id
+    await cursor.execute(query_fetch_slot, (slot_id,))
+    result = await cursor.fetchone()
+    ```
+   - **Purpose**: Retrieves the details of a time slot identified by the given `slot_id`.
+   - **SQL Query**: Fetches `start_time`, `end_time`, `is_booked`, and `access_pin` for the slot with the specified `id`.
+   - **Parameter Substitution**: `%s` is replaced with `slot_id`.
+   - **Execution**: Asynchronously executed to obtain the time slot data.
+
+2. **Process Results**:
+    ```python
+    if not result:
+        logger.info(f"No time slot found with ID {slot_id}.")
+        return None
+    start_time, end_time, is_booked, access_pin = result
+    time_slot_data = {
+        'start_time': start_time,
+        'end_time': end_time,
+        'is_booked': is_booked,
+        'access_pin': access_pin
+    }
+    ```
+   - **Purpose**: Checks if a time slot was found and processes the results.
+   - **Data Extraction**: Extracts `start_time`, `end_time`, `is_booked`, and `access_pin` from the result and constructs the `time_slot_data` dictionary.
+
+**Code Overview:**
+The `fetch_time_slot_row_by_id` function is designed to efficiently retrieve and return the details of a specific time slot from the database. It ensures proper error handling and resource management, including returning the cursor and connection to the pool.
+
+### 4. `fetch_all_time_slots`
 
 **Description:**
 
-Handles callback queries to display time slots and additional buttons when the 'buy' button is pressed.
+The `fetch_all_time_slots` function queries the database to retrieve all available time slots for admin management. It returns the time slots in a list of dictionaries, each containing details about a time slot.
+
+**Purpose:**
+
+1. **Fetch All Time Slots**: Retrieves all time slots from the `time_slots` table.
+2. **Data Structure**: Returns a list of dictionaries where each dictionary includes:
+   - `id`: The unique identifier of the time slot.
+   - `start_time`: The start time of the time slot.
+   - `end_time`: The end time of the time slot.
 
 **Logic:**
 
-1. **Create Time Slot Buttons:**
-   - Fetch available time slots and create inline keyboard buttons for each slot.
+1. **Database Operations**:
+   - **Fetch All Time Slots**: Query the `time_slots` table to get all time slots, ordered by their start time in descending order.
 
-2. **Handle No Slots Available:**
-   - If no slots are available, notify the user and provide options to return to the main menu or view FAQs.
+2. **Error Handling**:
+   - Log any errors that occur during database operations.
 
-3. **Display Time Slots:**
-   - Show time slots with their respective buttons and additional navigation options.
-  
-### `create_time_slot_buttons`
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
+
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Query for All Time Slots**:
+    ```python
+    query_fetch_slots = """
+        SELECT id, start_time, end_time 
+        FROM time_slots 
+        ORDER BY start_time DESC
+    """
+    await cursor.execute(query_fetch_slots)
+    results = await cursor.fetchall()
+    ```
+   - **Purpose**: Retrieves all time slots from the `time_slots` table, ordered by `start_time` in descending order.
+   - **SQL Query**: Fetches `id`, `start_time`, and `end_time` of all time slots.
+   - **Execution**: Asynchronously executed to obtain the list of all time slots.
+
+2. **Process Results**:
+    ```python
+    for row in results:
+        slot_id, start_time, end_time = row
+        all_time_slots.append({
+            'id': slot_id,
+            'start_time': start_time,
+            'end_time': end_time
+        })
+    ```
+   - **Purpose**: Converts the query results into a list of dictionaries, each representing a time slot.
+   - **Data Extraction**: Extracts `slot_id`, `start_time`, and `end_time` from each result row and appends it to the `all_time_slots` list.
+
+**Code Overview:**
+The `fetch_all_time_slots` function is designed to efficiently retrieve and return all time slots from the database, ensuring that only the required details are included. Proper error handling and resource management are implemented to ensure reliable operation.
+
+
+
+### 5. `manage_booking_time_slots`
 
 **Description:**
 
-This function generates inline keyboard buttons for Telegram messages based on the available time slots provided. Each button represents a time slot that users can select.
+The `manage_booking_time_slots` function updates the booking status of a specified time slot in the database. It can either book the time slot (set `is_booked` to `TRUE` and generate a 5-digit PIN) or unbook it (set `is_booked` to `FALSE` and remove the PIN).
 
-**Parameters:**
+**Purpose:**
 
-- `available_time_slots`: A list of dictionaries where each dictionary represents a time slot with the following keys:
-  - `id`: Unique identifier of the time slot.
-  - `start_time`: Start time of the time slot.
-  - `end_time`: End time of the time slot.
+1. **Update Booking Status**: Changes the `is_booked` status of a time slot and manages the access PIN accordingly.
+2. **Return Values**:
+   - **Successful Booking**: Returns `True` and a 5-digit PIN when the time slot is booked.
+   - **Successful Unbooking**: Returns `True` and an empty string when the time slot is unbooked.
+   - **Failure**: Returns `False` and an empty string if the operation fails.
 
 **Logic:**
 
-1. **Check for Empty Slots:**
-   - If the `available_time_slots` list is empty, the function returns `None`. This indicates that no time slots are available to display.
+1. **Database Operations**:
+   - **Booking Time Slot**: When booking a time slot, generate a 5-digit PIN and update the `is_booked` status to `TRUE`.
+   - **Unbooking Time Slot**: Remove the PIN and set `is_booked` to `FALSE`. If the slot is already unbooked or not found, handle these cases accordingly.
 
-2. **Initialize Keyboard Layout:**
-   - Create an empty list called `keyboard` to hold the rows of buttons.
+2. **Error Handling**:
+   - Log any errors that occur during database operations.
 
-3. **Generate Buttons:**
-   - Iterate over the `available_time_slots` list using a loop.
-   - For each slot, format the `start_time` and `end_time` to a string that shows the day and time. The format used is "day HH:MM" for the start time and "HH:MM" for the end time.
-   - Create a button for each time slot using `InlineKeyboardButton`. The button's text displays the formatted time range, and its `callback_data` contains the slot's ID prefixed with "time_slot_".
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
 
-4. **Arrange Buttons in Rows:**
-   - Buttons are arranged in rows. If the index `i` is even, start a new row by appending a new list containing the button to `keyboard`.
-   - If the index `i` is odd, add the button to the last row in `keyboard`.
+**Code Explanation:**
 
-5. **Return the Keyboard Layout:**
-   - Wrap the `keyboard` list in an `InlineKeyboardMarkup` object, which is returned. This object represents the layout of inline buttons that will be sent to the Telegram chat.
+The function consists of the following main parts:
 
-**Example Usage:**
-If you have two available time slots:
-- Slot 1: Start time "2024-08-06 10:00", End time "2024-08-06 12:00"
-- Slot 2: Start time "2024-08-06 14:00", End time "2024-08-06 16:00"
+1. **Booking Time Slot**:
+    ```python
+    if book_time_slot:
+        # Generate a 5-digit PIN
+        access_pin = ''.join(random.choices(string.digits, k=5))
+        update_query = """
+            UPDATE time_slots
+            SET is_booked = TRUE, access_pin = %s
+            WHERE id = %s
+        """
+        await cursor.execute(update_query, (access_pin, time_slot_id))
+        logger.info(f"Successfully booked time slot {time_slot_id}. Generated PIN: {access_pin}.")
+        return True, access_pin
+    ```
+   - **Purpose**: Sets the `is_booked` status to `TRUE` and generates a 5-digit PIN if booking the time slot.
+   - **SQL Query**: Updates `is_booked` to `TRUE` and assigns the generated `access_pin`.
+   - **Execution**: Asynchronously executed to update the time slot and return the PIN.
 
-The `create_time_slot_buttons` function will produce a keyboard layout with two buttons, each formatted with their respective time ranges. These buttons will be displayed in a Telegram message, allowing users to select a time slot.
+2. **Unbooking Time Slot**:
+    ```python
+    else:
+        # Explicitly remove the PIN when unbooking
+        update_query = """
+            UPDATE time_slots
+            SET is_booked = FALSE, access_pin = ''
+            WHERE id = %s AND is_booked = TRUE
+        """
+        await cursor.execute(update_query, (time_slot_id,))
 
-**Returns:**
+        if cursor.rowcount == 0:
+            # Check if the time slot was already unbooked or was not found
+            check_query = """
+                SELECT access_pin
+                FROM time_slots
+                WHERE id = %s
+            """
+            await cursor.execute(check_query, (time_slot_id,))
+            result = await cursor.fetchone()
 
-An `InlineKeyboardMarkup` object that can be used to send an inline keyboard to a Telegram chat. If no time slots are available, the function returns `None`.
+            if result is None:
+                logger.warning(f"Time slot {time_slot_id} was not found.")
+                return False, ""
+            else:
+                logger.warning(f"Time slot {time_slot_id} was not booked or already unbooked.")
+                return False, ""
+
+        logger.info(f"Successfully unbooked time slot {time_slot_id}.")
+        return True, ""
+    ```
+   - **Purpose**: Sets the `is_booked` status to `FALSE` and removes the PIN if unbooking the time slot.
+   - **SQL Query**: Updates `is_booked` to `FALSE` and removes the `access_pin`.
+   - **Error Handling**: Checks if the time slot was already unbooked or not found.
+
+**Code Overview:**
+The `manage_booking_time_slots` function efficiently manages the booking status of time slots, ensuring that the status and PIN are updated accurately. It includes proper error handling and resource management to maintain database integrity and reliability.
 
 
-### 5. `process_selected_time_slot`
+### 6. `check_user_access_by_access_pin`
 
 **Description:**
 
-Processes the selection of a time slot by the user.
+The `check_user_access_by_access_pin` function verifies the validity of a provided access PIN. It checks if the PIN corresponds to a valid time slot and whether the current time falls within that time slot. It returns a dictionary with detailed authentication results.
+
+**Purpose:**
+
+1. **Verify Access PIN**: Checks if the given PIN is valid and whether it falls within the time slot's duration.
+2. **Return Values**: Provides a dictionary containing:
+   - `pin_valid`: `True` if the PIN exists; otherwise `False`.
+   - `pin_inside_time_slot`: `True` if the current time is within the time slot; otherwise `False`.
+   - `pin_outside_time_slot`: `True` if the PIN is valid but the current time is outside the time slot.
+   - `start_time`: The start time of the time slot if the PIN is valid.
+   - `end_time`: The end time of the time slot if the PIN is valid.
 
 **Logic:**
 
-1. **Extract Callback Data:**
-   - Parse the callback data to get the time slot ID.
+1. **Database Operations**:
+   - **Check PIN**: Query the `time_slots` table to see if the PIN exists and retrieve the associated start and end times.
 
-2. **Fetch Time Slot Details:**
-   - Retrieve the details of the selected time slot.
+2. **Time Validation**:
+   - **Check Time Slot**: Compare the current time with the start and end times of the time slot to determine if the PIN is valid within the time slot.
 
-3. **Display Confirmation:**
-   - Show the user the start and end times of the selected slot and provide options to confirm the booking or return to the main menu.
+3. **Error Handling**:
+   - Log any errors that occur during database operations.
+
+4. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
+
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Check PIN in Database**:
+    @```python
+    query_check_pin = """
+        SELECT start_time, end_time
+        FROM time_slots
+        WHERE access_pin = %s
+    """
+    await cursor.execute(query_check_pin, (access_pin,))
+    row = await cursor.fetchone()
+    ```
+   - **Purpose**: Checks if the provided `access_pin` exists in the `time_slots` table and retrieves the associated `start_time` and `end_time`.
+   - **SQL Query**: Fetches `start_time` and `end_time` for the given `access_pin`.
+   - **Execution**: Asynchronously executed to obtain the time slot details if the PIN is valid.
+
+2. **Validate Time Slot**:
+    ```python
+    if row:
+        pin_valid = True
+        start_time, end_time = row  # unpack the result row
+
+        # Convert start_time and end_time to timezone-aware datetimes if they are naive
+        if start_time.tzinfo is None:
+            start_time = paris_tz.localize(start_time)
+        if end_time.tzinfo is None:
+            end_time = paris_tz.localize(end_time)
+
+        # Check if current time is within the time slot
+        if start_time <= now <= end_time:
+            logger.info("PIN is valid and within the time slot.")
+            pin_inside_time_slot = True
+        else:
+            logger.info(f"PIN valid, but outside of time slot. Wait till exactly: {start_time}")
+            pin_outside_time_slot = True
+    else:
+        logger.info("PIN not found.")
+        pin_valid = False
+    ```
+   - **Purpose**: Checks if the current time is within the retrieved time slot and sets the appropriate flags.
+   - **Time Conversion**: Ensures that `start_time` and `end_time` are timezone-aware.
+   - **Validation**: Determines if the current time falls within the time slot.
+
+**Code Overview:**
+The `check_user_access_by_access_pin` function verifies the validity of a PIN and checks whether the current time is within the time slot associated with that PIN. It returns detailed authentication results and manages database connections effectively to ensure reliable operation.
+
+
+
+#### 'pins' table:
+- `user_id`: Unique identifier for each pins enterting process.
+    - **Purpose**:
+        Corresponding pin enter to user-id of telegram. So we can
+        map the 5 digit PIN being entered by user trough key-pad GUI to the user while entering.
+
+        Using this datbase approach allows multiple users to enter a using multiple pin key-presses.
+        
+- `pin`: The 5 digit PIN entered by the user using key-pad.
+    - **Purpose**:
+        Saving the entered pin digits within datbase, so we can correctly
+        authenitcate a client entered PIN corresponding to actuall existing auth-pin's within 'time_slots' table.
+
+        Basically we need database approach to view what PIN sequence client entered using auth dashboard.
+        Then we store the PIN within table untill reaches 5 digits. After entering all 5 we do the auth process.
+        After auth process PIN is imidiatly deleted from DB. So user can auth again.
+      
+
+#### **Functions utilising  'pins' table**:
+  - These are all the functions interacting with the time_slots table in one way or another.
+    - **`services_python/` Directory**: Manages backend services and database interactions. This includes:
+      - **`fetch_user_entered_access_pin_stored_db.py`**: Checks user access based on the provided access pin.
+      - **`insert_or_update_user_entered_access_pin_db.py`**: Fetches all available time slots.
+      - **`delete_user_entered_access_pin_db.py`**: Fetches all time slots.
+
+
 
 ## Conclusion
-
 This integration provides a robust system for managing and booking time slots via a Telegram Bot. It includes functionalities for populating the database, fetching available slots, and handling user interactions effectively. Ensure proper handling of errors and resource management to maintain the system's reliability.
 
