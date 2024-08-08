@@ -8027,3 +8027,89 @@ LINE 3:                             FROM confirmed_orders
 2024-08-08 20:07:18,941 - INFO - Returning 'user_access_auth_return_data'
 2024-08-08 20:10:06,476 - INFO - Closing the connection pool...
 2024-08-08 20:10:06,476 - INFO - Connection pool closed. Exiting.
+2024-08-08 20:17:40,162 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 20:17:40,162 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 20:17:40,162 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 20:17:40,162 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 20:17:40,162 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 20:17:40,162 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 20:17:40,162 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 20:17:40,171 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 20:17:40,172 - INFO - Starting running periodic tasks...
+2024-08-08 20:17:40,182 - INFO - Time slots populated successfully.
+2024-08-08 20:17:40,182 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:40,182 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:40,406 - INFO - Successfully fetched all time slots.
+2024-08-08 20:17:40,406 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:40,406 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:40,406 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:17:40,406 - INFO - [{'id': 25, 'start_time': datetime.datetime(2024, 8, 10, 15, 0), 'end_time': datetime.datetime(2024, 8, 10, 17, 0)}, {'id': 24, 'start_time': datetime.datetime(2024, 8, 10, 13, 0), 'end_time': datetime.datetime(2024, 8, 10, 15, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 10, 11, 0), 'end_time': datetime.datetime(2024, 8, 10, 13, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 10, 9, 0), 'end_time': datetime.datetime(2024, 8, 10, 11, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 10, 7, 0), 'end_time': datetime.datetime(2024, 8, 10, 9, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 10, 5, 0), 'end_time': datetime.datetime(2024, 8, 10, 7, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 10, 3, 0), 'end_time': datetime.datetime(2024, 8, 10, 5, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 4, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}]
+2024-08-08 20:17:43,668 - INFO - Received callback data: admin_manage_booking_time_slot_5
+2024-08-08 20:17:43,676 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:17:43,676 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:43,676 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:43,676 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:17:49,404 - INFO - Received callback data: admin_managing_specified_time_slot_booking_False_5
+2024-08-08 20:17:49,409 - INFO - Successfully unbooked time slot 5.
+2024-08-08 20:17:49,409 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:49,410 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:49,410 - INFO - Operation completed.
+2024-08-08 20:17:49,410 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:17:49,410 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:49,410 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:49,410 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:17:54,932 - INFO - Successfully fetched all time slots.
+2024-08-08 20:17:54,932 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:54,932 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:54,932 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:17:54,932 - INFO - [{'id': 25, 'start_time': datetime.datetime(2024, 8, 10, 15, 0), 'end_time': datetime.datetime(2024, 8, 10, 17, 0)}, {'id': 24, 'start_time': datetime.datetime(2024, 8, 10, 13, 0), 'end_time': datetime.datetime(2024, 8, 10, 15, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 10, 11, 0), 'end_time': datetime.datetime(2024, 8, 10, 13, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 10, 9, 0), 'end_time': datetime.datetime(2024, 8, 10, 11, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 10, 7, 0), 'end_time': datetime.datetime(2024, 8, 10, 9, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 10, 5, 0), 'end_time': datetime.datetime(2024, 8, 10, 7, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 10, 3, 0), 'end_time': datetime.datetime(2024, 8, 10, 5, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 4, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}]
+2024-08-08 20:17:59,028 - INFO - Received callback data: admin_manage_booking_time_slot_5
+2024-08-08 20:17:59,036 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:17:59,036 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:17:59,036 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:17:59,036 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:18:37,121 - INFO - Received callback data: admin_managing_specified_time_slot_booking_False_5
+2024-08-08 20:18:37,122 - WARNING - Time slot 5 was not booked or already unbooked.
+2024-08-08 20:18:37,122 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:18:37,122 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:18:37,122 - INFO - Operation completed.
+2024-08-08 20:18:37,123 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:18:37,123 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:18:37,123 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:18:37,123 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:19:00,161 - INFO - Received callback data: booking_service
+2024-08-08 20:19:00,162 - INFO - Successfully fetched available time slots.
+2024-08-08 20:19:00,162 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:19:00,162 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:19:00,162 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:19:13,372 - INFO - Received callback data: time_slot_5
+2024-08-08 20:19:13,379 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:19:13,379 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:19:13,380 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:19:13,380 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:19:15,420 - INFO - Received callback data: confirm_time_5
+2024-08-08 20:19:15,421 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:19:15,421 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:19:15,421 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:19:15,421 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:19:18,696 - INFO - Successfully fetched all time slots.
+2024-08-08 20:19:18,697 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:19:18,701 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:19:18,701 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:19:18,701 - INFO - [{'id': 25, 'start_time': datetime.datetime(2024, 8, 10, 15, 0), 'end_time': datetime.datetime(2024, 8, 10, 17, 0)}, {'id': 24, 'start_time': datetime.datetime(2024, 8, 10, 13, 0), 'end_time': datetime.datetime(2024, 8, 10, 15, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 10, 11, 0), 'end_time': datetime.datetime(2024, 8, 10, 13, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 10, 9, 0), 'end_time': datetime.datetime(2024, 8, 10, 11, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 10, 7, 0), 'end_time': datetime.datetime(2024, 8, 10, 9, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 10, 5, 0), 'end_time': datetime.datetime(2024, 8, 10, 7, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 10, 3, 0), 'end_time': datetime.datetime(2024, 8, 10, 5, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 4, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}]
+2024-08-08 20:19:20,540 - INFO - Received callback data: admin_manage_booking_time_slot_5
+2024-08-08 20:19:20,547 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:19:20,547 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:19:20,548 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:19:20,548 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:20:22,903 - INFO - Received callback data: admin_managing_specified_time_slot_booking_True_5
+2024-08-08 20:20:22,944 - INFO - Successfully booked time slot 5. Generated PIN: 03714.
+2024-08-08 20:20:22,944 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:20:22,945 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:20:22,945 - INFO - Operation completed.
+2024-08-08 20:20:22,945 - INFO - Successfully fetched time slot with ID 5.
+2024-08-08 20:20:22,945 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 20:20:22,945 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 20:20:22,945 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 20:22:43,799 - INFO - Closing the connection pool...
+2024-08-08 20:22:43,799 - INFO - Connection pool closed. Exiting.

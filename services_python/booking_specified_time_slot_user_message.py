@@ -46,10 +46,11 @@ async def booking_specified_time_slot_user_message(callback):
         # Define the message
         message = (
             f"\n"
-            " ✅ Time slot confirmed:\n"
+            " ✅ Selected Time-Slot:\n"
             f"\n"
-            f"Start-Time:       🗓️ {start_time_cleaned}\n"
-            f"End-Time:         🗓️ {end_time_cleaned}\n"
+            f"⌚ Start-Time:       🗓️ {start_time_cleaned}\n"
+            f"\n"
+            f"⌚ End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
             "Please message the following admin: @handle\n"
             "Copy this message below and send it to continue with payment:\n"
@@ -60,7 +61,7 @@ async def booking_specified_time_slot_user_message(callback):
             f"Start-Time:       🗓️ {start_time_cleaned}\n"
             f"End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
-            f"Time-slot-ID:     📒 {time_slot_id}0"
+            f"Time-slot-ID:     📒 {time_slot_id}"
             "\n"  
             "🪐 I acknowledge that I am sending this message \n"  
             "to book the [service] for above specified time-slot\n"  # No trailing newline
