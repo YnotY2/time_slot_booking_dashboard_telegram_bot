@@ -1,4 +1,4 @@
-# Time Slots Database and Telegram Bot Integration
+# Managing bookings for any specified service via telegram
 Telegram Bot for any service requiring booking's and user authentication on arrival. Currently I have modified the code to work for a barbershop
 as a example.
 
