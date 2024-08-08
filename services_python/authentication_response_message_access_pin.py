@@ -26,9 +26,10 @@ async def authentication_response_message_access_pin(callback, user_access_auth_
     # Convert the time variables for better readability
     # Remove the '.00' suffix if it exists
     # Only tim the time if it actually has a value
+    # Convert the datetime objects to strings with proper formatting
     if start_time:
-        start_time_cleaned = start_time.rstrip('.00')
-        end_time_cleaned = end_time.rstrip('.00')
+        start_time_cleaned = start_time.strftime('%Y-%m-%d %H:%M:%S')
+        end_time_cleaned = end_time.strftime('%Y-%m-%d %H:%M:%S')
 
     if pin_valid and pin_inside_time_slot:
         # Define the message
@@ -52,11 +53,12 @@ async def authentication_response_message_access_pin(callback, user_access_auth_
             "✖️ Access denied:\n"
             "\n"
             f"Start-Time:       🗓️ {start_time_cleaned}\n"
+            f"\n"
             f"End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
             f"ℹ️ Dear user, the access PIN you have entered"
             f"is valid. But you are attempting to access service"
-            f"outside of booked time-slot.\n"
+            f" outside of booked time-slot.\n"
             f"\n"
             f"View above booking time, for when you can access service ⬆️"
             f"\n"
@@ -96,6 +98,9 @@ async def authentication_response_message_access_pin(callback, user_access_auth_
         await callback.message.answer(message, reply_markup=auth_response_inline_keyboard)
     elif not pin_valid and not pin_inside_time_slot:
         await callback.message.answer(message, reply_markup=auth_response_inline_keyboard)
+    elif pin_valid and pin_outside_time_slot:
+        await callback.message.answer(message, reply_markup=auth_response_inline_keyboard)
+
     # If we reach here we have successfully accessed the service with valid pin and time-window
     elif pin_valid and pin_inside_time_slot:
         await callback.message.answer(message)
