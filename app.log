@@ -6195,3 +6195,288 @@ LINE 3:                             FROM confirmed_orders
 2024-08-08 05:28:46,662 - INFO - Successfully returned the connection to the pool!
 2024-08-08 05:29:01,796 - INFO - Closing the connection pool...
 2024-08-08 05:29:01,797 - INFO - Connection pool closed. Exiting.
+2024-08-08 05:36:05,526 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 05:36:05,526 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 05:36:05,526 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 05:36:05,526 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 05:36:05,526 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 05:36:05,526 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 05:36:05,526 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 05:36:05,539 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 05:36:05,540 - INFO - Starting running periodic tasks...
+2024-08-08 05:36:05,560 - INFO - Time slots populated successfully.
+2024-08-08 05:36:05,561 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:05,561 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:17,012 - INFO - Successfully fetched all time slots.
+2024-08-08 05:36:17,013 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:17,013 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:17,013 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 05:36:17,013 - INFO - [{'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}, {'id': 4, 'start_time': datetime.datetime(2024, 8, 8, 19, 0), 'end_time': datetime.datetime(2024, 8, 8, 21, 0)}, {'id': 3, 'start_time': datetime.datetime(2024, 8, 8, 17, 0), 'end_time': datetime.datetime(2024, 8, 8, 19, 0)}, {'id': 2, 'start_time': datetime.datetime(2024, 8, 8, 15, 0), 'end_time': datetime.datetime(2024, 8, 8, 17, 0)}, {'id': 1, 'start_time': datetime.datetime(2024, 8, 8, 12, 0), 'end_time': datetime.datetime(2024, 8, 8, 14, 0)}]
+2024-08-08 05:36:18,832 - INFO - Received callback data: admin_manage_booking_time_slot_1
+2024-08-08 05:36:18,841 - INFO - Successfully fetched time slot with ID 1.
+2024-08-08 05:36:18,841 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:18,842 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:18,842 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 05:36:20,728 - INFO - Received callback data: admin_managing_specified_time_slot_booking_True_1
+2024-08-08 05:36:20,730 - INFO - Successfully booked time slot 1. Generated PIN: 91350.
+2024-08-08 05:36:20,730 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:20,730 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:20,730 - INFO - Operation completed.
+2024-08-08 05:36:20,730 - INFO - Successfully fetched time slot with ID 1.
+2024-08-08 05:36:20,730 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:20,730 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:20,730 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-08 05:36:29,824 - INFO - Received callback data: start
+2024-08-08 05:36:30,921 - INFO - Received callback data: access_service
+2024-08-08 05:36:30,965 - INFO - Displayed keypad for the user.
+2024-08-08 05:36:36,074 - INFO - Received callback data: key_9
+2024-08-08 05:36:36,074 - INFO - Handling keypad press: 9
+2024-08-08 05:36:36,074 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:36,079 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 05:36:36,081 - INFO - Current PIN: 
+2024-08-08 05:36:36,081 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:36:36,081 - INFO - Updated PIN: 9.
+2024-08-08 05:36:36,081 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 05:36:36,855 - INFO - Received callback data: key_1
+2024-08-08 05:36:36,855 - INFO - Handling keypad press: 1
+2024-08-08 05:36:36,855 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:36,856 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:36:36,856 - INFO - Retrieved PIN 'get_pin' ['9'].
+2024-08-08 05:36:36,857 - INFO - Current PIN: 9
+2024-08-08 05:36:36,857 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:36:36,857 - INFO - Updated PIN: 91.
+2024-08-08 05:36:37,758 - INFO - Received callback data: key_3
+2024-08-08 05:36:37,758 - INFO - Handling keypad press: 3
+2024-08-08 05:36:37,758 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:37,759 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:36:37,759 - INFO - Retrieved PIN 'get_pin' ['91'].
+2024-08-08 05:36:37,764 - INFO - Current PIN: 91
+2024-08-08 05:36:37,764 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:36:37,764 - INFO - Updated PIN: 913.
+2024-08-08 05:36:39,175 - INFO - Received callback data: key_5
+2024-08-08 05:36:39,175 - INFO - Handling keypad press: 5
+2024-08-08 05:36:39,175 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:39,176 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:36:39,176 - INFO - Retrieved PIN 'get_pin' ['913'].
+2024-08-08 05:36:39,181 - INFO - Current PIN: 913
+2024-08-08 05:36:39,181 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:36:39,181 - INFO - Updated PIN: 9135.
+2024-08-08 05:36:40,340 - INFO - Received callback data: key_0
+2024-08-08 05:36:40,340 - INFO - Handling keypad press: 0
+2024-08-08 05:36:40,340 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:40,341 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:36:40,341 - INFO - Retrieved PIN 'get_pin' ['9135'].
+2024-08-08 05:36:40,346 - INFO - Current PIN: 9135
+2024-08-08 05:36:40,346 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:36:40,346 - INFO - Updated PIN: 91350.
+2024-08-08 05:36:41,455 - INFO - Received callback data: key_0
+2024-08-08 05:36:41,455 - INFO - Handling keypad press: 0
+2024-08-08 05:36:41,458 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:36:41,458 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:36:41,459 - INFO - Retrieved PIN 'get_pin' ['91350'].
+2024-08-08 05:36:41,500 - INFO - FULL PIN: 91350
+2024-08-08 05:36:41,548 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 05:36:41,579 - ERROR - Error during database operations: too many values to unpack (expected 2)
+2024-08-08 05:36:41,579 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:36:41,579 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:36:41,579 - INFO - Successfully returned the connection to the pool!
+2024-08-08 05:38:56,561 - INFO - Closing the connection pool...
+2024-08-08 05:38:56,562 - INFO - Connection pool closed. Exiting.
+2024-08-08 05:39:00,046 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 05:39:00,046 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 05:39:00,046 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 05:39:00,046 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 05:39:00,046 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 05:39:00,046 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 05:39:00,046 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 05:39:00,057 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 05:39:00,058 - INFO - Starting running periodic tasks...
+2024-08-08 05:39:00,078 - INFO - Time slots populated successfully.
+2024-08-08 05:39:00,078 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:39:00,079 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:39:00,963 - INFO - Received callback data: access_service
+2024-08-08 05:39:01,061 - INFO - Displayed keypad for the user.
+2024-08-08 05:39:03,180 - INFO - Received callback data: key_9
+2024-08-08 05:39:03,180 - INFO - Handling keypad press: 9
+2024-08-08 05:39:03,180 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:03,194 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 05:39:03,195 - INFO - Current PIN: 
+2024-08-08 05:39:03,195 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:39:03,195 - INFO - Updated PIN: 9.
+2024-08-08 05:39:03,195 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 05:39:04,380 - INFO - Received callback data: key_1
+2024-08-08 05:39:04,380 - INFO - Handling keypad press: 1
+2024-08-08 05:39:04,380 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:04,380 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:39:04,380 - INFO - Retrieved PIN 'get_pin' ['9'].
+2024-08-08 05:39:04,385 - INFO - Current PIN: 9
+2024-08-08 05:39:04,385 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:39:04,385 - INFO - Updated PIN: 91.
+2024-08-08 05:39:06,013 - INFO - Received callback data: key_3
+2024-08-08 05:39:06,013 - INFO - Handling keypad press: 3
+2024-08-08 05:39:06,013 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:06,014 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:39:06,014 - INFO - Retrieved PIN 'get_pin' ['91'].
+2024-08-08 05:39:06,018 - INFO - Current PIN: 91
+2024-08-08 05:39:06,019 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:39:06,019 - INFO - Updated PIN: 913.
+2024-08-08 05:39:06,707 - INFO - Received callback data: key_5
+2024-08-08 05:39:06,707 - INFO - Handling keypad press: 5
+2024-08-08 05:39:06,707 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:06,707 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:39:06,707 - INFO - Retrieved PIN 'get_pin' ['913'].
+2024-08-08 05:39:06,712 - INFO - Current PIN: 913
+2024-08-08 05:39:06,712 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:39:06,712 - INFO - Updated PIN: 9135.
+2024-08-08 05:39:07,157 - INFO - Received callback data: key_0
+2024-08-08 05:39:07,157 - INFO - Handling keypad press: 0
+2024-08-08 05:39:07,157 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:07,157 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:39:07,157 - INFO - Retrieved PIN 'get_pin' ['9135'].
+2024-08-08 05:39:07,162 - INFO - Current PIN: 9135
+2024-08-08 05:39:07,162 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:39:07,162 - INFO - Updated PIN: 91350.
+2024-08-08 05:39:07,742 - INFO - Received callback data: key_0
+2024-08-08 05:39:07,742 - INFO - Handling keypad press: 0
+2024-08-08 05:39:07,742 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:39:07,742 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:39:07,742 - INFO - Retrieved PIN 'get_pin' ['91350'].
+2024-08-08 05:39:07,783 - INFO - FULL PIN: 91350
+2024-08-08 05:39:07,833 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 05:39:07,864 - ERROR - Error during database operations: can't compare offset-naive and offset-aware datetimes
+2024-08-08 05:39:07,864 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:39:07,864 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:39:07,864 - INFO - Successfully returned the connection to the pool!
+2024-08-08 05:39:14,701 - INFO - Closing the connection pool...
+2024-08-08 05:39:14,702 - INFO - Connection pool closed. Exiting.
+2024-08-08 05:40:55,498 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 05:40:55,498 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 05:40:55,498 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 05:40:55,498 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 05:40:55,498 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 05:40:55,498 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 05:40:55,498 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 05:40:55,511 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 05:40:55,512 - INFO - Starting running periodic tasks...
+2024-08-08 05:40:55,525 - INFO - Time slots populated successfully.
+2024-08-08 05:40:55,525 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:40:55,525 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:40:57,196 - INFO - Received callback data: key_9
+2024-08-08 05:40:57,196 - INFO - Handling keypad press: 9
+2024-08-08 05:40:57,196 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:40:57,209 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 05:40:57,210 - INFO - Current PIN: 
+2024-08-08 05:40:57,210 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:40:57,210 - INFO - Updated PIN: 9.
+2024-08-08 05:40:57,210 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 05:40:58,362 - INFO - Received callback data: key_1
+2024-08-08 05:40:58,362 - INFO - Handling keypad press: 1
+2024-08-08 05:40:58,362 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:40:58,362 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:40:58,362 - INFO - Retrieved PIN 'get_pin' ['9'].
+2024-08-08 05:40:58,367 - INFO - Current PIN: 9
+2024-08-08 05:40:58,367 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:40:58,367 - INFO - Updated PIN: 91.
+2024-08-08 05:40:59,491 - INFO - Received callback data: key_3
+2024-08-08 05:40:59,491 - INFO - Handling keypad press: 3
+2024-08-08 05:40:59,491 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:40:59,492 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:40:59,492 - INFO - Retrieved PIN 'get_pin' ['91'].
+2024-08-08 05:40:59,497 - INFO - Current PIN: 91
+2024-08-08 05:40:59,497 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:40:59,497 - INFO - Updated PIN: 913.
+2024-08-08 05:41:00,163 - INFO - Received callback data: key_5
+2024-08-08 05:41:00,164 - INFO - Handling keypad press: 5
+2024-08-08 05:41:00,164 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:41:00,164 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:41:00,164 - INFO - Retrieved PIN 'get_pin' ['913'].
+2024-08-08 05:41:00,169 - INFO - Current PIN: 913
+2024-08-08 05:41:00,169 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:41:00,169 - INFO - Updated PIN: 9135.
+2024-08-08 05:41:00,725 - INFO - Received callback data: key_0
+2024-08-08 05:41:00,725 - INFO - Handling keypad press: 0
+2024-08-08 05:41:00,725 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:41:00,725 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:41:00,726 - INFO - Retrieved PIN 'get_pin' ['9135'].
+2024-08-08 05:41:00,731 - INFO - Current PIN: 9135
+2024-08-08 05:41:00,731 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:41:00,731 - INFO - Updated PIN: 91350.
+2024-08-08 05:41:04,194 - INFO - Received callback data: key_0
+2024-08-08 05:41:04,194 - INFO - Handling keypad press: 0
+2024-08-08 05:41:04,194 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:41:04,194 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:41:04,194 - INFO - Retrieved PIN 'get_pin' ['91350'].
+2024-08-08 05:41:04,254 - INFO - FULL PIN: 91350
+2024-08-08 05:41:04,307 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 05:41:04,362 - INFO - PIN valid, but outside of time slot. Wait till exactly: 2024-08-08 12:00:00+02:00
+2024-08-08 05:41:04,362 - ERROR - Error handling callback query: 'Connection' object has no attribute 'release'
+2024-08-08 05:41:48,863 - INFO - Closing the connection pool...
+2024-08-08 05:41:48,864 - INFO - Connection pool closed. Exiting.
+2024-08-08 05:52:45,875 - INFO - Starting main.py process, telegram bot live!
+2024-08-08 05:52:45,875 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-08 05:52:45,875 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-08 05:52:45,875 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-08 05:52:45,875 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-08 05:52:45,875 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-08 05:52:45,875 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-08 05:52:45,886 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-08 05:52:45,887 - INFO - Starting running periodic tasks...
+2024-08-08 05:52:45,899 - INFO - Time slots populated successfully.
+2024-08-08 05:52:45,899 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:52:45,900 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:52:49,359 - INFO - Received callback data: access_service
+2024-08-08 05:52:49,461 - INFO - Displayed keypad for the user.
+2024-08-08 05:52:50,466 - INFO - Received callback data: key_0
+2024-08-08 05:52:50,466 - INFO - Handling keypad press: 0
+2024-08-08 05:52:50,466 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:50,481 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-08 05:52:50,483 - INFO - Current PIN: 
+2024-08-08 05:52:50,483 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:52:50,483 - INFO - Updated PIN: 0.
+2024-08-08 05:52:50,483 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-08 05:52:50,916 - INFO - Received callback data: key_6
+2024-08-08 05:52:50,916 - INFO - Handling keypad press: 6
+2024-08-08 05:52:50,916 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:50,917 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:52:50,917 - INFO - Retrieved PIN 'get_pin' ['0'].
+2024-08-08 05:52:50,919 - INFO - Current PIN: 0
+2024-08-08 05:52:50,919 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:52:50,919 - INFO - Updated PIN: 06.
+2024-08-08 05:52:51,218 - INFO - Received callback data: key_7
+2024-08-08 05:52:51,218 - INFO - Handling keypad press: 7
+2024-08-08 05:52:51,218 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:51,218 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:52:51,218 - INFO - Retrieved PIN 'get_pin' ['06'].
+2024-08-08 05:52:51,223 - INFO - Current PIN: 06
+2024-08-08 05:52:51,223 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:52:51,223 - INFO - Updated PIN: 067.
+2024-08-08 05:52:51,519 - INFO - Received callback data: key_2
+2024-08-08 05:52:51,519 - INFO - Handling keypad press: 2
+2024-08-08 05:52:51,519 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:51,519 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:52:51,520 - INFO - Retrieved PIN 'get_pin' ['067'].
+2024-08-08 05:52:51,525 - INFO - Current PIN: 067
+2024-08-08 05:52:51,525 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:52:51,525 - INFO - Updated PIN: 0672.
+2024-08-08 05:52:56,014 - INFO - Received callback data: key_1
+2024-08-08 05:52:56,015 - INFO - Handling keypad press: 1
+2024-08-08 05:52:56,015 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:56,016 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:52:56,016 - INFO - Retrieved PIN 'get_pin' ['0672'].
+2024-08-08 05:52:56,020 - INFO - Current PIN: 0672
+2024-08-08 05:52:56,020 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-08 05:52:56,020 - INFO - Updated PIN: 06721.
+2024-08-08 05:52:56,087 - INFO - Received callback data: key_0
+2024-08-08 05:52:56,088 - INFO - Handling keypad press: 0
+2024-08-08 05:52:56,088 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-08 05:52:56,088 - INFO - Retrieved PIN for user 6693738792.
+2024-08-08 05:52:56,088 - INFO - Retrieved PIN 'get_pin' ['06721'].
+2024-08-08 05:52:56,129 - INFO - FULL PIN: 06721
+2024-08-08 05:52:56,181 - INFO - Cleared PIN for user 6693738792.
+2024-08-08 05:52:56,221 - INFO - PIN not found.
+2024-08-08 05:52:56,221 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-08 05:52:56,221 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-08 05:52:56,221 - INFO - Successfully returned the connection to the pool!
+2024-08-08 05:52:56,221 - INFO - Returning 'user_access_auth_return_data'
+2024-08-08 05:53:27,005 - INFO - Closing the connection pool...
+2024-08-08 05:53:27,005 - INFO - Connection pool closed. Exiting.

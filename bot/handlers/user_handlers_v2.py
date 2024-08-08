@@ -894,7 +894,8 @@ async def handle_keypad_press(callback: types.CallbackQuery):
 
 
 
-
+"""The main logic works in a way that I only return the PIN, no confirmation.
+'check_user_access_by_access_pin' handles the access to the service PIN auth."""
 @user_router.callback_query(lambda cb: cb.data == 'access_service' or cb.data.startswith('key_'))
 async def handle_access_service_callback(callback: types.CallbackQuery):
     try:
@@ -917,7 +918,9 @@ async def handle_access_service_callback(callback: types.CallbackQuery):
             pin = await handle_keypad_press(callback)
             if pin:
                 print(pin)
-                await check_user_access_by_access_pin(pin)
+                user_access_auth_return_data = await check_user_access_by_access_pin(pin)
+                # Now I access the dict and respond with the right message, and keyboard
+                print(user_access_auth_return_data)
 
         else:
             await handle_unexpected_message(callback.message)
