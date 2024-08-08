@@ -324,11 +324,13 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
 
         # Here we define the message:
         message = ("\n"
-                   " ⌛ Confirm Time Slot :\n"
+                   " ⌛ Confirm Time Slot:\n"
                    "\n"
-                   f"Start-Time:    🗓️ {start_time_cleaned}\n "
+                   f"⌚ Start-Time:\n"
+                   f"🗓️ {start_time_cleaned}\n "
                    f"\n"
-                   f"End-Time:   ️    🗓 {end_time_cleaned}\n"
+                   f"⌚ End-Time:\n"
+                   f"🗓 {end_time_cleaned}\n"
                    f"\n")
 
         start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
@@ -359,8 +361,8 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
 async def create_numbers_access_keypad(callback: types.CallbackQuery):
     # Create buttons
     buttons = [InlineKeyboardButton(text=str(i), callback_data=f"key_{i}") for i in range(10)]
-    # Arrange buttons in rows of 5
-    inline_keyboard = [buttons[i:i + 5] for i in range(0, len(buttons), 5)]
+    # Arrange buttons in rows of 3
+    inline_keyboard = [buttons[i:i + 3] for i in range(0, len(buttons), 3)]
     # Create InlineKeyboardMarkup with the arranged buttons
     numbers_access_keypad = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
 
@@ -392,7 +394,7 @@ async def handle_keypad_press(callback: types.CallbackQuery):
 
             if len(pin) == 5:
                 # Update the message with the pressed numbers
-                await  callback.message.answer(f"📱 Entered PIN: {pin}")
+                await  callback.message.answer(f"📱 Entered PIN: {pin}0")
                 await delete_user_entered_access_pin_db(user_id)
                 await callback.answer()
                 return pin
@@ -520,9 +522,11 @@ async def admin_managing_specified_time_slot_booking_choose_true_false(callback:
         f"🗓 Manage specified booking time-slot:\n"
         f"\n"
         f"\n" 
-        f"Start-Time:       🗓️ {start_time_cleaned}\n"
+        f"⌚ Start-Time:\n"
+        f"🗓️ {start_time_cleaned}\n "
         f"\n"
-        f"End-Time:         🗓️ {end_time_cleaned}\n"
+        f"⌚ End-Time:\n"
+        f"🗓 {end_time_cleaned}\n"
         f"\n"
         f"Time-slot-ID:     📒 {time_slot_id}\n"
         f"Time-Slot Booked:    👓 {is_booked_str}\n"
@@ -599,9 +603,11 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
             f"\n"
             f"✅ Successfully modified following time-slot:\n"
             f"\n"
-            f"Start-Time:       🗓️ {start_time_cleaned}\n"
+            f"⌚ Start-Time:\n"
+            f"🗓️ {start_time_cleaned}\n "
             f"\n"
-            f"End-Time:         🗓️ {end_time_cleaned}\n"
+            f"⌚ End-Time:\n"
+            f"🗓 {end_time_cleaned}\n"
             f"\n"
             f"Time-slot-ID:     📒 {time_slot_id}\n"
             f"is_booked:       👓 {is_booked_str}"
@@ -634,9 +640,11 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
                 "✅ Time slot payment complete.\n"
                 f"🔓 Access information to service:\n"
                 f"\n"
-                f"⌚ Start-Time:       🗓️ {start_time_cleaned}\n"
-                f"\n" 
-                f"⌚ End-Time:         🗓️ {end_time_cleaned}\n"
+                f"⌚ Start-Time:\n"
+                f"🗓️ {start_time_cleaned}\n "
+                f"\n"
+                f"⌚ End-Time:\n"
+                f"🗓 {end_time_cleaned}\n"
                 f"\n" 
                 f"Access PIN 📲     {access_pin_str}0\n"
                 f"\n"
