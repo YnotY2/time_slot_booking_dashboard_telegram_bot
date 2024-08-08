@@ -27,6 +27,7 @@ from services_python.booking_specified_time_slot_user_message import booking_spe
 from services_python.manage_booking_time_slots import manage_booking_time_slots
 
 from services_python.check_user_access_by_access_pin import check_user_access_by_access_pin
+from services_python.authentication_response_message_access_pin import authentication_response_message_access_pin
 
 """These are imports used for development purposes."""
 #from services_python.test_pool_object_from_user_handler import test_pool_object_from_user_handler
@@ -99,14 +100,14 @@ async def start_menu(message: types.Message):
         return
 
     faq_button = InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
-    buy_button = InlineKeyboardButton(text="Buy", callback_data='buy')
+    booking_service_button = InlineKeyboardButton(text="Booking Service", callback_data='booking_service')
     get_access_button = InlineKeyboardButton(text="Access Service", callback_data="access_service")
 
     # Create an InlineKeyboardMarkup object with a list of rows
     start_keyboard_inline = InlineKeyboardMarkup(
         inline_keyboard=[
             [faq_button],         # First row
-            [buy_button],  # Second row
+            [booking_service_button],  # Second row
             [get_access_button],  # Third row
         ]
     )
@@ -328,14 +329,14 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
                    f"\n")
 
         start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
-        buy_button = types.InlineKeyboardButton(text='Confirm Time', callback_data=f'confirm_buy_{time_slot_id}')
+        confirm_time_button = types.InlineKeyboardButton(text='Confirm Time', callback_data=f'confirm_time_{time_slot_id}')
         # We pass the time-slot ID to the callback data of confirm buy, so we can
         # now what time-slot the user is talking about.
 
         # Create an InlineKeyboardMarkup object with a list of rows
-        confirm_buy_inline_keyboard = InlineKeyboardMarkup(
+        confirm_time_inline_keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
-                [start_menu_button, buy_button],  # Second row
+                [start_menu_button, confirm_time_button],  # Second row
             ]
         )
 
@@ -347,7 +348,7 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
                    "")
 
     # Here we call the response
-    await callback.message.answer(message, parse_mode='Markdown', reply_markup=confirm_buy_inline_keyboard)
+    await callback.message.answer(message, parse_mode='Markdown', reply_markup=confirm_time_inline_keyboard)
 
 
 async def admin_time_slot_booking_dashboard(message: types.Message):
@@ -419,7 +420,7 @@ async def admin_time_slot_booking_dashboard(message: types.Message):
 async def admin_managing_specified_time_slot_booking_choose_true_false(callback: types.CallbackQuery):
     """This functions gives capability to specify if time_slot should be True or False"""
     async def extract_time_slot(callback_data):
-        # Assuming callback_data is in the format 'confirm_buy_{time_slot_id}'
+        # Assuming callback_data is in the format 'confirm_time_{time_slot_id}'
         parts = callback_data.split('_')
 
         if len(parts) > 2:
@@ -459,8 +460,8 @@ async def admin_managing_specified_time_slot_booking_choose_true_false(callback:
         f"Start-Time:       🗓️ {start_time_cleaned}\n"
         f"End-Time:         🗓️ {end_time_cleaned}\n"
         f"\n"
-        f"Time-slot-ID:     📒 {time_slot_id}"
-        f"👓 'is_booked'  =    {is_booked_str}"
+        f"Time-slot-ID:     📒 {time_slot_id}\n"
+        f"Time-Slot Booked:    👓 {is_booked_str}\n"
         f"\n"
         f"Access PIN 📲  {access_pin_str}\n"       
         f"\n"
@@ -689,7 +690,7 @@ async def handle_admin_dashboard_callbacks(callback: types.CallbackQuery):
 
 
 """Booking Order Callback Data Handlers"""
-@user_router.callback_query(lambda cb: cb.data == 'buy' or cb.data.startswith('time_slot_') or cb.data.startswith('confirm_buy'))
+@user_router.callback_query(lambda cb: cb.data == 'booking_service' or cb.data.startswith('time_slot_') or cb.data.startswith('confirm_time_'))
 async def handle_booking_order_callback(callback: types.CallbackQuery):
     try:
         if not check_if_time_within_openings_hours():
@@ -703,13 +704,13 @@ async def handle_booking_order_callback(callback: types.CallbackQuery):
         data = callback.data
         logger.info(f"Received callback data: {data}")
 
-        if data == 'buy':
+        if data == 'booking_service':
             """Display time-slot dashboard buttons to the user"""
             await callback_handler_buy(callback)
         elif data.startswith("time_slot_"):
             """Ask user to confirm the order for the specified time-slot"""
             await process_selected_time_slot(callback)
-        elif data.startswith("confirm_buy"):
+        elif data.startswith("confirm_time_"):
             """Prompt user to send a message to the admin"""
             await booking_specified_time_slot_user_message(callback)
         else:
@@ -845,8 +846,7 @@ async def clear_pin(user_id: str):
             logger.error(f"Error clearing PIN: {e}")
 
 async def process_collected_pin(message: types.Message, pin):
-    await message.answer(f"Bitch full PIN: {pin}")
-    logger.info(f"FULL PIN: {pin}")
+    await message.answer(f"📱 Entered PIN: {pin}")
 
 async def handle_keypad_press(callback: types.CallbackQuery):
     try:
@@ -869,7 +869,6 @@ async def handle_keypad_press(callback: types.CallbackQuery):
             if len(pin) == 5:
                 # Update the message with the pressed numbers
                 await process_collected_pin(callback.message, pin)
-                await callback.message.answer(f"Full Collected PIN: {pin}")
                 await clear_pin(user_id)
                 await callback.answer()
                 return pin
@@ -921,6 +920,7 @@ async def handle_access_service_callback(callback: types.CallbackQuery):
                 user_access_auth_return_data = await check_user_access_by_access_pin(pin)
                 # Now I access the dict and respond with the right message, and keyboard
                 print(user_access_auth_return_data)
+                await authentication_response_message_access_pin(callback, user_access_auth_return_data)
 
         else:
             await handle_unexpected_message(callback.message)

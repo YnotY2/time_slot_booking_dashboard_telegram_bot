@@ -25,9 +25,9 @@ async def check_user_access_by_access_pin(access_pin: str):
     now = datetime.now(paris_tz)
 
     # Initialize variables
-    pin_inside_time_slot = None
-    pin_outside_time_slot = None
-    pin_valid = None
+    pin_inside_time_slot = False
+    pin_outside_time_slot = False
+    pin_valid = False
     start_time = None
     end_time = None
 
@@ -75,7 +75,7 @@ async def check_user_access_by_access_pin(access_pin: str):
         finally:
                 # Here we return the dict:
                 user_access_auth_return_data = {
-                    'pin': pin_valid,
+                    'pin_valid': pin_valid,
                     'pin_inside_time_slot': pin_inside_time_slot,
                     'pin_outside_time_slot': pin_outside_time_slot,
                     'start_time': start_time,
