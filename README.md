@@ -1,4 +1,4 @@
-# Managing bookings for any specified service via telegram
+# Managing bookings and access for any specified service via telegram
 Telegram Bot for any service requiring booking's and user authentication on arrival. Currently I have modified the code to work for a barbershop
 as a example.
 
@@ -20,10 +20,12 @@ as a example.
     - Un-booking any specified time-slot
     - Returns 5 digit PIN when booking time-slot
     - Unique password cmd for access dashboard via chat message
+    - *Password is set within 'settings.py'*
 -   User 5 digit PIN authentication dasboard ✅
     - authenticating booking on arrival 
     - Accepts or rejects access
     - Authentication message response based on entered PIN
+    - *pin is returned to admin after confirming booking*
     - ```
       user_access_auth_return_data = {
                     'pin_valid': pin_valid,
