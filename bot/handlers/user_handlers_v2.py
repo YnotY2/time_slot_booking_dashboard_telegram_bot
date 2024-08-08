@@ -8,6 +8,8 @@ from aiogram.filters import Command
 
 from aiogram.types import FSInputFile
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from dependencies import container
+
 
 from config.faq_answers import faq_answers
 from config.faq_data import faq_data
@@ -348,50 +350,6 @@ async def process_selected_time_slot(callback: types.CallbackQuery):
     await callback.message.answer(message, parse_mode='Markdown', reply_markup=confirm_buy_inline_keyboard)
 
 
-async def create_numbers_access_keypad(callback: types.CallbackQuery):
-    # Create buttons
-    buttons = [InlineKeyboardButton(text=str(i), callback_data=f"key_{i}") for i in range(10)]
-    # Arrange buttons in rows of 5
-    inline_keyboard = [buttons[i:i + 5] for i in range(0, len(buttons), 5)]
-    # Create InlineKeyboardMarkup with the arranged buttons
-    numbers_access_keypad = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
-
-    # Define the message
-    message = ("\n"
-               " Please input your 5-digit PIN:\n"
-               "\n")
-    # Send the message with the inline keyboard
-    await callback.message.answer(message, parse_mode='Markdown', reply_markup=numbers_access_keypad)
-
-
-async def handle_keypad_press(callback_query: types.CallbackQuery):
-    # Extract the number from the callback data
-    pressed_number = int(callback_query.data.split('_')[1])
-
-    # Retrieve or initialize the current state from callback data
-    current_data = callback_query.message.text.split(': ', 1)[-1]
-    pressed_numbers = list(map(int, current_data.split(', '))) if current_data else []
-
-    # Add the new number to the list
-    pressed_numbers.append(pressed_number)
-    pressed_numbers_str = ', '.join(map(str, pressed_numbers))
-
-    # Update the message with the pressed numbers
-    await callback_query.message.edit_text(f"Pressed numbers: {pressed_numbers_str}")
-
-    # Here we check if user-inputted PIN is correct
-    if len(pressed_numbers) == 5:
-        await process_collected_numbers(callback_query.message, pressed_numbers)
-        # Clear the state (no need to do this in callback data directly)
-    else:
-        await callback_query.answer()
-
-
-async def process_collected_numbers(message: types.Message, collected_numbers):
-    await message.answer(f"Collected numbers: {collected_numbers}")
-
-
-
 async def admin_time_slot_booking_dashboard(message: types.Message):
     """Handle the callback query to display time slots managing dashboard.
     We can choose a time-slot then call 'admin_managing_time_slot_bookings' to manage it."""
@@ -639,6 +597,7 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
         await callback.message.answer(text=f"Error running 'manage_booking_time_slots'. ")
 
 
+
 """Start Callback Data Handler"""
 @user_router.callback_query(lambda cb: cb.data.startswith('start'))
 async def handle_start_callback(callback: types.CallbackQuery):
@@ -762,16 +721,189 @@ async def handle_booking_order_callback(callback: types.CallbackQuery):
         logger.error(f"Error handling callback query: {e}")
         # Handle the error, perhaps notify the user or log the issue
 
-"""Access Service Callback Data Handlers"""
+
+async def create_numbers_access_keypad(callback: types.CallbackQuery):
+    # Create buttons
+    buttons = [InlineKeyboardButton(text=str(i), callback_data=f"key_{i}") for i in range(10)]
+    # Arrange buttons in rows of 5
+    inline_keyboard = [buttons[i:i + 5] for i in range(0, len(buttons), 5)]
+    # Create InlineKeyboardMarkup with the arranged buttons
+    numbers_access_keypad = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
+
+    # Define the message
+    message = ("\n"
+               "Please input your 5-digit PIN:\n"
+               "\n")
+    # Send the message with the inline keyboard
+    await callback.message.answer(message, parse_mode='Markdown', reply_markup=numbers_access_keypad)
+
+
+async def insert_or_update_pin(user_id: str, new_digit: str):
+    """Insert or update the PIN for a user in the database.
+    It appends the new digit if a PIN exists and has fewer than 5 digits.
+    If the PIN is already 5 digits long, no update is made.
+    If no PIN exists, it starts a new PIN.
+    """
+    pool = container.get_pool()
+    if pool:
+        try:
+            async with pool.acquire() as connection:
+                async with connection.cursor() as cursor:
+                    # Fetch the current PIN for the user
+                    query_fetch_pin = """
+                        SELECT pin FROM pins WHERE user_id = %s
+                    """
+                    await cursor.execute(query_fetch_pin, (user_id,))
+                    row = await cursor.fetchone()
+
+                    if row:
+                        # If a PIN exists, append the new digit if the PIN is less than 5 digits pin is string  tho
+                        current_pin = row[0]
+                        if len(current_pin) <= 4:
+                            updated_pin = current_pin + new_digit
+                            if len(updated_pin) >= 5:
+                                updated_pin = updated_pin[:5]  # Trim to first 5 digits if it exceeds
+
+                            # Update the PIN in the database if we have received 5 pin codes pressed.
+                            query_update_pin = """
+                                UPDATE pins
+                                SET pin = %s
+                                WHERE user_id = %s
+                            """
+
+                            await cursor.execute(query_update_pin, (updated_pin, user_id))
+                            logger.info(f"Current PIN: {current_pin}")
+                            logger.info(f"Inserted or updated PIN for user {user_id}.")
+                            logger.info(f"Updated PIN: {updated_pin}.")
+
+                        else:
+                            # If the PIN is already 5 digits, do nothing
+                            logger.info(f"PIN already completed for user {user_id}.")
+                    else:
+                        # If no PIN exists, insert a new PIN
+                        new_pin = new_digit
+                        query_insert_pin = """
+                            INSERT INTO pins (user_id, pin)
+                            VALUES (%s, %s)
+                        """
+                        await cursor.execute(query_insert_pin, (user_id, new_pin))
+                        logger.info(f"Inserted new first PIN-Digit for user {user_id}.")
+
+        except Exception as e:
+            logger.error(f"Error inserting or updating PIN: {e}")
+
+async def get_pin(user_id: str):
+    """Retrieve the PIN for a user from the database, or insert a new row if the user does not exist."""
+    logger.info(f"Within 'get_pin' function, user_id: {user_id}")
+    pool = container.get_pool()
+    if pool:
+        try:
+            async with pool.acquire() as connection:
+                async with connection.cursor() as cursor:
+                    # First, attempt to fetch the PIN for the user
+                    query_fetch_pin = """
+                        SELECT pin FROM pins WHERE user_id = %s
+                    """
+                    await cursor.execute(query_fetch_pin, (user_id,))
+                    row = await cursor.fetchone()
+
+                    if row:
+                        # If the PIN exists, return it
+                        pin = row[0]
+                        logger.info(f"Retrieved PIN for user {user_id}.")
+                        logger.info(f"Retrieved PIN 'get_pin' {[pin]}.")
+                        return pin
+                    else:
+                        # If the PIN does not exist, insert a new row with the user_id and fresh first PIN
+                        query_insert_user = """
+                            INSERT INTO pins (user_id, pin)
+                            VALUES (%s, %s)
+                        """
+                        await cursor.execute(query_insert_user, (user_id, ""))
+                        logger.info(f"Inserted new row for user {user_id} with empty PIN.")
+                        return None
+
+        except Exception as e:
+            logger.error(f"Error fetching or inserting PIN: {e}")
+            return None
+
+
+
+async def clear_pin(user_id: str):
+    """Clear the PIN entry for a user."""
+    pool = container.get_pool()
+    if pool:
+        try:
+            async with pool.acquire() as connection:
+                async with connection.cursor() as cursor:
+                    query_clear_pin = """
+                        DELETE FROM pins WHERE user_id = %s
+                    """
+                    await cursor.execute(query_clear_pin, (user_id,))
+                    logger.info(f"Cleared PIN for user {user_id}.")
+        except Exception as e:
+            logger.error(f"Error clearing PIN: {e}")
+
+async def process_collected_pin(message: types.Message, pin):
+    await message.answer(f"Bitch full PIN: {pin}")
+    logger.info(f"FULL PIN: {pin}")
+
+async def handle_keypad_press(callback: types.CallbackQuery):
+    try:
+        data = callback.data
+        if data.startswith("key_"):
+            pressed_number = data.split('_')[1]
+            user_id = callback.from_user.id
+
+            # Convert both values to string
+            user_id = str(user_id)
+            pressed_number = str(pressed_number)
+
+            logger.info(f"Handling keypad press: {pressed_number}")
+
+            # Retrieve or initialize the user's PIN entry state
+            pin = await get_pin(user_id)
+            if pin is None:
+                await insert_or_update_pin(user_id, pressed_number)
+
+            if len(pin) == 5:
+                # Update the message with the pressed numbers
+                await process_collected_pin(callback.message, pin)
+                await callback.message.answer(f"Full Collected PIN: {pin}")
+                await clear_pin(user_id)
+                await callback.answer()
+                return pin
+
+            else:
+                await insert_or_update_pin(user_id, pressed_number)
+
+        else:
+            logger.error(f"Unexpected callback data: {data}")
+            await callback.answer("Unexpected data received.")
+            return False
+
+    except ValueError as e:
+        logger.error(f"ValueError occurred: {e}")
+        await callback.answer("Error processing your input.")
+        return False
+    except Exception as e:
+        logger.error(f"Error handling callback 'handle_keypad_press': {e}")
+        return False
+
+
+
+
+
+
 @user_router.callback_query(lambda cb: cb.data == 'access_service' or cb.data.startswith('key_'))
 async def handle_access_service_callback(callback: types.CallbackQuery):
     try:
         if not check_if_time_within_openings_hours():
             await callback.message.answer(
-                                 "Sorry, 🕣\n"
-                                 "\n"
-                                 "The shop is only available between:\n"
-                                 "8:00 - 23:50 | EU UTC+2. ")
+                "Sorry, 🕣\n"
+                "\n"
+                "The shop is only available between:\n"
+                "8:00 - 23:50 | EU UTC+2. ")
             return
 
         data = callback.data
@@ -779,13 +911,14 @@ async def handle_access_service_callback(callback: types.CallbackQuery):
 
         if data == 'access_service':
             await create_numbers_access_keypad(callback)
-            access_pin = f"12312"  # This should be handled dynamically
-            await check_user_access_by_access_pin(access_pin)
-            logger.info("Displayed keypad for the user and passed PIN for access verification.")
+            logger.info("Displayed keypad for the user.")
         elif data.startswith("key_"):
-            logger.info(callback)
-            logger.info("_key callback success")
-            await handle_keypad_press(callback)
+            """This function bellow that returns the pin, handles the main logic of receiving pin digits"""
+            pin = await handle_keypad_press(callback)
+            if pin:
+                print(pin)
+                await check_user_access_by_access_pin(pin)
+
         else:
             await handle_unexpected_message(callback.message)
 

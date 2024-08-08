@@ -11,5 +11,23 @@ CREATE TABLE time_slots (
     CONSTRAINT unique_time_slot UNIQUE (start_time, end_time)
 );
 
+-- Create the 'pins' table if it does not exist
+CREATE TABLE IF NOT EXISTS pins (
+    user_id BIGINT PRIMARY KEY,
+    pin TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert an initial row into the time_slots table
+INSERT INTO time_slots (start_time, end_time, is_booked)
+VALUES ('2024-08-08 12:00:00', '2024-08-08 14:00:00', FALSE);
+
+-- Grant necessary permissions on all tables in the public schema
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO time_slot_telegram_bot_user;
+
+-- Grant necessary permissions on the sequence
+GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO time_slot_telegram_bot_user;
+
+
 -- GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO your_user;
 -- Run this above cmd also while granting user permissions on db

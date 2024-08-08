@@ -30,16 +30,15 @@ async def check_user_access_by_access_pin(access_pin: str):
                 async with connection.cursor() as cursor:
                     # Check if the PIN exists in the confirmed_orders table
                     query_check_pin = """
-                        SELECT start_time, end_time
-                        FROM confirmed_orders
-                        JOIN time_slots ON confirmed_orders.time_slot_id = time_slots.id
-                        WHERE confirmed_orders.access_pin = %s
-                    """
-                    row = await cursor.fetchrow(query_check_pin, access_pin)
+                            SELECT start_time, end_time, is_booked
+                            FROM time_slots
+                            WHERE access_pin = %s
+                        """
+                    await cursor.execute(query_check_pin, (access_pin,))
+                    row = await cursor.fetchone()
 
                     if row:
-                        start_time = row['start_time']
-                        end_time = row['end_time']
+                        start_time, end_time = row  # unpack the result row
 
                         # Check if current time is within the time slot
                         if start_time <= now <= end_time:
@@ -47,18 +46,18 @@ async def check_user_access_by_access_pin(access_pin: str):
                             # Continue to use functions as required
 
                         else:
-                            # PIN is valid but outside the time slot
+                            # PIN is valid but outside of the time slot
                             logger.info(f"PIN valid, but outside of time slot. Wait till exactly: {start_time}")
                             # Optionally, wait or trigger a different action
 
                     else:
-                        print("PIN not found.")
+                        logger.info("PIN not found.")
 
         except Exception as e:
             logger.error(f"Error during database operations: {e}")
 
         finally:
-            await return_cursor_connection_to_pool(connection)
-            logger.info("Successfully returned the cursor and connection to the pool!")
+                await return_cursor_connection_to_pool(cursor)
+                logger.info("Successfully returned the connection to the pool!")
     else:
         logger.error("Database connection pool is not available.")

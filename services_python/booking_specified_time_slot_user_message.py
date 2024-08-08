@@ -60,7 +60,7 @@ async def booking_specified_time_slot_user_message(callback):
             f"Start-Time:       🗓️ {start_time_cleaned}\n"
             f"End-Time:         🗓️ {end_time_cleaned}\n"
             f"\n"
-            f"Time-slot-ID:     📒 {time_slot_id}"
+            f"Time-slot-ID:     📒 {time_slot_id}0"
             "\n"  
             "🪐 I acknowledge that I am sending this message \n"  
             "to book the [service] for above specified time-slot\n"  # No trailing newline
