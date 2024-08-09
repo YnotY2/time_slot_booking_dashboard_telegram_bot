@@ -221,7 +221,7 @@ async def handle_who_are_we_answer_faq_answer(callback: types.CallbackQuery):
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-async def callback_handler_buy(callback: types.CallbackQuery):
+async def callback_display_time_slot_booking_dashboard(callback: types.CallbackQuery):
     """Handle the callback query to display time slots and additional buttons.
     This displays the time-slots booking GUI, when 'buy' button is pressed."""
 
@@ -781,7 +781,7 @@ async def handle_booking_order_callback(callback: types.CallbackQuery):
 
         if data == 'booking_service':
             """Display time-slot dashboard buttons to the user"""
-            await callback_handler_buy(callback)
+            await callback_display_time_slot_booking_dashboard(callback)
         elif data.startswith("time_slot_"):
             """Ask user to confirm the order for the specified time-slot"""
             await process_selected_time_slot(callback)
