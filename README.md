@@ -48,30 +48,39 @@ as a example.
 
 1. [Managing Bookings and Access for Any Specified Service via Telegram](#managing-bookings-and-access-for-any-specified-service-via-telegram)
 2. [Features](#features)
-3. [Installation](#installation)
+
+4. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
    - [Getting API Key from BotFather](#getting-api-key-from-botfather)
-4. [Understanding Code Layout](#understanding-code-layout)
+
+5. [Understanding Code Layout](#understanding-code-layout)
    - [Directory Layout](#directory-layout)
    - [Summary](#summary)
-5. [Database Schema](#database-schema)
+
+6. [Database Schema](#database-schema)
    - [Database Schema Visualized](#database-schema-visualised)
    - [`init-db.spql`](#init-dbspql)
    - [Interacting with the Database Asynchronously Without Blocking](#interacting-with-the-database-asynchronously-without-blocking)
      - [How `DependencyContainer` and `initialize_connection_pool` Work Together](#how-dependencycontainer-and-initialize_connection_pool-work-together)
      - [Imports Used](#imports-used)
+
    - [Understanding Usage of Tables](#understanding-usage-of-tables)
      - [`time_slots` Table](#time_slots-table)
-     - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
-       - [Populate Time Slots](#populate-time-slots)
-       - [Fetch All Available Time Slots](#fetch-all-available-time-slots)
-6. [Understanding Database Layout](#understanding-database-layout)
+        - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
+          - [Populate Time Slots](#populate-time-slots)
+          - [Fetch All Available Time Slots](#fetch-all-available-time-slots)
+          - [Fetch Time Slot Row By ID](#fetch-time-slot-row-by-id)
+          - [Fetch All Time Slots](#fetch-all-time-slots)
+          - [Manage Booking Time Slots](#manage-booking-time-slots)
+          - [Check User Access By Access PIN](#check-user-access-by-access-pin)
+
+7. [Understanding Database Layout](#understanding-database-layout)
    - [Database Visualized](#database-visualized)
    - [Tables Logic Explained](#tables-logic-explained)
      - [`client_data` Table](#client_data-table)
      - [`affiliate_codes` Table](#affiliate_codes-table)
      - [`orders` Table](#orders-table)
-7. [Code Overview](#code-overview)
+8. [Code Overview](#code-overview)
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
