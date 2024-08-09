@@ -20,7 +20,7 @@ as a example.
     - Un-booking any specified time-slot ☑️
     - Returns 5 digit PIN when booking time-slot ☑️
     - Unique password cmd for access dashboard via chat message ☑️
-    - *Password is set within 'settings.py'* 
+        - *Password is set within 'settings.py'* 
 -   User 5 digit PIN authentication dasboard ✅
     - authenticating booking on arrival ☑️
     - Accepts or rejects access ☑️
