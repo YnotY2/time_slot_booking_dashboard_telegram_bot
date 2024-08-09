@@ -45,6 +45,37 @@ as a example.
 ![Access Pin Auth Dashboard](./images/access_pin_auth_dashboard.png)
 
 ## Table of Contents
+
+1. [Managing Bookings and Access for Any Specified Service via Telegram](#managing-bookings-and-access-for-any-specified-service-via-telegram)
+2. [Features](#features)
+3. [Installation](#installation)
+   - [Cloning Git Repository](#cloning-git-repository)
+   - [Getting API Key from BotFather](#getting-api-key-from-botfather)
+4. [Understanding Code Layout](#understanding-code-layout)
+   - [Directory Layout](#directory-layout)
+   - [Summary](#summary)
+5. [Database Schema](#database-schema)
+   - [Database Schema Visualized](#database-schema-visualized)
+   - [`init-db.psql`](#init-dbpsql)
+   - [Interacting with the Database Asynchronously Without Blocking](#interacting-with-the-database-asynchronously-without-blocking)
+     - [How `DependencyContainer` and `initialize_connection_pool` Work Together](#how-dependencycontainer-and-initialize_connection_pool-work-together)
+     - [Imports Used](#imports-used)
+   - [Understanding Usage of Tables](#understanding-usage-of-tables)
+     - [`time_slots` Table](#time_slots-table)
+     - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
+       - [Populate Time Slots](#populate-time-slots)
+       - [Fetch All Available Time Slots](#fetch-all-available-time-slots)
+6. [Understanding Database Layout](#understanding-database-layout)
+   - [Database Visualized](#database-visualized)
+   - [Tables Logic Explained](#tables-logic-explained)
+     - [`client_data` Table](#client_data-table)
+     - [`affiliate_codes` Table](#affiliate_codes-table)
+     - [`orders` Table](#orders-table)
+7. [Code Overview](#code-overview)
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+## Table of Contents
 1. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
    - [Getting API Key from BotFather](#getting-api-key-from-botfather)
@@ -907,7 +938,7 @@ The `fetch_user_entered_access_pin_stored_db` function retrieves the PIN associa
 The function consists of the following main parts:
 
 1. **Fetch User PIN**:
-    @```python
+    ```python
     query_fetch_pin = """
         SELECT pin FROM pins WHERE user_id = %s
     """
@@ -919,7 +950,7 @@ The function consists of the following main parts:
    - **Execution**: Asynchronously executed to obtain the PIN if it exists.
 
 2. **Insert New Entry**:
-    @```python
+    ```python
     if not row:
         # If PIN does not exist, insert a new row with an empty PIN
         query_insert_user = """
@@ -937,6 +968,129 @@ The function consists of the following main parts:
 **Code Overview:**
 
 The `fetch_user_entered_access_pin_stored_db` function is designed to efficiently retrieve or initialize a PIN for a user. It handles both the retrieval of an existing PIN and the creation of a new entry if needed, ensuring that proper error handling and resource management are in place.
+
+### 2. `insert_or_update_user_entered_access_pin_db`
+
+**Description:**
+
+The `insert_or_update_user_entered_access_pin_db` function handles the insertion or updating of a user's PIN in the database. It appends a new digit to the PIN if it is less than 5 digits long. If the PIN is already 5 digits, no update is made. If no PIN exists for the user, a new PIN is created.
+
+**Purpose:**
+
+1. **Insert or Update PIN**: Appends a new digit to an existing PIN or creates a new PIN if none exists.
+2. **Handle PIN Length**: Ensures that the PIN does not exceed 5 digits.
+3. **Return Values**:
+   - No explicit return value, but the database is updated accordingly.
+
+**Logic:**
+
+1. **Database Operations**:
+   - **Fetch PIN**: Query the `pins` table to check if a PIN exists for the given user.
+   - **Update PIN**: If a PIN exists and is less than 5 digits, append the new digit and update the PIN.
+   - **Insert New PIN**: If no PIN exists, insert a new row with the provided digit as the initial PIN.
+
+2. **Error Handling**:
+   - Log any errors that occur during database operations.
+
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
+
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Fetch User PIN**:
+    @```python
+    query_fetch_pin = """
+        SELECT pin FROM pins WHERE user_id = %s
+    """
+    await cursor.execute(query_fetch_pin, (user_id,))
+    row = await cursor.fetchone()
+    ```
+   - **Purpose**: Retrieves the existing PIN for the specified `user_id` from the `pins` table.
+   - **SQL Query**: Selects the `pin` for the given `user_id`.
+   - **Execution**: Asynchronously executed to obtain the current PIN if it exists.
+
+2. **Update or Insert PIN**:
+    @```python
+    if row:
+        current_pin = row[0]
+        if len(current_pin) <= 4:
+            updated_pin = current_pin + new_digit
+            if len(updated_pin) >= 5:
+                updated_pin = updated_pin[:5]  # Trim to first 5 digits if it exceeds
+
+            query_update_pin = """
+                UPDATE pins
+                SET pin = %s
+                WHERE user_id = %s
+            """
+            await cursor.execute(query_update_pin, (updated_pin, user_id))
+            logger.info(f"Inserted or updated PIN for user {user_id}.")
+            logger.info(f"Updated PIN: {updated_pin}.")
+        else:
+            logger.info(f"PIN already completed for user {user_id}.")
+    else:
+        new_pin = new_digit
+        query_insert_pin = """
+            INSERT INTO pins (user_id, pin)
+            VALUES (%s, %s)
+        """
+        await cursor.execute(query_insert_pin, (user_id, new_pin))
+        logger.info(f"Inserted new first PIN-Digit for user {user_id}.")
+    ```
+   - **Purpose**: Updates the existing PIN with the new digit if it is less than 5 digits long or creates a new PIN if none exists.
+   - **PIN Handling**: Appends the new digit and ensures the PIN does not exceed 5 digits.
+
+**Code Overview:**
+
+The `insert_or_update_user_entered_access_pin_db` function is designed to manage user PINs by either appending a digit to an existing PIN or creating a new PIN. It ensures that the PIN remains within the defined length and handles both insertion and updating scenarios effectively. Proper error handling and resource management are implemented to ensure reliable operation.
+
+
+### 3. `delete_user_entered_access_pin_db`
+
+**Description:**
+
+The `delete_user_entered_access_pin_db` function clears the PIN entry for a specified user in the database. It deletes the PIN record associated with the given `user_id`.
+
+**Purpose:**
+
+1. **Clear PIN**: Removes the PIN associated with the specified user from the `pins` table.
+2. **Return Values**:
+   - No explicit return value; the function performs the deletion operation and logs the result.
+
+**Logic:**
+
+1. **Database Operations**:
+   - **Delete PIN**: Execute a SQL query to remove the PIN record for the specified `user_id` from the `pins` table.
+
+2. **Error Handling**:
+   - Log any errors that occur during the deletion process.
+
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
+
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Delete PIN Record**:
+    @```python
+    query_clear_pin = """
+        DELETE FROM pins WHERE user_id = %s
+    """
+    await cursor.execute(query_clear_pin, (user_id,))
+    logger.info(f"Cleared PIN for user {user_id}.")
+    ```
+   - **Purpose**: Deletes the PIN record for the specified `user_id` from the `pins` table.
+   - **SQL Query**: Executes a `DELETE` statement to remove the row where `user_id` matches the given value.
+   - **Execution**: Asynchronously executed to ensure the PIN is removed.
+
+**Code Overview:**
+
+The `delete_user_entered_access_pin_db` function is designed to efficiently clear the PIN associated with a user. It performs a simple delete operation, ensuring that any existing PIN for the specified `user_id` is removed from the database. Proper error handling and resource management are implemented to maintain reliability and efficiency.
+
+
 
 ## Conclusion
 This integration provides a robust system for managing and booking time slots via a Telegram Bot. It includes functionalities for populating the database, fetching available slots, and handling user interactions effectively. Ensure proper handling of errors and resource management to maintain the system's reliability.
