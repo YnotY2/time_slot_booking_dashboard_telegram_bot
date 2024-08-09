@@ -277,6 +277,30 @@ faq_answers = {
 }
 ```
 
+### 3. Modifying 
+
+
+### 4. Modifying Opening Hours
+
+To adjust the opening hours for the bot, you will need to update the `check_if_time_within_openings_hours.py` script. By default, the script is set to check if the current time is between 00:00 (midnight) and 23:59 (one minute before midnight), meaning it is closed only for one minute each day.
+
+ **Adjust the Opening Hours**
+Locate and open the `./service_python/check_if_time_within_openings_hours.py` file in your project directory.
+
+
+Find the function definition `check_if_time_within_openings_hours` and modify the `start_hour`, `start_minute`, `end_hour`, and `end_minute` parameters to set your desired opening hours.
+
+- **`start_hour`**: Set the hour at which the bot opens (24-hour format).
+- **`start_minute`**: Set the minute at which the bot opens.
+- **`end_hour`**: Set the hour at which the bot closes (24-hour format).
+- **`end_minute`**: Set the minute at which the bot closes.
+
+For example, if you want the bot to operate from 8:00 AM to 8:00 PM, update the function call as follows:
+
+```python
+check_if_time_within_openings_hours(start_hour=8, start_minute=0, end_hour=20, end_minute=0)
+```
+
 <br>
 <br>
 <br>
