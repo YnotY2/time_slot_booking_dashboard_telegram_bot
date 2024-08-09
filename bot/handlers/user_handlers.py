@@ -126,7 +126,7 @@ async def start_menu(message: types.Message):
             "We're here to assist you. Please choose from the following options: :\n"
             '\n'
             '🌑 Have any other questions? Click "FAQ" \n'
-            '🌑 If you want to book a appointment click "Book service"\n'
+            '🌑 If you want to book a appointment click "Booking service"\n'
             '🌑 Prove booking id on arrival? Click "Access Service" \n'
             '\n'
             'Pricing: \n'
@@ -637,8 +637,8 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
                 F"\n"
                 "```"
                 f"\n"
-                "✅ Time slot payment complete.\n"
-                f"🔓 Access information to service:\n"
+                "✅ Time slot booking complete.\n"
+                f"🔓 Access information to Lucy Tattoo:\n"
                 f"\n"
                 f"⌚ Start-Time:\n"
                 f"🗓️ {start_time_cleaned}\n "
@@ -648,7 +648,7 @@ async def admin_modify_time_slot_booking_status(callback: types.CallbackQuery):
                 f"\n" 
                 f"Access PIN 📲     {access_pin_str}0\n"
                 f"\n"
-                f"ℹ️ Dear user, to be able to use the service from start-time till end-time. "
+                f"ℹ️ Dear user, to be able to authenticate booking from start-time till end-time. "
                 f"You need to enter the above access "
                 f"pin within the key-pad lock"
                 f" that show's up when clicking 'access' button within Main-Menu.\n"

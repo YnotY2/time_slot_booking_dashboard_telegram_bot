@@ -8899,3 +8899,131 @@ LINE 3:                             FROM confirmed_orders
 2024-08-09 04:37:49,814 - INFO - Received callback data: how_is_our_tattoo_made
 2024-08-09 04:37:49,814 - INFO - Within 'handle_how_is_our_tattoo_made_faq_answer'. Callback: id='1079273091913884540' from_user=User(id=6693738792, is_bot=False, first_name='No1Try', last_name='✨', username='no1try', language_code='en', is_premium=None, added_to_attachment_menu=None, can_join_groups=None, can_read_all_group_messages=None, supports_inline_queries=None, can_connect_to_business=None) chat_instance='-974383841048967617' message=Message(message_id=1331, date=datetime.datetime(2024, 8, 9, 2, 37, 48, tzinfo=TzInfo(UTC)), chat=Chat(id=6693738792, type='private', title=None, username='no1try', first_name='No1Try', last_name='✨', is_forum=None, accent_color_id=None, active_usernames=None, available_reactions=None, background_custom_emoji_id=None, bio=None, birthdate=None, business_intro=None, business_location=None, business_opening_hours=None, can_set_sticker_set=None, custom_emoji_sticker_set_name=None, description=None, emoji_status_custom_emoji_id=None, emoji_status_expiration_date=None, has_aggressive_anti_spam_enabled=None, has_hidden_members=None, has_private_forwards=None, has_protected_content=None, has_restricted_voice_and_video_messages=None, has_visible_history=None, invite_link=None, join_by_request=None, join_to_send_messages=None, linked_chat_id=None, location=None, message_auto_delete_time=None, permissions=None, personal_chat=None, photo=None, pinned_message=None, profile_accent_color_id=None, profile_background_custom_emoji_id=None, slow_mode_delay=None, sticker_set_name=None, unrestrict_boost_count=None), message_thread_id=None, from_user=User(id=7191045594, is_bot=True, first_name='TimeSlotDashboardBot', last_name=None, username='TimeSlotDashboardBot', language_code=None, is_premium=None, added_to_attachment_menu=None, can_join_groups=None, can_read_all_group_messages=None, supports_inline_queries=None, can_connect_to_business=None), sender_chat=None, sender_boost_count=None, sender_business_bot=None, business_connection_id=None, forward_origin=None, is_topic_message=None, is_automatic_forward=None, reply_to_message=None, external_reply=None, quote=None, reply_to_story=None, via_bot=None, edit_date=None, has_protected_content=None, is_from_offline=None, media_group_id=None, author_signature=None, text='Choose a question:', entities=None, link_preview_options=None, effect_id=None, animation=None, audio=None, document=None, paid_media=None, photo=None, sticker=None, story=None, video=None, video_note=None, voice=None, caption=None, caption_entities=None, show_caption_above_media=None, has_media_spoiler=None, contact=None, dice=None, game=None, poll=None, venue=None, location=None, new_chat_members=None, left_chat_member=None, new_chat_title=None, new_chat_photo=None, delete_chat_photo=None, group_chat_created=None, supergroup_chat_created=None, channel_chat_created=None, message_auto_delete_timer_changed=None, migrate_to_chat_id=None, migrate_from_chat_id=None, pinned_message=None, invoice=None, successful_payment=None, refunded_payment=None, users_shared=None, chat_shared=None, connected_website=None, write_access_allowed=None, passport_data=None, proximity_alert_triggered=None, boost_added=None, chat_background_set=None, forum_topic_created=None, forum_topic_edited=None, forum_topic_closed=None, forum_topic_reopened=None, general_forum_topic_hidden=None, general_forum_topic_unhidden=None, giveaway_created=None, giveaway=None, giveaway_winners=None, giveaway_completed=None, video_chat_scheduled=None, video_chat_started=None, video_chat_ended=None, video_chat_participants_invited=None, web_app_data=None, reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="How many year's of experience?", url=None, callback_data='faq_years_of_experience', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)], [InlineKeyboardButton(text='Openings hours?', url=None, callback_data='faq_opening_hours', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)], [InlineKeyboardButton(text='What payment methods are accepted?', url=None, callback_data='faq_accepted_payment_options', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)], [InlineKeyboardButton(text='Contact Info?', url=None, callback_data='faq_contact_info', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)], [InlineKeyboardButton(text="How is you're tattoo made?", url=None, callback_data='how_is_our_tattoo_made', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)], [InlineKeyboardButton(text='Back to Main Menu', url=None, callback_data='start', web_app=None, login_url=None, switch_inline_query=None, switch_inline_query_current_chat=None, switch_inline_query_chosen_chat=None, callback_game=None, pay=None)]]), forward_date=None, forward_from=None, forward_from_chat=None, forward_from_message_id=None, forward_sender_name=None, forward_signature=None, user_shared=None) inline_message_id=None data='how_is_our_tattoo_made' game_short_name=None
 2024-08-09 04:38:15,488 - INFO - Closing the connection pool...
+2024-08-09 04:44:20,003 - INFO - Starting main.py process, telegram bot live!
+2024-08-09 04:44:20,003 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-09 04:44:20,003 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-09 04:44:20,003 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-09 04:44:20,003 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-09 04:44:20,003 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-09 04:44:20,003 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-09 04:44:20,014 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-09 04:44:20,015 - INFO - Starting running periodic tasks...
+2024-08-09 04:44:20,029 - INFO - Time slots populated successfully.
+2024-08-09 04:44:20,029 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:44:20,030 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:08,065 - INFO - Received callback data: booking_service
+2024-08-09 04:45:08,077 - INFO - Successfully fetched available time slots.
+2024-08-09 04:45:08,077 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:08,077 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:08,077 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:11,960 - INFO - Received callback data: time_slot_9
+2024-08-09 04:45:11,971 - INFO - Successfully fetched time slot with ID 9.
+2024-08-09 04:45:11,971 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:11,971 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:11,971 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:14,177 - INFO - Received callback data: confirm_time_9
+2024-08-09 04:45:14,178 - INFO - Successfully fetched time slot with ID 9.
+2024-08-09 04:45:14,178 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:14,178 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:14,178 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:29,907 - INFO - Successfully fetched all time slots.
+2024-08-09 04:45:29,907 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:29,907 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:29,907 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:29,907 - INFO - [{'id': 28, 'start_time': datetime.datetime(2024, 8, 10, 23, 0), 'end_time': datetime.datetime(2024, 8, 11, 1, 0)}, {'id': 27, 'start_time': datetime.datetime(2024, 8, 10, 21, 0), 'end_time': datetime.datetime(2024, 8, 10, 23, 0)}, {'id': 26, 'start_time': datetime.datetime(2024, 8, 10, 18, 0), 'end_time': datetime.datetime(2024, 8, 10, 20, 0)}, {'id': 25, 'start_time': datetime.datetime(2024, 8, 10, 15, 0), 'end_time': datetime.datetime(2024, 8, 10, 17, 0)}, {'id': 24, 'start_time': datetime.datetime(2024, 8, 10, 13, 0), 'end_time': datetime.datetime(2024, 8, 10, 15, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 10, 11, 0), 'end_time': datetime.datetime(2024, 8, 10, 13, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 10, 9, 0), 'end_time': datetime.datetime(2024, 8, 10, 11, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 10, 7, 0), 'end_time': datetime.datetime(2024, 8, 10, 9, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 10, 5, 0), 'end_time': datetime.datetime(2024, 8, 10, 7, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 10, 3, 0), 'end_time': datetime.datetime(2024, 8, 10, 5, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}]
+2024-08-09 04:45:33,236 - INFO - Received callback data: admin_manage_booking_time_slot_8
+2024-08-09 04:45:33,246 - INFO - Successfully fetched time slot with ID 8.
+2024-08-09 04:45:33,247 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:33,247 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:33,247 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:36,220 - INFO - Received callback data: admin_managing_specified_time_slot_booking_True_8
+2024-08-09 04:45:36,225 - INFO - Successfully booked time slot 8. Generated PIN: 83817.
+2024-08-09 04:45:36,225 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:36,225 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:36,225 - INFO - Operation completed.
+2024-08-09 04:45:36,226 - INFO - Successfully fetched time slot with ID 8.
+2024-08-09 04:45:36,226 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:36,226 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:36,226 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:41,069 - INFO - Received callback data: booking_service
+2024-08-09 04:45:41,070 - INFO - Successfully fetched available time slots.
+2024-08-09 04:45:41,070 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:41,070 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:41,070 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:45:46,646 - INFO - Received callback data: access_service
+2024-08-09 04:45:46,764 - INFO - Displayed keypad for the user.
+2024-08-09 04:45:58,853 - INFO - Received callback data: key_8
+2024-08-09 04:45:58,853 - INFO - Handling keypad press: 8
+2024-08-09 04:45:58,853 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:45:58,869 - INFO - Inserted new row for user 6693738792 with empty PIN.
+2024-08-09 04:45:58,870 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:58,870 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:58,871 - INFO - Current PIN: 
+2024-08-09 04:45:58,871 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-09 04:45:58,871 - INFO - Updated PIN: 8.
+2024-08-09 04:45:58,872 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:45:58,872 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:45:58,872 - ERROR - Error handling callback 'handle_keypad_press': object of type 'NoneType' has no len()
+2024-08-09 04:46:00,888 - INFO - Received callback data: key_3
+2024-08-09 04:46:00,889 - INFO - Handling keypad press: 3
+2024-08-09 04:46:00,889 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:46:00,889 - INFO - Retrieved PIN for user 6693738792.
+2024-08-09 04:46:00,889 - INFO - Retrieved PIN 'get_pin' ['8'].
+2024-08-09 04:46:00,889 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:00,889 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:00,890 - INFO - Current PIN: 8
+2024-08-09 04:46:00,891 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-09 04:46:00,891 - INFO - Updated PIN: 83.
+2024-08-09 04:46:00,891 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:00,891 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:01,517 - INFO - Received callback data: key_8
+2024-08-09 04:46:01,517 - INFO - Handling keypad press: 8
+2024-08-09 04:46:01,520 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:46:01,521 - INFO - Retrieved PIN for user 6693738792.
+2024-08-09 04:46:01,521 - INFO - Retrieved PIN 'get_pin' ['83'].
+2024-08-09 04:46:01,521 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:01,521 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:01,523 - INFO - Current PIN: 83
+2024-08-09 04:46:01,523 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-09 04:46:01,523 - INFO - Updated PIN: 838.
+2024-08-09 04:46:01,523 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:01,523 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:03,891 - INFO - Received callback data: key_1
+2024-08-09 04:46:03,891 - INFO - Handling keypad press: 1
+2024-08-09 04:46:03,891 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:46:03,891 - INFO - Retrieved PIN for user 6693738792.
+2024-08-09 04:46:03,891 - INFO - Retrieved PIN 'get_pin' ['838'].
+2024-08-09 04:46:03,892 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:03,892 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:03,897 - INFO - Current PIN: 838
+2024-08-09 04:46:03,897 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-09 04:46:03,897 - INFO - Updated PIN: 8381.
+2024-08-09 04:46:03,897 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:03,897 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:04,504 - INFO - Received callback data: key_7
+2024-08-09 04:46:04,504 - INFO - Handling keypad press: 7
+2024-08-09 04:46:04,504 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:46:04,504 - INFO - Retrieved PIN for user 6693738792.
+2024-08-09 04:46:04,504 - INFO - Retrieved PIN 'get_pin' ['8381'].
+2024-08-09 04:46:04,504 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:04,504 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:04,509 - INFO - Current PIN: 8381
+2024-08-09 04:46:04,509 - INFO - Inserted or updated PIN for user 6693738792.
+2024-08-09 04:46:04,509 - INFO - Updated PIN: 83817.
+2024-08-09 04:46:04,510 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:04,510 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:05,164 - INFO - Received callback data: key_0
+2024-08-09 04:46:05,164 - INFO - Handling keypad press: 0
+2024-08-09 04:46:05,164 - INFO - Within 'get_pin' function, user_id: 6693738792
+2024-08-09 04:46:05,164 - INFO - Retrieved PIN for user 6693738792.
+2024-08-09 04:46:05,164 - INFO - Retrieved PIN 'get_pin' ['83817'].
+2024-08-09 04:46:05,165 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:05,165 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:05,209 - INFO - Cleared PIN for user 6693738792.
+2024-08-09 04:46:05,209 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:05,209 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:05,239 - INFO - PIN is valid and within the time slot.
+2024-08-09 04:46:05,239 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:46:05,239 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:46:05,239 - INFO - Successfully returned the connection to the pool!
+2024-08-09 04:46:05,239 - INFO - Returning 'user_access_auth_return_data'
