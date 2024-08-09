@@ -103,6 +103,11 @@ as a example.
     - [Modify Code to Fit Your Needs](#4-modify-code-to-fit-your-needs)
     - [Additional Resources](#5-additional-resources)
     - [Conclusion](#conclusion)
+  
+<br>
+<br>
+<br>
+<br>
 
 ## Installation
 ### Cloning Git Repository
@@ -113,6 +118,8 @@ To clone Git repository using the command line, follow these simple steps:
 ```
 git clone git@github.com:YnotY2/<public_repo_link>.git
 ```
+
+<br>
 
 ### Installing requirements
 To install requirements using the command line, follow these simple steps:
