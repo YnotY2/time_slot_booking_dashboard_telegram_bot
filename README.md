@@ -25,7 +25,7 @@ as a example.
     - authenticating booking on arrival ☑️
     - Accepts or rejects access ☑️
     - Authentication message response based on entered PIN  ☑️
-    - *pin is returned to admin after confirming booking* 
+        - *pin is returned to admin after confirming booking* 
     - ```
       user_access_auth_return_data = {
                     'pin_valid': pin_valid,
@@ -40,7 +40,7 @@ as a example.
 -   asynchronous  ✅
 -   Database ✅
 -   Handles unexpected message ✅
--   *Displays the start_menu command to press*
+    -   *Displays the start_menu command to press*
 
 ![Main Time Slot Bot Image](./images/main_time_slot_bot_img_girl.png)
 
