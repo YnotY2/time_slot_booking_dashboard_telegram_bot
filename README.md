@@ -1326,6 +1326,8 @@ The `handle_faq_callbacks` function processes callback queries related to freque
              await callback.message.answer("Sorry, I don't have an answer for that.", reply_markup=reply_markup)
      ```
    - **Purpose**: Provides an answer to a specific FAQ question if the question ID is found in `faq_answers`. If not found, informs the user that the answer is not available.
+   - *The actuall question_id is part of the callback data, e.g; faq_opening_hours or faq_contact_info*
+
 
 5. **Handle Special FAQ Case**:
    - **Condition**:
@@ -1411,6 +1413,7 @@ The `handle_booking_order_callback` function manages callback queries related to
          await process_selected_time_slot(callback)
      ```
    - **Purpose**: Calls the `process_selected_time_slot` function to ask the user to confirm the order for the specified time slot.
+   - *The time_slot ID is passed to the 'process_selected_time_slot' within callback data*
 
 5. **Prompt User for Confirmation**:
    - **Condition**:
@@ -1419,6 +1422,7 @@ The `handle_booking_order_callback` function manages callback queries related to
          await booking_specified_time_slot_user_message(callback)
      ```
    - **Purpose**: Calls the `booking_specified_time_slot_user_message` function to prompt the user to send a message to the admin for booking confirmation.
+   - *The time_slot ID is passed to the 'booking_specified_time_slot_user_message' within callback data*
 
 6. **Fallback Handling**:
    - **Condition**:
@@ -1497,6 +1501,8 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
          await admin_modify_time_slot_booking_status(callback)
      ```
    - **Purpose**: Calls the `admin_modify_time_slot_booking_status` function to modify the status of a specified time slot booking based on the callback data.
+   - *The callback-data contains the the 'id' if the time_slot within the callback data being passed to 'admin_modify_time_slot_booking_status'*
+
 
 5. **Fallback Handling**:
    - **Condition**:
@@ -1583,6 +1589,7 @@ The `handle_access_service_callback` function processes callback queries related
      - If a PIN is received, it checks user access with `check_user_access_by_access_pin`.
      - Uses `authentication_response_message_access_pin` to respond with the appropriate message and keyboard based on the access check result.
      - *'handle_keypad_press' function takes care of main logic returning entered PIN, and saving PIN state within database. View: ([`pins` Table](#pins-table))*
+     - *The actuall digit pressed 0-9 is present within the callback data passed to 'handle_keypad_press'*
 
 5. **Fallback Handling**:
    - **Condition**:
