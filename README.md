@@ -66,13 +66,14 @@ as a example.
 
    - [Understanding Usage of Tables](#understanding-usage-of-tables)
      - [`time_slots` Table](#time_slots-table)
-     - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
-        - [populate_time_slots](#1-populate_time_slots)
-        - [fetch_all_available_time_slots](#2-fetch_all_available_time_slots)
-        - [fetch_time_slot_row_by_id](#3-fetch_time_slot_row_by_id)
-        - [fetch_all_time_slots](#4-fetch_all_time_slots)
-        - [manage_booking_time_slots](#5-manage_booking_time_slots)
-        - [check_user_access_by_access_pin](#6-check_user_access_by_access_pin)
+         - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
+            - [populate_time_slots](#1-populate_time_slots)
+            - [fetch_all_available_time_slots](#2-fetch_all_available_time_slots)
+            - [fetch_time_slot_row_by_id](#3-fetch_time_slot_row_by_id)
+            - [fetch_all_time_slots](#4-fetch_all_time_slots)
+            - [manage_booking_time_slots](#5-manage_booking_time_slots)
+            - [check_user_access_by_access_pin](#6-check_user_access_by_access_pin)
+        
 
 
 7. [Understanding Database Layout](#understanding-database-layout)
