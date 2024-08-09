@@ -53,6 +53,7 @@ as a example.
 
 4. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
+   - [Installing requirements](#installing-requirements)
    - [Getting API Key from BotFather](#getting-api-key-from-botfather)
     - [Works out of the box 📦](#works-out-of-the-box-)
         - [Configuration](#configuration)
@@ -104,6 +105,15 @@ To clone Git repository using the command line, follow these simple steps:
 2. Clone this GitHub repo:
 ```
 git clone git@github.com:YnotY2/<public_repo_link>.git
+```
+
+### Installing requirements
+To install requirements using the command line, follow these simple steps:
+
+1. Navigate to the dir containing the 'requirements.txt' file.
+2. Install the requirements:
+```
+pip install -r requirements.txt
 ```
 
 <br>
@@ -207,8 +217,8 @@ admin_manage_bookings_dashboard_password = os.getenv("admin_manage_bookings_dash
 
 Modify the FAQ data and answers in `./config/faq_data.py` and `./config/faq_answers.py` respectively.
 Make sure when modifying that the variable holding the value matches in 'faq_data' and 'faq_answers'. For e.g; 'faq_opening_hours' and 'faq_opening_hours'. 
-You can change the variable and the value, just make sure they match. As the logic matches both variables to find data to display and awnser corresponding question. 
-You can also add more FAQ questions and awnsers only be modifying these files. 
+You can change the variable and the value, just make sure they match. As the logic matches both variables to find data to display and answer corresponding question. 
+You can also add more FAQ questions and answer only be modifying these files. 
 
 #### `./config/faq_data.py`:
 
