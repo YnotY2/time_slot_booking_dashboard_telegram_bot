@@ -876,6 +876,68 @@ The `check_user_access_by_access_pin` function verifies the validity of a PIN an
 
 
 
+### 1. `fetch_user_entered_access_pin_stored_db`
+
+**Description:**
+
+The `fetch_user_entered_access_pin_stored_db` function retrieves the PIN associated with a given user from the database. If the user does not have an existing PIN, the function inserts a new row for the user with an empty PIN and returns `None`.
+
+**Purpose:**
+
+1. **Retrieve PIN**: Fetches the PIN for a specified user from the `pins` table.
+2. **Insert New Entry**: If the user does not have a PIN, inserts a new entry with an empty PIN.
+3. **Return Values**:
+   - The PIN if it exists.
+   - `None` if a new row is inserted for the user.
+
+**Logic:**
+
+1. **Database Operations**:
+   - **Fetch PIN**: Query the `pins` table to check if the user has an existing PIN.
+   - **Insert New Entry**: If the user does not have a PIN, insert a new row with an empty PIN.
+
+2. **Error Handling**:
+   - Log any errors that occur during database operations.
+
+3. **Resource Management**:
+   - Ensure that the database cursor and connection are properly returned to the pool.
+
+**Code Explanation:**
+
+The function consists of the following main parts:
+
+1. **Fetch User PIN**:
+    @```python
+    query_fetch_pin = """
+        SELECT pin FROM pins WHERE user_id = %s
+    """
+    await cursor.execute(query_fetch_pin, (user_id,))
+    row = await cursor.fetchone()
+    ```
+   - **Purpose**: Retrieves the PIN for the specified `user_id` from the `pins` table.
+   - **SQL Query**: Selects the `pin` for the given `user_id`.
+   - **Execution**: Asynchronously executed to obtain the PIN if it exists.
+
+2. **Insert New Entry**:
+    @```python
+    if not row:
+        # If PIN does not exist, insert a new row with an empty PIN
+        query_insert_user = """
+            INSERT INTO pins (user_id, pin)
+            VALUES (%s, %s)
+        """
+        await cursor.execute(query_insert_user, (user_id, ""))
+        logger.info(f"Inserted new row for user {user_id} with empty PIN.")
+        return None
+    ```
+   - **Purpose**: Inserts a new entry into the `pins` table with an empty PIN if the user does not already have one.
+   - **SQL Query**: Inserts the `user_id` and an empty `pin`.
+   - **Execution**: Asynchronously executed to create a new row for the user.
+
+**Code Overview:**
+
+The `fetch_user_entered_access_pin_stored_db` function is designed to efficiently retrieve or initialize a PIN for a user. It handles both the retrieval of an existing PIN and the creation of a new entry if needed, ensuring that proper error handling and resource management are in place.
+
 ## Conclusion
 This integration provides a robust system for managing and booking time slots via a Telegram Bot. It includes functionalities for populating the database, fetching available slots, and handling user interactions effectively. Ensure proper handling of errors and resource management to maintain the system's reliability.
 
