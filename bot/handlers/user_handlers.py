@@ -8,14 +8,12 @@ from aiogram.filters import Command
 
 from aiogram.types import FSInputFile
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from dependencies import container
 
 
 from config.faq_answers import faq_answers
 from config.faq_data import faq_data
 from config.settings import start_menu_image_logo
 from config.settings import how_is_our_tattoo_made_video
-from config.settings import who_are_we_video
 from config.settings import admin_manage_bookings_dashboard_password
 
 from services_python.check_if_time_within_openings_hours import check_if_time_within_openings_hours
