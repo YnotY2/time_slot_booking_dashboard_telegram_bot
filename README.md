@@ -974,7 +974,7 @@ The `insert_or_update_user_entered_access_pin_db` function handles the insertion
 The function consists of the following main parts:
 
 1. **Fetch User PIN**:
-    @```python
+    ```python
     query_fetch_pin = """
         SELECT pin FROM pins WHERE user_id = %s
     """
@@ -986,7 +986,7 @@ The function consists of the following main parts:
    - **Execution**: Asynchronously executed to obtain the current PIN if it exists.
 
 2. **Update or Insert PIN**:
-    @```python
+    ```python
     if row:
         current_pin = row[0]
         if len(current_pin) <= 4:
@@ -1049,7 +1049,7 @@ The `delete_user_entered_access_pin_db` function clears the PIN entry for a spec
 The function consists of the following main parts:
 
 1. **Delete PIN Record**:
-    @```python
+    ```python
     query_clear_pin = """
         DELETE FROM pins WHERE user_id = %s
     """
@@ -1070,6 +1070,389 @@ The callback query handlers are the core components of our Telegram Bot, we defi
 decide what happens when a button is clicked and callback data is generated.
 
 ### CallbackQuery Handlers Defined
+
+- **Start Callback Data Handler**
+  - Function Name: `handle_start_callback`
+  - Description: Handles callback queries that start with 'start', initiating the start menu.
+
+- **FAQ Callback Data Handlers**
+  - Function Name: `handle_faq_callbacks`
+  - Description: Manages FAQ-related callback queries, including showing FAQ options and answering specific FAQ questions.
+
+- **Admin Dashboard Callback Data Handlers**
+  - Function Name: `handle_admin_dashboard_callbacks`
+  - Description: Handles callback queries related to admin management of booking time slots and their statuses.
+
+- **Booking Order Callback Data Handlers**
+  - Function Name: `handle_booking_order_callback`
+  - Description: Manages callback queries for booking services, selecting time slots, and confirming orders.
+
+- **Access Service Callback Data Handlers**
+  - Function Name: `handle_access_service_callback`
+  - Description: Handles callback queries for accessing services, including displaying keypads and processing PIN entries.
+
+
+### handle_start_callback CallbackQuery Handlers explained
+*Description:**
+
+The `handle_start_callback` function manages callback queries where the data starts with 'start'. It checks if the current time is within the shop's operating hours and, if so, initiates the start menu. If the shop is closed, it informs the user accordingly.
+
+**Purpose:**
+
+1. **Check Operating Hours**: Verifies if the current time falls within the shop's defined working hours.
+2. **Handle Start Callback**: Initiates the start menu if the callback data is 'start'.
+3. **Error Handling**: Logs any errors encountered during the callback processing.
+
+**Logic:**
+
+1. **Time Check**:
+   - **Function**: `check_if_time_within_openings_hours()`
+   - **Purpose**: Determines if the current time is within the shop's operational hours.
+   - **Execution**: If the shop is closed, sends a message to the user indicating the shop hours.
+
+2. **Process Callback Data**:
+   - **Data Handling**:
+     ```python
+     data = callback.data
+     logger.info(f"Received callback data: {data}")
+     ```
+   - **Purpose**: Retrieves and logs the callback data received from the user.
+
+3. **Start Menu Handling**:
+   - **Condition**:
+     ```python
+     if data == 'start':
+         await start_menu(callback.message)
+     ```
+   - **Purpose**: Calls the `start_menu` function to display the start menu if the callback data is 'start'.
+
+4. **Error Handling**:
+   - **Logging**:
+     ```python
+     except Exception as e:
+         logger.error(f"Error handling callback query: {e}")
+     ```
+   - **Purpose**: Catches and logs any exceptions that occur during callback handling.
+
+**Code Overview:**
+
+The `handle_start_callback` function checks if the current time is within operational hours, processes the 'start' callback data to initiate the start menu, and handles any errors by logging them.
+
+
+### `handle_faq_callbacks`
+
+**Description:**
+
+The `handle_faq_callbacks` function processes callback queries related to frequently asked questions (FAQs). It handles various FAQ-related callbacks, such as showing FAQ options, displaying answers to specific questions, and managing fallback scenarios. It also checks if the shop is open before responding.
+
+**Purpose:**
+
+1. **Check Operating Hours**: Verifies if the current time is within the shop's working hours.
+2. **Handle FAQ Queries**: Responds to user queries related to FAQs and provides the relevant information.
+3. **Error Handling**: Logs any errors encountered during the callback processing.
+
+**Logic:**
+
+1. **Time Check**:
+   - **Function**: `check_if_time_within_openings_hours()`
+   - **Purpose**: Determines if the current time is within the shop's operational hours.
+   - **Execution**: If the shop is closed, sends a message to the user indicating the shop hours.
+
+2. **Process Callback Data**:
+   - **Data Handling**:
+     ```python
+     data = callback.data
+     logger.info(f"Received callback data: {data}")
+     ```
+   - **Purpose**: Retrieves and logs the callback data received from the user.
+
+3. **Handle FAQ Menu**:
+   - **Condition**:
+     ```python
+     if data == 'faq_menu' or data == 'back_to_faq':
+         await show_faq_options(callback)
+     ```
+   - **Purpose**: Calls the `show_faq_options` function to display FAQ menu options if the data is 'faq_menu' or 'back_to_faq'.
+
+4. **Handle Specific FAQ Questions**:
+   - **Condition**:
+     ```python
+     elif data.startswith('faq_'):
+         question_id = data
+         if question_id in faq_answers:
+             answer = faq_answers[question_id]
+             reply_markup = await back_to_faq_keyboard()
+             await callback.message.edit_text(text=answer, reply_markup=reply_markup)
+         else:
+             reply_markup = await back_to_faq_keyboard()
+             await callback.message.answer("Sorry, I don't have an answer for that.", reply_markup=reply_markup)
+     ```
+   - **Purpose**: Provides an answer to a specific FAQ question if the question ID is found in `faq_answers`. If not found, informs the user that the answer is not available.
+
+5. **Handle Special FAQ Case**:
+   - **Condition**:
+     ```python
+     elif data == "how_is_our_tattoo_made":
+         await handle_how_is_our_tattoo_made_faq_answer(callback)
+     ```
+   - **Purpose**: Calls the `handle_how_is_our_tattoo_made_faq_answer` function to handle the specific FAQ about how the tattoo is made.
+
+6. **Fallback Handling**:
+   - **Condition**:
+     ```python
+     else:
+         await handle_unexpected_message(callback.message)
+     ```
+   - **Purpose**: Handles unexpected callback data by calling the `handle_unexpected_message` function.
+
+7. **Answer Callback**:
+   - **Code**:
+     ```python
+     await callback.answer()
+     ```
+   - **Purpose**: Sends a response to acknowledge the callback query.
+
+8. **Error Handling**:
+   - **Logging**:
+     ```python
+     except Exception as e:
+         logger.error(f"Error handling callback query: {e}")
+     ```
+   - **Purpose**: Catches and logs any exceptions that occur during callback handling.
+
+**Code Overview:**
+
+The `handle_faq_callbacks` function manages FAQ-related callback queries by checking the operating hours, handling different types of FAQ data, and providing appropriate responses. It includes robust error handling and logging to ensure smooth operation.
+
+
+### `handle_booking_order_callback`
+
+**Description:**
+
+The `handle_booking_order_callback` function manages callback queries related to booking orders. It processes different types of booking-related callback data, such as initiating a booking, selecting a time slot, and confirming the time slot. It also ensures that the shop is open before responding to the callback.
+
+**Purpose:**
+
+1. **Check Operating Hours**: Ensures the callback is only processed if the shop is currently open.
+2. **Manage Booking Actions**: Handles actions related to booking services, selecting time slots, and confirming bookings.
+3. **Error Handling**: Logs any errors encountered during callback processing.
+
+**Logic:**
+
+1. **Time Check**:
+   - **Function**: `check_if_time_within_openings_hours()`
+   - **Purpose**: Verifies if the current time is within the shop's operational hours.
+   - **Execution**: If the shop is closed, sends a message to the user indicating the shop hours.
+
+2. **Process Callback Data**:
+   - **Data Handling**:
+     ```python
+     data = callback.data
+     logger.info(f"Received callback data: {data}")
+     ```
+   - **Purpose**: Retrieves and logs the callback data received from the user.
+
+3. **Display Time-Slot Dashboard**:
+   - **Condition**:
+     ```python
+     if data == 'booking_service':
+         await callback_display_time_slot_booking_dashboard(callback)
+     ```
+   - **Purpose**: Calls the `callback_display_time_slot_booking_dashboard` function to display the time-slot dashboard buttons to the user.
+
+4. **Process Selected Time Slot**:
+   - **Condition**:
+     ```python
+     elif data.startswith("time_slot_"):
+         await process_selected_time_slot(callback)
+     ```
+   - **Purpose**: Calls the `process_selected_time_slot` function to ask the user to confirm the order for the specified time slot.
+
+5. **Prompt User for Confirmation**:
+   - **Condition**:
+     ```python
+     elif data.startswith("confirm_time_"):
+         await booking_specified_time_slot_user_message(callback)
+     ```
+   - **Purpose**: Calls the `booking_specified_time_slot_user_message` function to prompt the user to send a message to the admin for booking confirmation.
+
+6. **Fallback Handling**:
+   - **Condition**:
+     @```python
+     else:
+         await handle_unexpected_message(callback.message)
+     ```
+   - **Purpose**: Handles unexpected callback data by calling the `handle_unexpected_message` function.
+
+7. **Answer Callback**:
+   - **Code**:
+     @```python
+     await callback.answer()
+     ```
+   - **Purpose**: Sends a response to acknowledge the callback query.
+
+8. **Error Handling**:
+   - **Logging**:
+     @```python
+     except Exception as e:
+         logger.error(f"Error handling callback query: {e}")
+     ```
+   - **Purpose**: Catches and logs any exceptions that occur during callback handling.
+
+**Code Overview:**
+
+The `handle_booking_order_callback` function is designed to manage booking-related actions such as initiating bookings, selecting time slots, and confirming bookings. It ensures that callbacks are processed only during shop hours and handles various booking tasks effectively. The function includes error handling and logging to maintain reliable operation.
+
+
+
+### `handle_admin_dashboard_callbacks`
+
+**Description:**
+
+The `handle_admin_dashboard_callbacks` function manages callback queries related to the admin dashboard for booking time slots. It processes different types of admin-related callback data, such as managing bookings and modifying time slot statuses. It also ensures that the shop is open before responding to the callback.
+
+**Purpose:**
+
+1. **Check Operating Hours**: Ensures the callback is only processed if the shop is currently open.
+2. **Manage Admin Actions**: Handles admin actions related to booking time slots and modifying their statuses.
+3. **Error Handling**: Logs any errors encountered during callback processing.
+
+**Logic:**
+
+1. **Time Check**:
+   - **Function**: `check_if_time_within_openings_hours()`
+   - **Purpose**: Verifies if the current time is within the shop's operational hours.
+   - **Execution**: If the shop is closed, sends a message to the user indicating the shop hours.
+
+2. **Process Callback Data**:
+   - **Data Handling**:
+     @```python
+     data = callback.data
+     logger.info(f"Received callback data: {data}")
+     ```
+   - **Purpose**: Retrieves and logs the callback data received from the user.
+
+3. **Manage Booking Time Slots**:
+   - **Condition**:
+     @```python
+     if data.startswith("admin_manage_booking_time_slot_"):
+         await admin_managing_specified_time_slot_booking_choose_true_false(callback)
+     ```
+   - **Purpose**: Calls the `admin_managing_specified_time_slot_booking_choose_true_false` function to manage specific time slot bookings based on the callback data.
+
+4. **Modify Time Slot Booking Status**:
+   - **Condition**:
+     @```python
+     elif data.startswith("admin_managing_specified_time_slot_booking_True_") or data.startswith("admin_managing_specified_time_slot_booking_False_"):
+         await admin_modify_time_slot_booking_status(callback)
+     ```
+   - **Purpose**: Calls the `admin_modify_time_slot_booking_status` function to modify the status of a specified time slot booking based on the callback data.
+
+5. **Fallback Handling**:
+   - **Condition**:
+     @```python
+     else:
+         await handle_unexpected_message(callback.message)
+     ```
+   - **Purpose**: Handles unexpected callback data by calling the `handle_unexpected_message` function.
+
+6. **Answer Callback**:
+   - **Code**:
+     @```python
+     await callback.answer()
+     ```
+   - **Purpose**: Sends a response to acknowledge the callback query.
+
+7. **Error Handling**:
+   - **Logging**:
+     @```python
+     except Exception as e:
+         logger.error(f"Error handling callback query: {e}")
+     ```
+   - **Purpose**: Catches and logs any exceptions that occur during callback handling.
+
+**Code Overview:**
+
+The `handle_admin_dashboard_callbacks` function is designed to manage admin-related actions for booking time slots. It ensures that callbacks are processed only during shop hours and handles various admin tasks such as managing bookings and modifying time slot statuses. The function includes error handling and logging to maintain reliable operation.
+
+### `handle_access_service_callback`
+
+**Description:**
+
+The `handle_access_service_callback` function processes callback queries related to access services. It handles displaying an access keypad and processing PIN entries. It ensures that access is managed correctly and only allows actions during the shop's operational hours.
+
+**Purpose:**
+
+1. **Check Operating Hours**: Ensures the callback is only processed if the shop is currently open.
+2. **Manage Access Actions**: Handles actions related to access service, including displaying a keypad and verifying PIN entries.
+3. **Error Handling**: Logs any errors encountered during callback processing.
+
+**Logic:**
+
+1. **Time Check**:
+   - **Function**: `check_if_time_within_openings_hours()`
+   - **Purpose**: Verifies if the current time is within the shop's operational hours.
+   - **Execution**: If the shop is closed, sends a message to the user indicating the shop hours.
+
+2. **Process Callback Data**:
+   - **Data Handling**:
+     @```python
+     data = callback.data
+     logger.info(f"Received callback data: {data}")
+     ```
+   - **Purpose**: Retrieves and logs the callback data received from the user.
+
+3. **Display Access Keypad**:
+   - **Condition**:
+     @```python
+     if data == 'access_service':
+         await create_numbers_access_keypad(callback)
+         logger.info("Displayed keypad for the user.")
+     ```
+   - **Purpose**: Calls the `create_numbers_access_keypad` function to display a keypad for the user to enter a PIN.
+
+4. **Handle PIN Entry**:
+   - **Condition**:
+     @```python
+     elif data.startswith("key_"):
+         pin = await handle_keypad_press(callback)
+         if pin:
+             print(pin)
+             user_access_auth_return_data = await check_user_access_by_access_pin(pin)
+             print(user_access_auth_return_data)
+             await authentication_response_message_access_pin(callback, user_access_auth_return_data)
+     ```
+   - **Purpose**: 
+     - Calls `handle_keypad_press` to handle the PIN entry.
+     - If a PIN is received, it checks user access with `check_user_access_by_access_pin`.
+     - Uses `authentication_response_message_access_pin` to respond with the appropriate message and keyboard based on the access check result.
+
+5. **Fallback Handling**:
+   - **Condition**:
+     @```python
+     else:
+         await handle_unexpected_message(callback.message)
+     ```
+   - **Purpose**: Handles unexpected callback data by calling the `handle_unexpected_message` function.
+
+6. **Answer Callback**:
+   - **Code**:
+     @```python
+     await callback.answer()
+     ```
+   - **Purpose**: Sends a response to acknowledge the callback query.
+
+7. **Error Handling**:
+   - **Logging**:
+     @```python
+     except Exception as e:
+         logger.error(f"Error handling callback query: {e}")
+     ```
+   - **Purpose**: Catches and logs any exceptions that occur during callback handling.
+
+**Code Overview:**
+
+The `handle_access_service_callback` function manages user access services by displaying an access keypad and processing PIN entries. It ensures that callbacks are handled only during shop hours and performs actions based on the received data. Error handling and logging are included to maintain the reliability of the function.
 
 
 ## Conclusion
