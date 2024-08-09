@@ -1,5 +1,5 @@
 # Managing bookings and access for any specified service via telegram
-Telegram Bot for any service requiring booking's and user authentication on arrival. Currently I have modified the code to work for a barbershop
+Telegram Bot for any service requiring booking's and user authentication on arrival. Currently I have modified the code to work for a tattoo-shop
 as a example.
 
 - **Maximum Booking Horizon:** 46 hours in advance.
@@ -275,6 +275,10 @@ async_cofee_telegram_bot/
 
 These files and directories are fundamental to the bot’s operation, making them mandatory for both setting up and maintaining your Telegram bot. Understanding their roles and how they interact will ensure that your bot functions correctly and efficiently.
 
+<br>
+<br>
+<br>
+<br>
 
 ## Database Schema
 The database schema used within this application and the internal logic of how we utilise it is very important. I will explain the logic
