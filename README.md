@@ -54,7 +54,12 @@ as a example.
 4. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
    - [Getting API Key from BotFather](#getting-api-key-from-botfather)
-   - [Works out of the box](#works-out-of-the-box)
+    - [Works out of the box 📦](#works-out-of-the-box-)
+        - [Configuration](#configuration)
+        - [1. Update Configuration Settings](#1-update-configuration-settings)
+        - [2. Update FAQ Data](#2-update-faq-data)
+        - [3. Customizing Start Menu [Main-Menu]](#3-customizing-start-menu-main-menu)
+        - [4. Modifying Opening Hours](#4-modifying-opening-hours)
 
 5. [Understanding Code Layout](#understanding-code-layout)
    - [Directory Layout](#directory-layout)
