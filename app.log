@@ -8828,3 +8828,58 @@ LINE 3:                             FROM confirmed_orders
 2024-08-09 00:51:02,450 - INFO - Received callback data: faq_menu
 2024-08-09 00:51:29,870 - INFO - Received callback data: faq_accepted_payment_options
 2024-08-09 01:01:44,108 - INFO - Closing the connection pool...
+2024-08-09 04:09:02,109 - INFO - Starting main.py process, telegram bot live!
+2024-08-09 04:09:02,109 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-09 04:09:02,109 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-09 04:09:02,109 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-09 04:09:02,109 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-09 04:09:02,110 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-09 04:09:02,110 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-09 04:09:02,123 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-09 04:09:02,124 - INFO - Starting running periodic tasks...
+2024-08-09 04:09:02,146 - INFO - Time slots populated successfully.
+2024-08-09 04:09:02,146 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:09:02,146 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:09:05,508 - INFO - Received callback data: access_service
+2024-08-09 04:09:05,603 - INFO - Displayed keypad for the user.
+2024-08-09 04:09:22,188 - INFO - Received callback data: booking_service
+2024-08-09 04:09:22,199 - INFO - Successfully fetched available time slots.
+2024-08-09 04:09:22,199 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:09:22,200 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:09:22,200 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:09:29,501 - INFO - Received callback data: time_slot_9
+2024-08-09 04:09:29,510 - INFO - Successfully fetched time slot with ID 9.
+2024-08-09 04:09:29,510 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:09:29,511 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:09:29,511 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:09:31,041 - INFO - Received callback data: confirm_time_9
+2024-08-09 04:09:31,041 - INFO - Successfully fetched time slot with ID 9.
+2024-08-09 04:09:31,041 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:09:31,042 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:09:31,042 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:09:48,489 - INFO - Successfully fetched all time slots.
+2024-08-09 04:09:48,490 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:09:48,490 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:09:48,490 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:09:48,490 - INFO - [{'id': 28, 'start_time': datetime.datetime(2024, 8, 10, 23, 0), 'end_time': datetime.datetime(2024, 8, 11, 1, 0)}, {'id': 27, 'start_time': datetime.datetime(2024, 8, 10, 21, 0), 'end_time': datetime.datetime(2024, 8, 10, 23, 0)}, {'id': 26, 'start_time': datetime.datetime(2024, 8, 10, 18, 0), 'end_time': datetime.datetime(2024, 8, 10, 20, 0)}, {'id': 25, 'start_time': datetime.datetime(2024, 8, 10, 15, 0), 'end_time': datetime.datetime(2024, 8, 10, 17, 0)}, {'id': 24, 'start_time': datetime.datetime(2024, 8, 10, 13, 0), 'end_time': datetime.datetime(2024, 8, 10, 15, 0)}, {'id': 23, 'start_time': datetime.datetime(2024, 8, 10, 11, 0), 'end_time': datetime.datetime(2024, 8, 10, 13, 0)}, {'id': 22, 'start_time': datetime.datetime(2024, 8, 10, 9, 0), 'end_time': datetime.datetime(2024, 8, 10, 11, 0)}, {'id': 21, 'start_time': datetime.datetime(2024, 8, 10, 7, 0), 'end_time': datetime.datetime(2024, 8, 10, 9, 0)}, {'id': 20, 'start_time': datetime.datetime(2024, 8, 10, 5, 0), 'end_time': datetime.datetime(2024, 8, 10, 7, 0)}, {'id': 19, 'start_time': datetime.datetime(2024, 8, 10, 3, 0), 'end_time': datetime.datetime(2024, 8, 10, 5, 0)}, {'id': 18, 'start_time': datetime.datetime(2024, 8, 10, 0, 0), 'end_time': datetime.datetime(2024, 8, 10, 2, 0)}, {'id': 17, 'start_time': datetime.datetime(2024, 8, 9, 21, 0), 'end_time': datetime.datetime(2024, 8, 9, 23, 0)}, {'id': 16, 'start_time': datetime.datetime(2024, 8, 9, 19, 0), 'end_time': datetime.datetime(2024, 8, 9, 21, 0)}, {'id': 15, 'start_time': datetime.datetime(2024, 8, 9, 17, 0), 'end_time': datetime.datetime(2024, 8, 9, 19, 0)}, {'id': 14, 'start_time': datetime.datetime(2024, 8, 9, 15, 0), 'end_time': datetime.datetime(2024, 8, 9, 17, 0)}, {'id': 13, 'start_time': datetime.datetime(2024, 8, 9, 13, 0), 'end_time': datetime.datetime(2024, 8, 9, 15, 0)}, {'id': 12, 'start_time': datetime.datetime(2024, 8, 9, 11, 0), 'end_time': datetime.datetime(2024, 8, 9, 13, 0)}, {'id': 11, 'start_time': datetime.datetime(2024, 8, 9, 9, 0), 'end_time': datetime.datetime(2024, 8, 9, 11, 0)}, {'id': 10, 'start_time': datetime.datetime(2024, 8, 9, 7, 0), 'end_time': datetime.datetime(2024, 8, 9, 9, 0)}, {'id': 9, 'start_time': datetime.datetime(2024, 8, 9, 5, 0), 'end_time': datetime.datetime(2024, 8, 9, 7, 0)}, {'id': 8, 'start_time': datetime.datetime(2024, 8, 9, 3, 0), 'end_time': datetime.datetime(2024, 8, 9, 5, 0)}, {'id': 7, 'start_time': datetime.datetime(2024, 8, 9, 1, 0), 'end_time': datetime.datetime(2024, 8, 9, 3, 0)}, {'id': 6, 'start_time': datetime.datetime(2024, 8, 8, 23, 0), 'end_time': datetime.datetime(2024, 8, 9, 1, 0)}, {'id': 5, 'start_time': datetime.datetime(2024, 8, 8, 21, 0), 'end_time': datetime.datetime(2024, 8, 8, 23, 0)}]
+2024-08-09 04:12:49,938 - INFO - Closing the connection pool...
+2024-08-09 04:12:49,938 - INFO - Connection pool closed. Exiting.
+2024-08-09 04:12:57,442 - INFO - Starting main.py process, telegram bot live!
+2024-08-09 04:12:57,443 - INFO - [96mAttempting to connect to the following database:[0m
+2024-08-09 04:12:57,443 - INFO - [94mdatabase:[0m[95m        time_slot_telegram_bot_db         [0m
+2024-08-09 04:12:57,443 - INFO - [94muser:[0m[95m            time_slot_telegram_bot_user         [0m
+2024-08-09 04:12:57,443 - INFO - [94mpassword:[0m[95m        083yhbfjlabskhf         [0m
+2024-08-09 04:12:57,443 - INFO - [94mhost:[0m[95m            localhost         [0m
+2024-08-09 04:12:57,443 - INFO - [94mport:[0m[95m            5432         [0m
+2024-08-09 04:12:57,455 - INFO - [92mSuccessfully created the connection pool.[0m
+2024-08-09 04:12:57,456 - INFO - Starting running periodic tasks...
+2024-08-09 04:12:57,478 - INFO - Time slots populated successfully.
+2024-08-09 04:12:57,478 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:12:57,478 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:12:59,599 - INFO - Received callback data: booking_service
+2024-08-09 04:12:59,609 - INFO - Successfully fetched available time slots.
+2024-08-09 04:12:59,609 - INFO - [96mAttempting to return connection and the cursor to pool for database:[0m
+2024-08-09 04:12:59,609 - INFO - [92mSuccessfully closed cursor.[0m
+2024-08-09 04:12:59,609 - INFO - Successfully returned the cursor and connection to the pool!
+2024-08-09 04:13:03,320 - INFO - Closing the connection pool...
+2024-08-09 04:13:03,320 - INFO - Connection pool closed. Exiting.

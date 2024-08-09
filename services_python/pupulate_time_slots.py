@@ -52,10 +52,19 @@ VALUES ('2024-08-<start_int_day> 10:00:00', '2024-<end_int_day>-08 12:00:00', FA
             async with pool.acquire() as connection:
                 async with connection.cursor() as cursor:
                         try:
+                            # Delete all rows with time_slot where the end_time is passed the current time
+                            """Delete old table rows, where time-slot has ended."""
+                            delete_old_slots_query = """
+                                DELETE FROM time_slots 
+                                WHERE end_time < %s
+                            """
+                            await cursor.execute(delete_old_slots_query, (now,))
+
+
                             # Find the latest existing slot's end time
                             latest_slot_query = """
-                                                           SELECT MAX(end_time) FROM time_slots
-                                                       """
+                                               SELECT MAX(end_time) FROM time_slots
+                                               """
                             await cursor.execute(latest_slot_query)
                             latest_slot_row = await cursor.fetchone()
 
