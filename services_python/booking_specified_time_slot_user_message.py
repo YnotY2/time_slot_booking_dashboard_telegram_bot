@@ -55,7 +55,7 @@ async def booking_specified_time_slot_user_message(callback):
             "Copy this message below and send it to continue with payment:\n"
             "\n"
             "```"
-            "Hi, I would like to confirm my access to the [service]\n"  
+            "Hi, I would like to confirm my booking for Lucy Tattoo\n"  
             "\n" 
             f"⌚ Start-Time:\n"
             f"🗓️ {start_time_cleaned}\n "
@@ -66,7 +66,7 @@ async def booking_specified_time_slot_user_message(callback):
             f"Time-slot-ID:     📒 {time_slot_id}"
             "\n"  
             "🪐 I acknowledge that I am sending this message \n"  
-            "to book the [service] for above specified time-slot\n"  # No trailing newline
+            "to book Lucy Tattoo for above specified time-slot\n"  # No trailing newline
             "```"
             f"\n"
             f"ℹ️ Dear user, after you have sent this message to "
