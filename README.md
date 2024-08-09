@@ -160,6 +160,129 @@ To use the Telegram Bot API, you need to obtain an API key from BotFather. Follo
 <br>
 <br>
 
+
+
+## Works out of the box 📦
+
+This project is configured to work out of the box with default settings. However, you'll need to customize several configuration files to tailor the application to your needs. Follow the instructions below to modify database credentials, images, FAQ content, and more.
+
+## Configuration
+
+### 1. Update Configuration Settings
+
+You need to modify the `./config/settings.py` file to include your own database credentials, Telegram Bot API token, and other configurations.
+
+####  `./config/settings.py`:
+
+```python
+import os
+
+# Database PostgreSQL Credentials
+postgresql_db_name = os.getenv("postgresql_db_name", "your_db_name")
+postgresql_db_passwd = os.getenv("postgresql_db_passwd", "your_db_password")
+postgresql_db_usr = os.getenv("postgresql_db_usr", "your_db_user")
+postgresql_port = os.getenv("postgresql_port", "5432")      # Default port // Change if needed
+postgresql_host = os.getenv("postgresql_host", "localhost")  # Locally hosted db // Change if needed
+
+# Telegram Bot API TOKEN
+telegram_bot_token = os.getenv("telegram_bot_token", "your_bot_token")
+
+# Images to send to users within chat:
+start_menu_image_logo = os.getenv("start_menu_image_logo", "./images/start_menu_image_logo.png")
+how_is_our_tattoo_made_video = os.getenv("how_is_our_tattoo_made_video", "./videos/how_is_our_tattoo_made.mp4")
+
+# Admin manage time-slot bookings dashboard access password string:
+admin_manage_bookings_dashboard_password = os.getenv("admin_manage_bookings_dashboard_password", "your_dashboard_password")
+```
+
+<br>
+<br>
+
+### 2. Update FAQ Data
+
+Modify the FAQ data and answers in `./config/faq_data.py` and `./config/faq_answers.py` respectively.
+Make sure when modifying that the variable holding the value matches in 'faq_data' and 'faq_answers'. For e.g; 'faq_opening_hours' and 'faq_opening_hours'. 
+You can change the variable and the value, just make sure they match. As the logic matches both variables to find data to display and awnser corresponding question. 
+You can also add more FAQ questions and awnsers only be modifying these files. 
+
+#### `./config/faq_data.py`:
+
+```python
+from utils.logger import setup_logger
+logger = setup_logger(service_name="faq_data")
+
+# Frequently asked questions
+faq_data = {
+    "faq_years_of_experience": "How many years of experience?",
+    "faq_opening_hours": "Opening hours?",
+    "faq_accepted_payment_options": "What payment methods are accepted?",
+    "faq_contact_info": "Contact Info?",
+    "how_is_our_tattoo_made": "How is your tattoo made?",
+}
+```
+
+```
+from utils.logger import setup_logger
+logger = setup_logger(service_name="faq_answers")
+
+# Frequently asked questions matching answers
+# The callback_data string argument is the same for answers and data, see 'faq_data.py'
+faq_answers = {
+    "faq_years_of_experience": (
+        "♣️ Years of Experience:\n"
+        "\n"
+        "With over a decade of experience in the tattoo industry, our talented artists "
+        "bring a wealth of knowledge and skill to every design. Their journey began "
+        "in the early 2010s, and since then, they've honed their craft through countless "
+        "hours of practice and a deep passion for body art. From mastering traditional "
+        "styles to exploring contemporary trends, our artists have developed a reputation "
+        "for exceptional artistry and precision. Each tattoo is a testament to their "
+        "commitment to quality and their dedication to making every client's vision come to life. "
+        "Their extensive experience ensures that you receive not only a beautiful tattoo but "
+        "also a professional and enjoyable experience."
+    ),
+    "faq_opening_hours": (
+        "🕣 Openings Hours:\n"
+         "\n"
+         "🎴 Monday:       16:00 - 23:00\n"
+         "🎴 Tuesday:      16:00 - 22:00\n"
+         "🎴 Wednesday:    16:00 - 0:00\n"
+         "🎴 Thursday:     16:00 - 2:00 PM\n"
+         "🎴 Friday:       16:00 - 2:00 PM\n"
+         "🎴 Saturday:     17:00 - 4:00\n"
+         "🎴 Sunday:       17:00 - 4:00\n"
+         "\n"
+    ),
+    "faq_accepted_payment_options": (
+        "️ We accept the following payment methods:\n"
+        "\n"
+        "🎴 Ideal\n"
+        "\n"
+        "🎴 Paypal\n"
+        "\n"
+        "🎴 Cash\n"
+    ),
+    "faq_contact_info": (
+        "️📋 Contact Info:\n"
+        "\n"
+        "📞 PhoneNumber:     (555) 123-4567\n"
+        "✉️ Email:              contact@lucytattoo.com\n"
+    ),
+    "how_is_our_tattoo_made": (
+        "\n"
+        "Our Coffee Is made with love and care :\n"
+        "\n"
+    ),
+
+}
+```
+
+<br>
+<br>
+<br>
+<br>
+
+
 ## Understanding Code Layout:
 ### Directory Layout:
 
