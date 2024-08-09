@@ -16,16 +16,16 @@ as a example.
 -   FAQ within Menu ✅
 -   User booking time-slot dasboard ✅
 -   Admin manegement dashboard for all available booking ✅
-    - Booking any specified time-slot
-    - Un-booking any specified time-slot
-    - Returns 5 digit PIN when booking time-slot
-    - Unique password cmd for access dashboard via chat message
-    - *Password is set within 'settings.py'*
+    - Booking any specified time-slot ☑️
+    - Un-booking any specified time-slot ☑️
+    - Returns 5 digit PIN when booking time-slot ☑️
+    - Unique password cmd for access dashboard via chat message ☑️
+    - *Password is set within 'settings.py'* 
 -   User 5 digit PIN authentication dasboard ✅
-    - authenticating booking on arrival 
-    - Accepts or rejects access
-    - Authentication message response based on entered PIN
-    - *pin is returned to admin after confirming booking*
+    - authenticating booking on arrival ☑️
+    - Accepts or rejects access ☑️
+    - Authentication message response based on entered PIN  ☑️
+    - *pin is returned to admin after confirming booking* 
     - ```
       user_access_auth_return_data = {
                     'pin_valid': pin_valid,
