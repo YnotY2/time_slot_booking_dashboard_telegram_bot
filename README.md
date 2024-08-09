@@ -277,8 +277,88 @@ faq_answers = {
 }
 ```
 
-### 3. Modifying 
+<br>
+<br>
 
+### 3. Customizing Start Menu [Main-Menu]
+
+This document provides instructions for modifying the start menu displayed to users when they initiate a conversation with the bot. You can adjust the welcome message, replace the image, and customize the options available on the start menu.
+
+**Locate the Start Menu Code**
+
+The start menu is configured in the `./bot/handlers/user_handlers.py` file. Here is the relevant section of the code:
+
+```python
+@user_router.message(Command('start'))
+async def start_menu(message: types.Message):
+    # Check if message is received between opening hours
+    if not check_if_time_within_openings_hours():
+        await message.answer("Sorry, 🕣\n"
+                             "\n"
+                             "The shop is only available between:\n"
+                             "8:00 - 23:50 | EU UTC+2. ")
+        return
+
+    faq_button = InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
+    booking_service_button = InlineKeyboardButton(text="Booking Service", callback_data='booking_service')
+    get_access_button = InlineKeyboardButton(text="Access Service", callback_data="access_service")
+
+    # Create an InlineKeyboardMarkup object with a list of rows
+    start_keyboard_inline = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [faq_button],         # First row
+            [booking_service_button],  # Second row
+            [get_access_button],  # Third row
+        ]
+    )
+
+    photo = FSInputFile(start_menu_image_logo, filename="start_menu_image_logo.png")
+
+    # Send the photo with caption and inline keyboard
+    await message.answer_photo(
+        photo=photo,
+        caption=(
+            '\n'
+            'Welcome to Lucy Tattoo Shop!\n'
+            "We're here to assist you. Please choose from the following options: :\n"
+            '\n'
+            '🌑 Have any other questions? Click "FAQ" \n'
+            '🌑 If you want to book an appointment, click "Booking Service"\n'
+            '🌑 To provide booking ID on arrival, click "Access Service" \n'
+            '\n'
+            'Pricing: \n'
+            '350-900€ 💶'
+        ),
+        reply_markup=start_keyboard_inline
+    )
+
+```
+
+
+ **Locate the Caption Parameter**
+
+In the `./bot/handlers/user_handlers.py` file, find the `await message.answer_photo()` function call. The `caption` parameter contains the text that will be displayed to the user.
+
+Example:
+```python
+caption=(
+   '\n'
+   'Welcome to Lucy Tattoo Shop!\n'
+   "We're here to assist you. Please choose from the following options: :\n"
+   '\n'
+   '🌑 Have any other questions? Click "FAQ" \n'
+   '🌑 If you want to book an appointment, click "Booking Service"\n'
+   '🌑 To provide booking ID on arrival, click "Access Service" \n'
+   '\n'
+   'Pricing: \n'
+   '350-900€ 💶'
+)
+```
+
+- Edit the caption string to update the welcome message, instructions, or any other text you want to display. You can also change the emoji or pricing information to fit your business.
+
+<br>
+<br>
 
 ### 4. Modifying Opening Hours
 
