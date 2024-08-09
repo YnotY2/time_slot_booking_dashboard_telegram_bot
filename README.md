@@ -1866,7 +1866,61 @@ The `handle_access_service_callback` function processes callback queries related
 
 The `handle_access_service_callback` function manages user access services by displaying an access keypad and processing PIN entries. It ensures that callbacks are handled only during shop hours and performs actions based on the received data. Error handling and logging are included to maintain the reliability of the function.
 
+<br>
+<br>
+<br>
+<br>
 
+## Advanced Usage: Understanding Code Flow and Customization
+
+For advanced users who wish to deeply customize the functionality of this project, we highly recommend a thorough review of the entire documentation. To effectively tailor the bot to your specific needs, it's crucial to understand the code flow, particularly the callback query handlers and the logic for populating time slots.
+
+### 1. Review the Entire Documentation
+
+Understanding the full scope of the documentation will provide you with essential context about how different components interact within the project. Familiarize yourself with the configuration settings, FAQ management, and customization options outlined in the previous sections.
+
+### 2. Understand Callback Query Handlers
+
+Callback queries are essential for handling user interactions with inline buttons in Telegram. These handlers manage the responses to user inputs and control the bot's behavior based on user actions.
+
+**Key Points to Review:**
+
+- **Callback Data:** Review how callback data is structured and used in the code. This data is used to identify which button was clicked and to perform the corresponding action.
+- **Handlers Definition:** Examine the callback query handlers defined in `./bot/handlers/callback_handlers.py`. Understand how these handlers map the callback data to specific functions or responses.
+
+### 3. Populate Time Slots Logic
+
+The logic for managing and populating time slots is crucial for features like appointment booking. Understanding this logic will allow you to modify or extend the functionality to fit your requirements.
+
+**Key Points to Review:**
+
+- **Time Slot Management:** Check the code responsible for creating, updating, and managing time slots. This logic is usually implemented in files related to scheduling or bookings.
+- **Integration with Database:** Understand how time slots are stored and retrieved from the database. Review database schema definitions and queries involved in managing time slots.
+
+### 4. Modify Code to Fit Your Needs
+
+Once you have a solid understanding of the code flow, you can proceed with modifying the code to better suit your requirements.
+
+**Steps to Customize:**
+
+1. **Callback Query Handlers:** Customize the behavior of callback query handlers by updating the logic in the relevant handler files. Modify how the bot responds to user interactions based on your specific needs.
+
+2. **Time Slot Logic:** Adjust the time slot management code to align with your booking system. Update the logic for creating, updating, and displaying time slots as needed.
+
+3. **Testing:** Thoroughly test your modifications to ensure that they work as expected and that there are no unintended side effects.
+
+### 5. Additional Resources
+
+For a deeper understanding of the Telegram Bot API and advanced customization techniques, refer to the following resources:
+
+- [Telegram Bot API Documentation](https://core.telegram.org/bots/api)
+- [Python Telegram Bot Library Documentation](https://docs.aiogram.dev/en/latest/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+
+By thoroughly understanding the code flow and callback query handlers, and by carefully implementing your customizations, you can effectively tailor the bot to meet your specific needs and enhance its functionality.
+
+<br>
+<br>
 
 
 ## Conclusion
