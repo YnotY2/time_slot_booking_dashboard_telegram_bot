@@ -94,6 +94,11 @@ To clone Git repository using the command line, follow these simple steps:
 git clone git@github.com:YnotY2/<public_repo_link>.git
 ```
 
+<br>
+<br>
+<br>
+<br>
+
 ### Getting API Key from BotFather
 
 To use the Telegram Bot API, you need to obtain an API key from BotFather. Follow these steps to get your API key:
@@ -143,7 +148,10 @@ To use the Telegram Bot API, you need to obtain an API key from BotFather. Follo
    admin_manage_bookings_dashboard_password = os.getenv("admin_manage_bookings_dashboard_password", "/<youre_complex_password_here>")
    ```
 
-
+<br>
+<br>
+<br>
+<br>
 
 ## Understanding Code Layout:
 ### Directory Layout:
@@ -211,6 +219,9 @@ async_cofee_telegram_bot/
 
 ```
 
+<br>
+<br>
+
 ### Summary
 
 - **`main.py`**: The core file for starting and managing the bot.
@@ -263,6 +274,9 @@ The database schema used within this application and the internal logic of how w
 of the table's and there purpose. The databaase is managed by a few service_python function. The integration and usage of the database 
 is optimized for robust logic.
 
+<br>
+<br>
+
 ### Database Schema Visualised
 ```
 ├── Database Schema
@@ -279,6 +293,10 @@ is optimized for robust logic.
 │       └── created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP # Timestamp when the pin was created
 ```
 
+<br>
+<br>
+<br>
+<br>
 
 ### 'init-db.spql'
 ```
@@ -318,6 +336,14 @@ GRANT USAGE, SELECT ON SEQUENCE time_slots_id_seq TO time_slot_telegram_bot_user
 
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Interacting with the Database Asynchronously Without Blocking
 
@@ -389,7 +415,14 @@ async def test_pool_object_from_user_handler(callback):
     - `from services_python.return_cursor_connection_to_pool import return_cursor_connection_to_pool`
     - `from dependencies import container`
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Understanding usage of tables
 #### 'time_slots' table:
@@ -413,6 +446,9 @@ async def test_pool_object_from_user_handler(callback):
         And also display the available time-slots which are not booked to a user
         for future booking.
 
+<br>
+<br>
+
 #### **Functions utilising  'time_slots' table**:
   - These are all the functions interacting with the time_slots table in one way or another.
     - **`services_python/` Directory**: Manages backend services and database interactions. This includes:
@@ -424,7 +460,10 @@ async def test_pool_object_from_user_handler(callback):
       - **`pupulate_time_slots.py`**: Populates time slots.
     
 
-
+<br>
+<br>
+<br>
+<br>
 
 ### 1. `populate_time_slots`
 
@@ -492,6 +531,10 @@ The function consists of the following main parts:
 The `populate_time_slots` function is designed to ensure the `time_slots` table is up-to-date by removing outdated slots and adding new ones efficiently. Proper error handling and resource management are implemented to maintain the integrity of the database operations. This 'pupulate_time_slots' function is ran every 1H on a schedgule witin 'main.py' .
 
 
+<br>
+<br>
+<br>
+<br>
 
 ### 2. `fetch_all_available_time_slots`
 
@@ -561,6 +604,13 @@ The function consists of the following main parts:
 **Code overview:**
 The `fetch_all_available_time_slots` function is designed to efficiently retrieve and return available time slots from the database, ensuring that only unbooked slots within the specified time range are included. Proper error handling and resource management are implemented to ensure reliable operation.
 
+
+<br>
+<br>
+<br>
+<br>
+
+
 ### 3. `fetch_time_slot_row_by_id`
 
 **Description:**
@@ -626,6 +676,13 @@ The function consists of the following main parts:
 **Code Overview:**
 The `fetch_time_slot_row_by_id` function is designed to efficiently retrieve and return the details of a specific time slot from the database. It ensures proper error handling and resource management, including returning the cursor and connection to the pool.
 
+
+<br>
+<br>
+<br>
+<br>
+
+
 ### 4. `fetch_all_time_slots`
 
 **Description:**
@@ -684,6 +741,13 @@ The function consists of the following main parts:
 
 **Code Overview:**
 The `fetch_all_time_slots` function is designed to efficiently retrieve and return all time slots from the database, ensuring that only the required details are included. Proper error handling and resource management are implemented to ensure reliable operation.
+
+
+
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -774,6 +838,12 @@ The function consists of the following main parts:
 The `manage_booking_time_slots` function efficiently manages the booking status of time slots, ensuring that the status and PIN are updated accurately. It includes proper error handling and resource management to maintain database integrity and reliability.
 
 
+
+<br>
+<br>
+<br>
+<br>
+
 ### 6. `check_user_access_by_access_pin`
 
 **Description:**
@@ -854,6 +924,18 @@ The `check_user_access_by_access_pin` function verifies the validity of a PIN an
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 #### 'pins' table:
 - `user_id`: Unique identifier for each pins enterting process.
     - **Purpose**:
@@ -871,6 +953,8 @@ The `check_user_access_by_access_pin` function verifies the validity of a PIN an
         Then we store the PIN within table untill reaches 5 digits. After entering all 5 we do the auth process.
         After auth process PIN is imidiatly deleted from DB. So user can auth again.
       
+<br>
+<br>
 
 #### **Functions utilising  'pins' table**:
   - These are all the functions interacting with the time_slots table in one way or another.
@@ -878,6 +962,12 @@ The `check_user_access_by_access_pin` function verifies the validity of a PIN an
       - **`fetch_user_entered_access_pin_stored_db.py`**: Checks user access based on the provided access pin.
       - **`insert_or_update_user_entered_access_pin_db.py`**: Fetches all available time slots.
       - **`delete_user_entered_access_pin_db.py`**: Fetches all time slots.
+
+
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -942,6 +1032,14 @@ The function consists of the following main parts:
 **Code Overview:**
 
 The `fetch_user_entered_access_pin_stored_db` function is designed to efficiently retrieve or initialize a PIN for a user. It handles both the retrieval of an existing PIN and the creation of a new entry if needed, ensuring that proper error handling and resource management are in place.
+
+
+
+<br>
+<br>
+<br>
+<br>
+
 
 ### 2. `insert_or_update_user_entered_access_pin_db`
 
@@ -1021,6 +1119,11 @@ The function consists of the following main parts:
 The `insert_or_update_user_entered_access_pin_db` function is designed to manage user PINs by either appending a digit to an existing PIN or creating a new PIN. It ensures that the PIN remains within the defined length and handles both insertion and updating scenarios effectively. Proper error handling and resource management are implemented to ensure reliable operation.
 
 
+<br>
+<br>
+<br>
+<br>
+
 ### 3. `delete_user_entered_access_pin_db`
 
 **Description:**
@@ -1065,6 +1168,21 @@ The function consists of the following main parts:
 The `delete_user_entered_access_pin_db` function is designed to efficiently clear the PIN associated with a user. It performs a simple delete operation, ensuring that any existing PIN for the specified `user_id` is removed from the database. Proper error handling and resource management are implemented to maintain reliability and efficiency.
 
 
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 ## CallbackQuery Handlers
 The callback query handlers are the core components of our Telegram Bot, we define all the main logic within these function. They
 decide what happens when a button is clicked and callback data is generated.
@@ -1090,6 +1208,14 @@ decide what happens when a button is clicked and callback data is generated.
 - **Access Service Callback Data Handlers**
   - Function Name: `handle_access_service_callback`
   - Description: Handles callback queries for accessing services, including displaying keypads and processing PIN entries.
+
+
+
+<br>
+<br>
+<br>
+<br>
+
 
 
 ### handle_start_callback CallbackQuery Handlers explained
@@ -1137,6 +1263,13 @@ The `handle_start_callback` function manages callback queries where the data sta
 **Code Overview:**
 
 The `handle_start_callback` function checks if the current time is within operational hours, processes the 'start' callback data to initiate the start menu, and handles any errors by logging them.
+
+
+<br>
+<br>
+<br>
+<br>
+
 
 
 ### `handle_faq_callbacks`
@@ -1225,6 +1358,12 @@ The `handle_faq_callbacks` function processes callback queries related to freque
 The `handle_faq_callbacks` function manages FAQ-related callback queries by checking the operating hours, handling different types of FAQ data, and providing appropriate responses. It includes robust error handling and logging to ensure smooth operation.
 
 
+<br>
+<br>
+<br>
+<br>
+
+
 ### `handle_booking_order_callback`
 
 **Description:**
@@ -1278,7 +1417,7 @@ The `handle_booking_order_callback` function manages callback queries related to
 
 6. **Fallback Handling**:
    - **Condition**:
-     @```python
+     ```python
      else:
          await handle_unexpected_message(callback.message)
      ```
@@ -1286,14 +1425,14 @@ The `handle_booking_order_callback` function manages callback queries related to
 
 7. **Answer Callback**:
    - **Code**:
-     @```python
+     ```python
      await callback.answer()
      ```
    - **Purpose**: Sends a response to acknowledge the callback query.
 
 8. **Error Handling**:
    - **Logging**:
-     @```python
+     ```python
      except Exception as e:
          logger.error(f"Error handling callback query: {e}")
      ```
@@ -1303,6 +1442,11 @@ The `handle_booking_order_callback` function manages callback queries related to
 
 The `handle_booking_order_callback` function is designed to manage booking-related actions such as initiating bookings, selecting time slots, and confirming bookings. It ensures that callbacks are processed only during shop hours and handles various booking tasks effectively. The function includes error handling and logging to maintain reliable operation.
 
+
+<br>
+<br>
+<br>
+<br>
 
 
 ### `handle_admin_dashboard_callbacks`
@@ -1326,7 +1470,7 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
 
 2. **Process Callback Data**:
    - **Data Handling**:
-     @```python
+     ```python
      data = callback.data
      logger.info(f"Received callback data: {data}")
      ```
@@ -1334,15 +1478,16 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
 
 3. **Manage Booking Time Slots**:
    - **Condition**:
-     @```python
+     ```python
      if data.startswith("admin_manage_booking_time_slot_"):
          await admin_managing_specified_time_slot_booking_choose_true_false(callback)
      ```
-   - **Purpose**: Calls the `admin_managing_specified_time_slot_booking_choose_true_false` function to manage specific time slot bookings based on the callback data.
+   - **Purpose**: Calls the `admin_managing_specified_time_slot_booking_choose_true_false` function to manage specific time slot bookings based on the callback data
+   - *The callback-data contains the the 'id' if the time_slot within the callback data being passed to 'admin_managing_specified_time_slot_booking_choose_true_false'*
 
 4. **Modify Time Slot Booking Status**:
    - **Condition**:
-     @```python
+     ```python
      elif data.startswith("admin_managing_specified_time_slot_booking_True_") or data.startswith("admin_managing_specified_time_slot_booking_False_"):
          await admin_modify_time_slot_booking_status(callback)
      ```
@@ -1350,7 +1495,7 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
 
 5. **Fallback Handling**:
    - **Condition**:
-     @```python
+     ```python
      else:
          await handle_unexpected_message(callback.message)
      ```
@@ -1358,14 +1503,14 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
 
 6. **Answer Callback**:
    - **Code**:
-     @```python
+     ```python
      await callback.answer()
      ```
    - **Purpose**: Sends a response to acknowledge the callback query.
 
 7. **Error Handling**:
    - **Logging**:
-     @```python
+     ```python
      except Exception as e:
          logger.error(f"Error handling callback query: {e}")
      ```
@@ -1374,6 +1519,12 @@ The `handle_admin_dashboard_callbacks` function manages callback queries related
 **Code Overview:**
 
 The `handle_admin_dashboard_callbacks` function is designed to manage admin-related actions for booking time slots. It ensures that callbacks are processed only during shop hours and handles various admin tasks such as managing bookings and modifying time slot statuses. The function includes error handling and logging to maintain reliable operation.
+
+
+<br>
+<br>
+<br>
+<br>
 
 ### `handle_access_service_callback`
 
@@ -1396,7 +1547,7 @@ The `handle_access_service_callback` function processes callback queries related
 
 2. **Process Callback Data**:
    - **Data Handling**:
-     @```python
+     ```python
      data = callback.data
      logger.info(f"Received callback data: {data}")
      ```
@@ -1404,7 +1555,7 @@ The `handle_access_service_callback` function processes callback queries related
 
 3. **Display Access Keypad**:
    - **Condition**:
-     @```python
+     ```python
      if data == 'access_service':
          await create_numbers_access_keypad(callback)
          logger.info("Displayed keypad for the user.")
@@ -1413,7 +1564,7 @@ The `handle_access_service_callback` function processes callback queries related
 
 4. **Handle PIN Entry**:
    - **Condition**:
-     @```python
+     ```python
      elif data.startswith("key_"):
          pin = await handle_keypad_press(callback)
          if pin:
@@ -1426,10 +1577,11 @@ The `handle_access_service_callback` function processes callback queries related
      - Calls `handle_keypad_press` to handle the PIN entry.
      - If a PIN is received, it checks user access with `check_user_access_by_access_pin`.
      - Uses `authentication_response_message_access_pin` to respond with the appropriate message and keyboard based on the access check result.
+     - *'handle_keypad_press' function takes care of main logic returning entered PIN, and saving PIN state within database. View: ([`pins` Table](#pins-table))*
 
 5. **Fallback Handling**:
    - **Condition**:
-     @```python
+     ```python
      else:
          await handle_unexpected_message(callback.message)
      ```
@@ -1437,14 +1589,14 @@ The `handle_access_service_callback` function processes callback queries related
 
 6. **Answer Callback**:
    - **Code**:
-     @```python
+     ```python
      await callback.answer()
      ```
    - **Purpose**: Sends a response to acknowledge the callback query.
 
 7. **Error Handling**:
    - **Logging**:
-     @```python
+     ```python
      except Exception as e:
          logger.error(f"Error handling callback query: {e}")
      ```
@@ -1453,6 +1605,8 @@ The `handle_access_service_callback` function processes callback queries related
 **Code Overview:**
 
 The `handle_access_service_callback` function manages user access services by displaying an access keypad and processing PIN entries. It ensures that callbacks are handled only during shop hours and performs actions based on the received data. Error handling and logging are included to maintain the reliability of the function.
+
+
 
 
 ## Conclusion
