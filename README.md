@@ -52,6 +52,7 @@ as a example.
 4. [Installation](#installation)
    - [Cloning Git Repository](#cloning-git-repository)
    - [Getting API Key from BotFather](#getting-api-key-from-botfather)
+   - [Works out of the box](#works-out-of-the-box)
 
 5. [Understanding Code Layout](#understanding-code-layout)
    - [Directory Layout](#directory-layout)
@@ -81,7 +82,11 @@ as a example.
             - [delete_user_entered_access_pin_db](#3-delete_user_entered_access_pin_db)
 
 7. [CallbackQuery Handlers](#callbackquery-handlers)
-
+    - **[Start Callback Data Handler](#handle_start_callback)**
+    - **[FAQ Callback Data Handlers](#handle_faq_callbacks)**
+    - **[Admin Dashboard Callback Data Handlers](#handle_admin_dashboard_callbacks)**
+    - **[Booking Order Callback Data Handlers](#handle_booking_order_callback)**
+    - **[Access Service Callback Data Handlers](#handle_access_service_callback)**
 
    
 ## Installation
