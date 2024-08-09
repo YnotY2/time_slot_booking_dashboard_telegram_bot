@@ -73,8 +73,12 @@ as a example.
             - [fetch_all_time_slots](#4-fetch_all_time_slots)
             - [manage_booking_time_slots](#5-manage_booking_time_slots)
             - [check_user_access_by_access_pin](#6-check_user_access_by_access_pin)
-        
 
+     - [`pins` Table](#pins-table)
+        - [Functions Utilizing `pins` Table](#functions-utilizing-pins-table)
+            - [fetch_user_entered_access_pin_stored_db](#1-fetch_user_entered_access_pin_stored_db)
+            - [insert_or_update_user_entered_access_pin_db](#2-insert_or_update_user_entered_access_pin_db)
+            - [delete_user_entered_access_pin_db](#3-delete_user_entered_access_pin_db)
 
 7. [Understanding Database Layout](#understanding-database-layout)
    - [Database Visualized](#database-visualized)
