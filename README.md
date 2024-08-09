@@ -80,48 +80,7 @@ as a example.
             - [insert_or_update_user_entered_access_pin_db](#2-insert_or_update_user_entered_access_pin_db)
             - [delete_user_entered_access_pin_db](#3-delete_user_entered_access_pin_db)
 
-7. [Understanding Database Layout](#understanding-database-layout)
-   - [Database Visualized](#database-visualized)
-   - [Tables Logic Explained](#tables-logic-explained)
-     - [`client_data` Table](#client_data-table)
-     - [`affiliate_codes` Table](#affiliate_codes-table)
-     - [`orders` Table](#orders-table)
-8. [Code Overview](#code-overview)
-
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-## Table of Contents
-1. [Installation](#installation)
-   - [Cloning Git Repository](#cloning-git-repository)
-   - [Getting API Key from BotFather](#getting-api-key-from-botfather)
-
-2. [Understanding Code Layout](#understanding-code-layout)
-   - [Directory Layout](#directory-layout)
-   - [Summary](#summary)
- 
-3. [Database Schema](#database-schema)
-     - [Database Schema Visualized](#database-schema-visualized)
-     - [`init-db.psql`](#init-dbpsql)
-     - [Interacting with the Database Asynchronously Without Blocking](#interacting-with-the-database-asynchronously-without-blocking)
-       - [How `DependencyContainer` and `initialize_connection_pool` Work Together](#how-dependencycontainer-and-initialize_connection_pool-work-together)
-       - [Imports Used](#imports-used)
-     - [Understanding Usage of Tables](#understanding-usage-of-tables)
-       - [`time_slots` Table](#time_slots-table)
-       - [Functions Utilizing `time_slots` Table](#functions-utilizing-time_slots-table)
-         - [Populate Time Slots](#populate-time-slots)
-         - [Fetch All Available Time Slots](#fetch-all-available-time-slots)
-       - [`pins` Table](#pins-table)
-
-
-
-
-3. [Understanding Database Layout](#Understanding-Database-Layout)
-   - [Database Visualised](#database-visualised)
-   - [Tables Logic Explained](#tables-logic-explained)
-      - ['client_data' table](#client_data-table)
-      - ['affiliate_codes' table](#affiliate_codes-table)
-      - ['orders' table](#orders-table)
-
+7. [CallbackQuery Handlers](#callbackquery-handlers)
 
 
    
@@ -1105,6 +1064,12 @@ The function consists of the following main parts:
 
 The `delete_user_entered_access_pin_db` function is designed to efficiently clear the PIN associated with a user. It performs a simple delete operation, ensuring that any existing PIN for the specified `user_id` is removed from the database. Proper error handling and resource management are implemented to maintain reliability and efficiency.
 
+
+## CallbackQuery Handlers
+The callback query handlers are the core components of our Telegram Bot, we define all the main logic within these function. They
+decide what happens when a button is clicked and callback data is generated.
+
+### CallbackQuery Handlers Defined
 
 
 ## Conclusion
