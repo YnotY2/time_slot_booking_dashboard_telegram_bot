@@ -39,6 +39,8 @@ as a example.
 -   Only available during openings-hours ✅
 -   asynchronous  ✅
 -   Database ✅
+-   Handles unexpected message ✅
+-   *Displays the start_menu command to press*
 
 ![Main Time Slot Bot Image](./images/main_time_slot_bot_img_girl.png)
 
