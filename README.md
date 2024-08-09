@@ -56,7 +56,7 @@ as a example.
    - [Summary](#summary)
 5. [Database Schema](#database-schema)
    - [Database Schema Visualized](#database-schema-visualized)
-   - [`init-db.psql`](#init-dbpsql)
+   - [`init-db.psql`](#'init-db.spql')
    - [Interacting with the Database Asynchronously Without Blocking](#interacting-with-the-database-asynchronously-without-blocking)
      - [How `DependencyContainer` and `initialize_connection_pool` Work Together](#how-dependencycontainer-and-initialize_connection_pool-work-together)
      - [Imports Used](#imports-used)
