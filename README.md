@@ -96,7 +96,14 @@ as a example.
     - **[Booking Order Callback Data Handlers](#handle_booking_order_callback)**
     - **[Access Service Callback Data Handlers](#handle_access_service_callback)**
 
-   
+8. [Advanced Usage: Understanding Code Flow and Customization](#advanced-usage-understanding-code-flow-and-customization)
+    - [Review the Entire Documentation](#1-review-the-entire-documentation)
+    - [Understand Callback Query Handlers](#2-understand-callback-query-handlers)
+    - [Populate Time Slots Logic](#3-populate-time-slots-logic)
+    - [Modify Code to Fit Your Needs](#4-modify-code-to-fit-your-needs)
+    - [Additional Resources](#5-additional-resources)
+    - [Conclusion](#conclusion)
+
 ## Installation
 ### Cloning Git Repository
 To clone Git repository using the command line, follow these simple steps:
