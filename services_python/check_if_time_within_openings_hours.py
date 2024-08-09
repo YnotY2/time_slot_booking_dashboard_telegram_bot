@@ -3,7 +3,7 @@ import pytz
 
 
 """Define active hours of the bot. Openings hours for coffee shop is from 8:00-22:00"""
-def check_if_time_within_openings_hours(start_hour=0, start_minute=0, end_hour=23, end_minute=50, tz_name='Europe/Paris'):
+def check_if_time_within_openings_hours(start_hour=0, start_minute=0, end_hour=23, end_minute=59, tz_name='Europe/Paris'):
     # Define the timezone
     tz = pytz.timezone(tz_name)
     # Get the current time in UTC and convert to the specified timezone

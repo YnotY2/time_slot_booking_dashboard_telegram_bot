@@ -190,36 +190,6 @@ async def handle_how_is_our_tattoo_made_faq_answer(callback: types.CallbackQuery
         print(f"Error sending video 'how_is_our_tattoo_made_video' : {e}")
 
 
-# This functions will send the video for the answer
-async def handle_who_are_we_answer_faq_answer(callback: types.CallbackQuery):
-    try:
-        # Create an FSInputFile object for the video
-        video = FSInputFile(who_are_we_video, filename="who_are_we.mp4")
-        # Here we define the message:
-        message = ("\n"
-                   "⛓️ This is who we are :\n"
-                   "\n")
-
-        faq_menu_button = types.InlineKeyboardButton(text="FAQ", callback_data='faq_menu')
-        start_menu_button = types.InlineKeyboardButton(text="Back to Main Menu", callback_data='start')
-
-        # Create an InlineKeyboardMarkup object with a list of rows
-        back_inline_keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [faq_menu_button, start_menu_button],  # Second row
-            ]
-        )
-        # Send the local video file and FAQ information
-        await callback.message.answer_video(
-            video=video,
-            caption=message,
-            reply_markup=back_inline_keyboard
-        )
-    except Exception as e:
-        print(f"Error sending video 'who_are_we': {e}")
-
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
 
 async def callback_display_time_slot_booking_dashboard(callback: types.CallbackQuery):
     """Handle the callback query to display time slots and additional buttons.
